@@ -134,6 +134,31 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
                 controller: 'AsignaturaFormCtrl',
                 resolve: resolve
             })
+            .when('/tema', {
+                templateUrl: 'partials/temas/tema-list-partial.html',
+                controller: 'TemaListCtrl',
+                resolve: resolve
+            })
+            .when('/tema/crear', {
+                templateUrl: 'partials/temas/tema-form-partial.html',
+                controller: 'TemaFormCtrl',
+                resolve: resolve
+            })
+            .when('/tema/:id/editar', {
+                templateUrl: 'partials/temas/tema-form-partial.html',
+                controller: 'TemaFormCtrl',
+                resolve: resolve
+            })
+            .when('/tema/:id/ver', {
+                templateUrl: 'partials/temas/tema-view-partial.html',
+                controller: 'TemaViewCtrl',
+                resolve: resolve
+            })
+            .when('/tema/:id/eliminar', {
+                templateUrl: 'partials/temas/tema-form-partial.html',
+                controller: 'TemaFormCtrl',
+                resolve: resolve
+            })
             //finaly
             .otherwise({
                 redirectTo: '/dashboard'

@@ -1,0 +1,34 @@
+<lista-directive>
+    <breadcrumb>Temas<span class="badge">1</span></breadcrumb>
+    <filtros>
+        <div class="form-group">
+            <label class="control-label">Nombre:</label>
+            <input type="text" class="form-control" ng-model="filterBy.nombre" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Descripcion:</label>
+            <input type="text" class="form-control" ng-model="filterBy.descripcion" />
+        </div>
+    </filtros>
+    <titulo>Temas</titulo>
+    <descripcion>A través de esta sección usted podrá realizar consultar la lista de temas.</descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead tasty-thead=""></thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td>{{row.nombre}}</td>
+                    <td>{{row.descripcion}}</td>
+                    <td>{{row.peso}}</td>
+                    <td>
+                        <a href="#!/tema/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a>
+                        &nbsp;
+                        <a href="#!/tema/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                        &nbsp;
+                        <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+</lista-directive>
