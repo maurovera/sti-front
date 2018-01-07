@@ -1,0 +1,30 @@
+<view-directive>
+    <titulo>Empresas Template</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos de una empresa.</descripcion>
+    <view>
+        <dt>Id:</dt>
+        <dd>
+            {{recurso.id}}
+        </dd>
+        <dt>Nombre:</dt>
+        <dd>
+            {{recurso.nombre}}
+        </dd>
+        <dt>Ruc:</dt>
+        <dd>
+            {{recurso.ruc}}
+        </dd>
+        <dt>Teléfono:</dt>
+        <dd>
+            {{recurso.telefono}}
+        </dd>
+        <dt>Dirección:</dt>
+        <dd>
+            {{recurso.direccion}}
+        </dd>
+        <dt>Activo:</dt>
+        <dd>
+            {{recurso.activo| sino}}
+        </dd>
+    </view>
+</view-directive>

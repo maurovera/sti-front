@@ -1,0 +1,28 @@
+{
+  "name": "angular-keycloak-seed",
+  "version": "0.0.0",
+  "authors": [
+    "Maximiliano Báez González <maximiliano.baez@konecta.com.py>"
+  ],
+  "description": "Proyecto base angularjs que se integra con keycloak",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ksass": "http://gitlab.konecta.com.py/konecta-public/ksass.git#master",
+    "ng-tasty": "^0.6.1",
+    "keycloak": "keycloak/keycloak-js-bower#^3.0.0",
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "jquery": "^3.2.1",
+    "bootstrap-sass": "^3.3.7"
+  },
+  "resolutions": {
+    "angular": ">1.2.0",
+    "jquery": "2.2.4"
+  }
+}

@@ -1,0 +1,51 @@
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav compress" model="user">
+        <li class="active" ng-if="user != null">
+            <a href="#!/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+        </li>
+
+        <li ng-if="user != null">
+            <a href="#!/empresas/" title="Administración de empresas">
+                <i class="fa fa-fw  fa-building"></i> Empresas
+            </a>
+        </li>
+        <li ng-if="user != null">
+            <a href="#!/empresas-template/" title="Administración de empresas Template">
+                <i class="fa fa-fw  fa-building"></i> Empresas Template
+            </a>
+        </li>
+        <li ng-if="user != null">
+            <a href="#!/profesor/" title="Administración de profesores">
+                <i class="fa fa-fw  fa-user"></i> Profesores
+            </a>
+        </li>
+        <li ng-if="user != null">
+            <!-- Link with dropdown items Varios sub menu-->
+            <a href="#AsignaturaSubMenu" data-toggle="collapse" aria-expanded="false">
+                <i class="fa fa-fw  fa-book"></i> Materias</a>
+            <ul class="collapse list-unstyled" id="AsignaturaSubMenu">
+                <li><a href="#!/asignatura/">
+                    <i class="fa fa-fw  fa-book"></i>
+                    Asignatura</a></li>
+                <li><a href="#!/tema">
+                    <i class="fa fa-fw  fa-bookmark"></i>
+                    Tema</a></li>
+                <li><a href="#!/concepto">
+                    <i class="fa fa-fw  fa-book"></i>
+                    Concepto</a></li>
+            </ul>
+        </li>
+        <li role="separator" class="hidden-sm hidden-md hidden-lg divider"></li>
+        <li class="hidden-sm hidden-md hidden-lg" ng-if="user != null">
+            <a><i class="fa fa-fw fa-user"></i> {{user.nombre}} </a>
+        </li>
+        <li class="hidden-sm hidden-md hidden-lg" ng-if="user == null">
+            <a ng-click="login()"> <i class="fa fa-fw fa-user-circle-o"></i> Ingresar </a>
+        </li>
+        <li role="separator" class="hidden-sm hidden-md hidden-lg divider"></li>
+        <li class="hidden-sm hidden-md hidden-lg" ng-if="user != null">
+            <a ng-click="logout()"><i class="fa fa-fw fa-fw fa-power-off"></i> Salir</a>
+        </li>
+        <a class="btn action"><i class="fa fa-angle-double-left"></i></a>
+    </ul>
+</div>
