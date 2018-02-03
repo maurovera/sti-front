@@ -13,21 +13,21 @@
     <titulo>Profesores</titulo>
     <descripcion>A través de esta sección usted podrá realizar consultar la lista de profesores.</descripcion>
     <tabla>
-        <table class="table table-striped">
-            <thead tasty-thead=""></thead>
-            <tbody ng-if="loading == false">
-                <tr ng-repeat="row in config.rows">
-                    <td>{{row.nombre}}</td>
-                    <td>{{row.apellido}}</td>
-                    <td>
-                        <a href="#!/profesor/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a>
-                        &nbsp;
-                        <a href="#!/profesor/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                        &nbsp;
-                        <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class='col-md-4' ng-repeat="row in config.rows">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{row.nombre}}
+                    <a href="#!/profesor/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a>
+                </div>
+                <div class="panel-body">
+                    Apellido:{{row.apellido}}
+                </div>
+                <div class="panel-footer">
+                    <a href="#!/profesor/{{row.id}}/editar" right><i class="fa fa-pencil-square-o"></i> Editar</a>
+                    <a ng-click="eliminar(row)" left><i class="fa fa-trash"></i> Eliminar</a>
+                </div>
+            </div>
+
+        </div>
     </tabla>
 </lista-directive>

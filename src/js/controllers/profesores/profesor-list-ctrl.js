@@ -44,5 +44,8 @@ function ($scope, service, $controller) {
         
         $scope.config.header = header;
         $scope.config.recurso = 'profesor';
+        
+        
+        console.info($scope.recurso);
     })();
 }]);
