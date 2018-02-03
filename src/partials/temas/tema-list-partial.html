@@ -1,34 +1,76 @@
-<lista-directive>
-    <breadcrumb>Temas<span class="badge">1</span></breadcrumb>
-    <filtros>
-        <div class="form-group">
-            <label class="control-label">Nombre:</label>
-            <input type="text" class="form-control" ng-model="filterBy.nombre" />
+<div class="col-md-12">
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/" >Asignaturas </a>
+            </li>
+            <li class="active">
+                <a>Temas de {{recursoAsig.nombre}} <span class="badge">2</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <nav class="col-md-3 ">
+        <div class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top ">Filtros</h2>
+                <p>Criterios de búsqueda.</p>
+            </div>
+            <div class="form">
+                <div class="form-group">
+                    <label class="control-label">Nombre:</label>
+                    <input type="text" class="form-control" ng-model="filterBy.nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Descripcion:</label>
+                    <input type="text" class="form-control" ng-model="filterBy.descripcion" />
+                </div>
+                <hr/>
+                <a class="btn btn-default" ng-click="limpiar()"><i class="fa fa-ban"></i>&nbsp;Limpiar</a>
+            </div>
         </div>
-        <div class="form-group">
-            <label class="control-label">Descripcion:</label>
-            <input type="text" class="form-control" ng-model="filterBy.descripcion" />
-        </div>
-    </filtros>
-    <titulo>Temas</titulo>
-    <descripcion>A través de esta sección usted podrá realizar consultar la lista de temas.</descripcion>
-    <tabla>
-        <table class="table table-striped">
-            <thead tasty-thead=""></thead>
-            <tbody ng-if="loading == false">
-                <tr ng-repeat="row in config.rows">
-                    <td>{{row.nombre}}</td>
-                    <td>{{row.descripcion}}</td>
-                    <td>{{row.peso}}</td>
-                    <td>
-                        <a href="#!/tema/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a>
-                        &nbsp;
-                        <a href="#!/tema/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                        &nbsp;
-                        <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </tabla>
-</lista-directive>
+    </nav>
+    <section class="col-md-9 ">
+        <section class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top ">Temas</h2>
+                <p>A través de esta sección usted podrá realizar consultar la lista de los temas registradas de la asignatura {{recursoAsig.nombre}}.</p>
+            </div>
+            <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResource " bind-init="init " bind-filters="filterBy ">
+                <table class="table table-striped ">
+                    <thead tasty-thead></thead>
+                    <tbody ng-if="loading == false">
+                        <tr ng-repeat="row in rows ">
+                            <td>{{row.nombre}}</td>
+                            <td>{{row.descripcion}}</td>
+                            <td>{{row.peso}}</td>
+                            <td>
+                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
+                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
+                                <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr ng-if="loading == true">
+                            <td colspan="6">
+                                <loading></loading>
+                            </td>
+                        </tr>
+                        <tr ng-if="loading == null">
+                            <td colspan="6">
+                                <no-data></no-data>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="tasty-pagination-responsive" tasty-pagination></div>
+            </div>
+            <hr/>
+            <a class="btn btn-default" href="#!/asignatura/{{recursoAsig.id}}/tema/crear"><i class="fa fa-plus"></i> Agregar</a>
+        </section>
+    </section>
+</div>

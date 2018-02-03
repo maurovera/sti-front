@@ -1,7 +1,29 @@
-<form-directive>
-    <titulo>Tema</titulo>
-    <descripcion>A través de esta sección usted podrá gestionar la creación de Temas.</descripcion>
-    <form>
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/">Asignaturas</a>
+            </li>
+             <li>
+                <a href="#!/asignatura/{{atras}}/tema">Temas</a>
+            </li>
+            <li class="active">
+                <a>Tema<span class="badge">3</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Tema</h2>
+            <p>A través de esta sección usted podrá gestionar la creación de temas para la aplicación {{recursoAsignatura.nombre}}.</p>
+        </div>
+
+        <section class="wrapper form-horizontal" role="form">
+
         <div class="form-group" ng-if="!isCrear()">
             <label class="col-sm-3 control-label">Id:</label>
             <div class="col-sm-7">
@@ -33,5 +55,15 @@
             </div>
         </div>
 
-    </form>
-</form-directive>
+
+            <hr>
+            <a class="btn btn-primary" ng-click="guardar()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+        </section>
+
+        <hr/>
+        <a href="#!/asignatura/{{atras}}/tema" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>
+

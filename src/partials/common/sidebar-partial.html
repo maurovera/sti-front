@@ -19,6 +19,14 @@
                 <i class="fa fa-fw  fa-user"></i> Profesores
             </a>
         </li>
+
+        <li ng-if="user != null">
+            <a href="#!/alumno/" title="Administración de Alumnos">
+                <i class="fa fa-fw  fa-user"></i> Alumnos
+            </a>
+        </li>
+
+
         <li ng-if="user != null">
             <!-- Link with dropdown items Varios sub menu-->
             <a href="#AsignaturaSubMenu" data-toggle="collapse" aria-expanded="false">

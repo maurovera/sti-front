@@ -1,22 +1,52 @@
-<view-directive>
-    <titulo>Temas</titulo>
-    <descripcion>A través de esta sección usted podrá consultar los datos de una tema.</descripcion>
-    <view>
-        <dt>Id:</dt>
-        <dd>
-            {{recurso.id}}
-        </dd>
-        <dt>Nombre:</dt>
-        <dd>
-            {{recurso.nombre}}
-        </dd>
-        <dt>Descripcion:</dt>
-        <dd>
-            {{recurso.descripcion}}
-        </dd>
-        <dt>Peso:</dt>
-        <dd>
-            {{recurso.peso}}
-        </dd>
-    </view>
-</view-directive>
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/">Asignaturas</a>
+            </li>
+             <li>
+                <a href="#!/asignatura/{{atras}}/tema">Temas</a>
+            </li>
+            <li class="active">
+                <a>{{recurso.nombre}} <span class="badge">3</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Tema</h2>
+            <p>A través de esta sección usted podrá consultar los datos de un tema.</p>
+        </div>
+
+        <form class="wrapper form-horizontal" role="form">
+            <dl class="dl-horizontal">
+                <dt>Id:</dt>
+                <dd>
+                    {{recurso.id}}
+                </dd>
+                <dt>Nombre:</dt>
+                <dd>
+                    {{recurso.nombre}}
+                </dd>
+                <dt>Ruc:</dt>
+                <dd>
+                    {{recurso.descripcion}}
+                </dd>
+                <dt>Peso:</dt>
+                <dd>
+                    {{recurso.peso}}
+                </dd>    
+            </dl>
+            <hr>
+        </form>
+
+        <hr/>
+        <a href="#!/asignatura/{{atras}}/tema" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>

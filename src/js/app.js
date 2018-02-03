@@ -134,22 +134,22 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
                 controller: 'AsignaturaFormCtrl',
                 resolve: resolve
             })
-            .when('/tema', {
+            .when('/asignatura/:idAsig/tema', {
                 templateUrl: 'partials/temas/tema-list-partial.html',
                 controller: 'TemaListCtrl',
                 resolve: resolve
             })
-            .when('/tema/crear', {
+            .when('/asignatura/:idAsig/tema/crear', {
                 templateUrl: 'partials/temas/tema-form-partial.html',
                 controller: 'TemaFormCtrl',
                 resolve: resolve
             })
-            .when('/tema/:id/editar', {
+            .when('/asignatura/:idAsig/tema/:idTema/editar', {
                 templateUrl: 'partials/temas/tema-form-partial.html',
                 controller: 'TemaFormCtrl',
                 resolve: resolve
             })
-            .when('/tema/:id/ver', {
+            .when('/asignatura/:idAsig/tema/:idTema/ver', {
                 templateUrl: 'partials/temas/tema-view-partial.html',
                 controller: 'TemaViewCtrl',
                 resolve: resolve
@@ -157,6 +157,45 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
             .when('/tema/:id/eliminar', {
                 templateUrl: 'partials/temas/tema-form-partial.html',
                 controller: 'TemaFormCtrl',
+                resolve: resolve
+            })
+            .when('/concepto', {
+                templateUrl: 'partials/conceptos/concepto-list-partial.html',
+                controller: 'ConceptoListCtrl',
+                resolve: resolve
+            })
+            .when('/concepto/crear', {
+                templateUrl: 'partials/conceptos/concepto-form-partial.html',
+                controller: 'ConceptoFormCtrl',
+                resolve: resolve
+            })
+            .when('/concepto/:id/editar', {
+                templateUrl: 'partials/conceptos/concepto-form-partial.html',
+                controller: 'ConceptoFormCtrl',
+                resolve: resolve
+            })
+            .when('/concepto/:id/ver', {
+                templateUrl: 'partials/conceptos/concepto-view-partial.html',
+                controller: 'ConceptoViewCtrl',
+                resolve: resolve
+            })
+            .when('/alumno', {
+                templateUrl: 'partials/alumnos/alumno-list-partial.html',
+                controller: 'AlumnoListCtrl',
+                resolve: resolve
+            }).when('/alumno/crear', {
+                templateUrl: 'partials/alumnos/alumno-form-partial.html',
+                controller: 'AlumnoFormCtrl',
+                resolve: resolve
+            })
+            .when('/alumno/:id/editar', {
+                templateUrl: 'partials/alumnos/alumno-form-partial.html',
+                controller: 'AlumnoFormCtrl',
+                resolve: resolve
+            })
+            .when('/alumno/:id/ver', {
+                templateUrl: 'partials/alumnos/alumno-view-partial.html',
+                controller: 'AlumnoViewCtrl',
                 resolve: resolve
             })
             //finaly
