@@ -23,10 +23,11 @@
     "grunt-remove": "~0.1.0",
     "grunt-string-replace": "~1.2.0",
     "json-server": "^0.10.1",
-    "matchdep": "*"
+    "matchdep": "*",
+    "select2": "^4.0.6-rc.1"
   },
   "scripts": {
-    "postinstall":   "bower install && grunt"
+    "postinstall": "bower install && grunt"
   },
   "dependencies": {
     "lowdb": "^0.16.2"

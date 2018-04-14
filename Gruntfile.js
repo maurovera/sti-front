@@ -180,6 +180,7 @@ module.exports = function (grunt) {
                 '<%=app.src%>/vendors/angular/angular.min.js',
                 '<%=app.src%>/vendors/angular-route/angular-route.min.js',
                 "<%=app.src%>/vendors/ng-tasty/ng-tasty-tpls.min.js",
+		        "<%=app.src%>/vendors/select2/dist/js/select2.min.js",	
                 /**
                  * Rercursos de la aplicación
                  */

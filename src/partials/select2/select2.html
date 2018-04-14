@@ -1,0 +1,46 @@
+<h1>{{nombre}}</h1>
+
+<select ng-model="datopro" id="Provincia" name="Provincia" multiple="multiple" style="width:300px;">
+  <option value="" disabled selected hidden >--Elige opcion--</option>
+</select>
+
+<br>
+      primero:{{datopro}}
+
+<br>
+
+<select id="mauroSelect" multiple="multiple"  ng-model="miProvinciaSeleccionada" ng-options="res.children as res.text for res in results2 track by res.idr">
+  <option value="">--Elige opcion--</option>
+</select>
+<br>
+      El nombre de la provincia seleccionada es:{{miProvinciaSeleccionada}}
+
+
+
+
+
+
+<br><br>
+
+<select id="mauro2" ng-model="selectedItem" multiple="multiple" ng-options="selectedItem.id as selectedItem.name for selectedItem in values" style="width:300px;"></select>
+    selectedItem: {{selectedItem}}
+
+
+
+
+<br><br>
+
+<select id="mauro3" ng-model="dato3" multiple="multiple" ng-options="children.id as children.text for children in results2.children" style="width:300px;"></select>
+    selectedItem: {{dato3}}
+
+
+
+
+
+
+
+
+<br><br>
+
+<select id="selectM" ng-options="item.subItemM.idg group by item.label for item in itemsM" ng-model="selectedM" style="width:300px;"></select>
+selectedItem: {{selectedM}}

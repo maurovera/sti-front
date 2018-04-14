@@ -1,0 +1,16 @@
+/* Animations */
+.animate-show-item .ng-hide-add,
+.animate-show-item .ng-hide-remove {
+  -webkit-transition:0.33s ease all;
+  transition:0.5s linear all;
+ 
+  /* remember to add this */
+  display:block!important;
+  position: relative;
+  top: 0;
+  opacity:1;
+}
+.animate-show-tema .ng-hide {
+  top: -15px;
+  opacity:0;
+}

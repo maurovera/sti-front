@@ -3,8 +3,10 @@
 @import "../vendors/fontawesome/scss/font-awesome";
 @import "../vendors/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../vendors/ksass/src/scss/ksass";
+@import "../vendors/select2/src/scss/core";
 @import "tasty";
 @import "home";
+@import "ejercicios";
 .panel[marked] {
     max-height: 300px;
     overflow-y: scroll;
