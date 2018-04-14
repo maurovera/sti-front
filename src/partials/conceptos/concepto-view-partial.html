@@ -1,22 +1,55 @@
-<view-directive>
-    <titulo>Conceptos</titulo>
-    <descripcion>A través de esta sección usted podrá consultar los datos de un concepto.</descripcion>
-    <view>
-        <dt>Id:</dt>
-        <dd>
-            {{recurso.id}}
-        </dd>
-        <dt>Nombre:</dt>
-        <dd>
-            {{recurso.nombre}}
-        </dd>
-        <dt>Peso:</dt>
-        <dd>
-            {{recurso.peso}}
-        </dd>
-        <dt>Apriori:</dt>
-        <dd>
-            {{recurso.apriori}}
-        </dd>
-    </view>
-</view-directive>
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/">Asignaturas</a>
+            </li>
+            <li>
+                <a href="#!/asignatura/{{atrasAsig}}/tema">Temas</a>
+            </li>
+            <li>
+                <a href="#!/asignatura/{{atrasAsig}}/tema/{{atrasTema}}/concepto">Conceptos</a>
+            </li>
+            <li class="active">
+                <a>{{recurso.nombre}} <span class="badge">4</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Concepto</h2>
+            <p>A través de esta sección usted podrá consultar los datos de un concepto.</p>
+        </div>
+
+        <form class="wrapper form-horizontal" role="form">
+            <dl class="dl-horizontal">
+                <dt>Id:</dt>
+                <dd>
+                    {{recurso.id}}
+                </dd>
+                <dt>Nombre:</dt>
+                <dd>
+                    {{recurso.nombre}}
+                </dd>
+                <dt>Apriori:</dt>
+                <dd>
+                    {{recurso.apriori}}
+                </dd>
+                <dt>Peso:</dt>
+                <dd>
+                    {{recurso.peso}}
+                </dd>    
+            </dl>
+            <hr>
+        </form>
+
+        <hr/>
+        <a href="#!/asignatura/{{atrasAsig}}/tema/{{atrasTema}}/concepto" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>
