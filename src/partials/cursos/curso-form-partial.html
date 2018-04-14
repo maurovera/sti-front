@@ -1,0 +1,66 @@
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/curso/">Curso</a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Curso</h2>
+            <p>A través de esta sección usted podrá gestionar la creación de cursos para la aplicación.</p>
+        </div>
+
+        <section class="wrapper form-horizontal" role="form">
+
+            <div class="form-group" ng-if="!isCrear()">
+                <label class="col-sm-3 control-label">Id:</label>
+                <div class="col-sm-7">
+                    <label class="control-label">{{recurso.id}}</label>
+                    <p class="help-block">Identificador único del curso.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nombre" class="col-sm-3 control-label">Nombre:*</label>
+                <div class="col-sm-7">
+                    <input type="text" ng-model="recurso.nombre" class="form-control" id="nombre">
+                    <p class="help-block">Nombre del curso.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion" class="col-sm-3 control-label">Descripcion:*</label>
+                <div class="col-sm-7">
+                    <input type="text" ng-model="recurso.descripcion" class="form-control" id="descripcion">
+                    <p class="help-block">Descripcion del curso.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="asignaturaSelect" class="col-sm-3 control-label">Asignatura:*</label>
+                <div class="col-sm-7">
+                <select class="form-control" name="mySelect" id="asignaturaSelect"  
+                        ng-options="opcion.nombre for opcion in lista track by opcion.id" 
+                        ng-model="recurso.asignaturaView"></select>
+                
+                <br> El nombre de la asignatura seleccionada es:{{recurso.asignaturaView}}
+                </div>
+            </div>
+
+
+            <hr>
+            <a class="btn btn-primary" ng-click="guardarSeleccionado()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+        </section>
+
+        <hr/>
+        <a href="#!/curso" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>
