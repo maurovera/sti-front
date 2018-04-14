@@ -3,10 +3,10 @@
     <div class="wizard">
         <ul class="wizard-breadcrumbs">
             <li>
-                <a href="#!/asignatura/" >Asignaturas </a>
+                <a href="#!/asignatura/">Asignatura {{recursoAsig.nombre}}  </a>
             </li>
             <li class="active">
-                <a>Temas de {{recursoAsig.nombre}} <span class="badge">2</span></a>
+                <a>Temas<span class="badge">2</span></a>
             </li>
         </ul>
     </div>
@@ -38,6 +38,11 @@
             <div class="top-block">
                 <h2 class="title-top ">Temas</h2>
                 <p>A través de esta sección usted podrá realizar consultar la lista de los temas registradas de la asignatura {{recursoAsig.nombre}}.</p>
+                <br/>
+                <a href="#!/asignatura/{{recursoAsig.id}}/ejercicio"><i class="fa fa-eye"></i> Ejercicios</a> &nbsp;
+
+
+
             </div>
             <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResource " bind-init="init " bind-filters="filterBy ">
                 <table class="table table-striped ">
@@ -51,6 +56,8 @@
                                 <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
                                 <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
                                 <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
+                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/concepto"><i class="fa fa-pencil-square-o"></i> Conceptos</a>
+
                             </td>
                         </tr>
                     </tbody>

@@ -44,7 +44,7 @@ function ($scope, $routeParams, service, serviceAsig, $controller) {
 
         // para ver el id de la asignaturas imprimi bien
         console.log($routeParams);
-    console.log($scope.recursoAsig);
+        console.log($scope.recursoAsig);
 
         /**
          * Configuraciones de la cabecera de la grilla.
@@ -60,9 +60,6 @@ function ($scope, $routeParams, service, serviceAsig, $controller) {
         }, {
                 "key": "peso",
                 "name": "Peso"
-        }, {
-                "key": "asignatura",
-                "name": "Asignatura"
         }, {
                 "key": "acciones",
                 "name": "Acciones"

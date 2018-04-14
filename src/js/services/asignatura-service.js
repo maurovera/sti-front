@@ -5,8 +5,23 @@
  */
 
 app.service('AsignaturaService', ['$http', 'StiBaseService', function ($http, BaseService) {
-        return angular.extend({}, BaseService, {
-            recurso: "/asignatura/" 
-        });
+    return angular.extend({}, BaseService, {
+        recurso: "/asignatura/",
+
+        listarEjercicio: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "/listaEjercicio", {
+                params: params
+            });
+        },
+        
+        listarAsignatura: function () {
+            return $http.get(App.REST_BASE + this.recurso + "/listaAsignatura", {
+            });
+        }
+        
+
+
+
+
+    });
     }]);
-    

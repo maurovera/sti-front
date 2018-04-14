@@ -154,27 +154,22 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
                 controller: 'TemaViewCtrl',
                 resolve: resolve
             })
-            .when('/tema/:id/eliminar', {
-                templateUrl: 'partials/temas/tema-form-partial.html',
-                controller: 'TemaFormCtrl',
-                resolve: resolve
-            })
-            .when('/concepto', {
+            .when('/asignatura/:idAsig/tema/:idTema/concepto', {
                 templateUrl: 'partials/conceptos/concepto-list-partial.html',
                 controller: 'ConceptoListCtrl',
                 resolve: resolve
             })
-            .when('/concepto/crear', {
+            .when('/asignatura/:idAsig/tema/:idTema/concepto/crear', {
                 templateUrl: 'partials/conceptos/concepto-form-partial.html',
                 controller: 'ConceptoFormCtrl',
                 resolve: resolve
             })
-            .when('/concepto/:id/editar', {
+            .when('/asignatura/:idAsig/tema/:idTema/concepto/:idConcepto/editar', {
                 templateUrl: 'partials/conceptos/concepto-form-partial.html',
                 controller: 'ConceptoFormCtrl',
                 resolve: resolve
             })
-            .when('/concepto/:id/ver', {
+            .when('/asignatura/:idAsig/tema/:idTema/concepto/:idConcepto/ver', {
                 templateUrl: 'partials/conceptos/concepto-view-partial.html',
                 controller: 'ConceptoViewCtrl',
                 resolve: resolve
@@ -198,6 +193,91 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
                 controller: 'AlumnoViewCtrl',
                 resolve: resolve
             })
+            .when('/asignatura/:idAsig/ejercicio', {
+                templateUrl: 'partials/ejercicios/ejercicio-list-partial.html',
+                controller: 'EjercicioListCtrl',
+                resolve: resolve
+            })
+            .when('/asignatura/:idAsig/ejercicio/:idEjercicio/ver', {
+                templateUrl: 'partials/ejercicios/ejercicio-view-partial.html',
+                controller: 'EjercicioViewCtrl',
+                resolve: resolve
+            })
+            .when('/asignatura/:idAsig/ejercicio/:idEjercicio/editar', {
+                templateUrl: 'partials/ejercicios/ejercicio-form-partial.html',
+                controller: 'EjercicioFormCtrl',
+                resolve: resolve
+            }).when('/asignatura/:idAsig/ejercicio/crear', {
+                templateUrl: 'partials/ejercicios/ejercicio-form-partial.html',
+                controller: 'EjercicioFormCtrl',
+                resolve: resolve
+            })
+            .when('/curso', {
+                templateUrl: 'partials/cursos/curso-list-partial.html',
+                controller: 'CursoListCtrl',
+                resolve: resolve
+            })
+            .when('/curso/crear', {
+                templateUrl: 'partials/cursos/curso-form-partial.html',
+                controller: 'CursoFormCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:id/editar', {
+                templateUrl: 'partials/cursos/curso-form-partial.html',
+                controller: 'CursoFormCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:id/ver', {
+                templateUrl: 'partials/cursos/curso-view-partial.html',
+                controller: 'CursoViewCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea', {
+                templateUrl: 'partials/tareas/tarea-list-partial.html',
+                controller: 'TareaListCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea/crear', {
+                templateUrl: 'partials/tareas/tarea-form-partial.html',
+                controller: 'TareaFormCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea/:idTarea/editar', {
+                templateUrl: 'partials/tareas/tarea-form-partial.html',
+                controller: 'TareaFormCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea/:idTarea/ver', {
+                templateUrl: 'partials/tareas/tarea-view-partial.html',
+                controller: 'TareaViewCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea/:idTarea/tareaDetalle', {
+                templateUrl: 'partials/tareaDetalles/tareaDetalle-list-partial.html',
+                controller: 'TareaDetalleListCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea/:idTarea/tareaDetalle/crear', {
+                templateUrl: 'partials/tareaDetalles/tareaDetalle-form-partial.html',
+                controller: 'TareaDetalleFormCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea/:idTarea/tareaDetalle/:idTareaDet/editar', {
+                templateUrl: 'partials/tareaDetalles/tareaDetalle-form-partial.html',
+                controller: 'TareaDetalleFormCtrl',
+                resolve: resolve
+            })
+            .when('/curso/:idCurso/tarea/:idTarea/tareaDetalle/:idTareaDet/ver', {
+                templateUrl: 'partials/tareaDetalles/tareaDetalle-view-partial.html',
+                controller: 'TareaDetalleViewCtrl',
+                resolve: resolve
+            })
+            .when('/select', {
+                templateUrl: 'partials/select2/select2.html',
+                controller: 'select2Ctrl',
+                resolve: resolve
+            })
+
             //finaly
             .otherwise({
                 redirectTo: '/dashboard'
