@@ -1,0 +1,56 @@
+<div class="col-md-12">
+
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/{{asignaturaId}}/tema">Asignatura {{recursoAsignatura.nombre}}</a>
+            </li>
+            <li class="active">
+                <a>Ejercicios<span class="badge">2</span></a>
+            </li>
+        </ul>
+    </div>
+    <br/>
+
+    <section class="col-md-12 ">
+        <section class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top ">Ejercicios</h2>
+                <p>A través de esta sección usted podrá realizar consultar la lista de los conceptos registradas de ejercicios.</p>
+            </div>
+            <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResourceEjercicio " bind-init="init " bind-filters="filterBy ">
+                <table class="table table-striped ">
+                    <thead tasty-thead></thead>
+                    <tbody ng-if="loading == false">
+                        <tr ng-repeat="row in rows ">
+                            <td>{{row.enunciado}}</td>
+                            <td>{{row.nivelDif}}</td>
+                            <td>{{row.descuido}}</td>
+                            <td>
+                                <a href="#!/asignatura/{{asignaturaId}}/ejercicio/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
+                                <a href="#!/asignatura/{{asignaturaId}}/ejercicio/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
+                                <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr ng-if="loading == true">
+                            <td colspan="6">
+                                <loading></loading>
+                            </td>
+                        </tr>
+                        <tr ng-if="loading == null">
+                            <td colspan="6">
+                                <no-data></no-data>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="tasty-pagination-responsive" tasty-pagination></div>
+            </div>
+            <hr/>
+            <a class="btn btn-default" href="#!/asignatura/{{asignaturaId}}/ejercicio/crear"><i class="fa fa-plus"></i> Agregar</a>
+        </section>
+    </section>
+</div>

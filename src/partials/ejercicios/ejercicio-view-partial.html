@@ -1,0 +1,62 @@
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/">Asignaturas</a>
+            </li>
+            <li>
+                <a href="#!/asignatura/{{atras}}/ejercicio">Ejercicios</a>
+            </li>
+            <li class="active">
+                <a>{{recurso.enunciado}} <span class="badge">3</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Ejercicio</h2>
+            <p>A través de esta sección usted podrá consultar los datos de un ejercicio.</p>
+        </div>
+
+        <form class="wrapper form-horizontal" role="form">
+            <dl class="dl-horizontal">
+                <dt>Id:</dt>
+                <dd>
+                    {{recurso.id}}
+                </dd>
+                <dt>Enunciado:</dt>
+                <dd>
+                    {{recurso.enunciado}}
+                </dd>
+                <dt>Nivel de dificultad:</dt>
+                <dd>
+                    {{recurso.nivelDif}}
+                </dd>
+                <dt>Descuido:</dt>
+                <dd>
+                    {{recurso.descuido}}
+                </dd>
+
+
+                <dt>Conceptos Asociados:</dt>
+
+                <dd ng-repeat="c in recurso.conceptosView">Id: {{c.id}} <br>Nombre: {{c.nombre}}</dd>
+
+
+
+
+
+            </dl>
+            <hr>
+        </form>
+
+        <hr/>
+        <a href="#!/asignatura/{{atras}}/ejercicio" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>
