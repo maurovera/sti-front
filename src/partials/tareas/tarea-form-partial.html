@@ -1,0 +1,66 @@
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/curso/">Curso</a>
+            </li>
+             <li>
+                <a href="#!/curso/{{atras}}/tarea">Tarea</a>
+            </li>
+            <li class="active">
+                <a>Tema<span class="badge">3</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Tarea</h2>
+            <p>A través de esta sección usted podrá gestionar la creación de tareas para la aplicación </p>
+        </div>
+
+        <section class="wrapper form-horizontal" role="form">
+
+            <div class="form-group" ng-if="!isCrear()">
+                <label class="col-sm-3 control-label">Id:</label>
+                <div class="col-sm-7">
+                    <label class="control-label">{{recurso.id}}</label>
+                    <p class="help-block">Identificador único de la tarea.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nombre" class="col-sm-3 control-label">Nombre:*</label>
+                <div class="col-sm-7">
+                    <input type="text" ng-model="recurso.nombre" class="form-control" id="nombre">
+                    <p class="help-block">Nombre de la tarea.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion" class="col-sm-3 control-label">Descripcion:*</label>
+                <div class="col-sm-7">
+                    <input type="text" ng-model="recurso.descripcion" class="form-control" id="descripcion">
+                    <p class="help-block">Descripcion de la tarea.</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input class="form-control" type="checkbox" value="" id="estadoTarea" ng-model="recurso.estadoTarea">
+                <label  for="estadoTarea" class="col-sm-3 control-label">Estado de la tarea:</label>
+            </div>
+
+            <hr>
+            <a class="btn btn-primary" ng-click="guardar()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+        </section>
+
+        <hr/>
+        <a href="#!/curso/{{atras}}/tarea" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>

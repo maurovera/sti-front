@@ -1,0 +1,52 @@
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/curso/">Cursos</a>
+            </li>
+             <li>
+                <a href="#!/curso/{{atras}}/tarea">Tareas</a>
+            </li>
+            <li class="active">
+                <a>{{recurso.nombre}} <span class="badge">3</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Tarea</h2>
+            <p>A través de esta sección usted podrá consultar los datos de una Tarea.</p>
+        </div>
+
+        <form class="wrapper form-horizontal" role="form">
+            <dl class="dl-horizontal">
+                <dt>Id:</dt>
+                <dd>
+                    {{recurso.id}}
+                </dd>
+                <dt>Nombre:</dt>
+                <dd>
+                    {{recurso.nombre}}
+                </dd>
+                <dt>Ruc:</dt>
+                <dd>
+                    {{recurso.descripcion}}
+                </dd>
+                <dt>Estado de la tarea:</dt>
+                <dd>
+                    {{recurso.estadoTarea}}
+                </dd> 
+            </dl>
+            <hr>
+        </form>
+
+        <hr/>
+        <a href="#!/curso/{{atras}}/tarea" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>
