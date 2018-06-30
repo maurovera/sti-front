@@ -3,8 +3,8 @@
  * Controller que implementa el formulario administración de Temas
  *</a>
  */
-app.controller('ConceptoFormCtrl', ['$scope', '$routeParams','ConceptoService', 'TemaService', '$controller',
-    function ($scope,$routeParams ,service, serviceTemaForm, $controller) {
+app.controller('ConceptoFormCtrl', ['$scope', '$routeParams', 'ConceptoService', 'TemaService', '$controller',
+    function ($scope, $routeParams, service, serviceTemaForm, $controller) {
 
 
         /**
@@ -24,18 +24,18 @@ app.controller('ConceptoFormCtrl', ['$scope', '$routeParams','ConceptoService', 
         $scope.atrasAsig = $routeParams.idAsig;
         // esto lo usa en base controller de view, el id es el recurso que consulta. 
         $routeParams.id = $routeParams.idConcepto;
-       
+
 
         /**
          * Url del recurso
          * @field
          * @type {Object}
          */
-        $scope.uri = "/asignatura/" + $scope.atrasAsig + "/tema/"+$scope.atrasTema+"/concepto";
+        $scope.uri = "/asignatura/" + $scope.atrasAsig + "/tema/" + $scope.atrasTema + "/concepto";
 
 
-        
-        
+
+
         //$scope.recursoTema = {}; Pregunta. En getRecurso. Si le pones el route params no funciona pero si una variable
         $scope.serviceTema = serviceTemaForm;
 
@@ -63,9 +63,14 @@ app.controller('ConceptoFormCtrl', ['$scope', '$routeParams','ConceptoService', 
             angular.extend(this, $controller('BaseFormCtrl', {
                 "$scope": $scope
             }));
-            
+
             $scope.getRecursoTemaForm();
-            //console.log($scope.recursoAsignatura);
+            //Lista conocimiento previo
+            $scope.listaConocimiento = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5,0.55,
+                                        0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1];
+            //lista peso o importancia
+            $scope.listaPeso = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5,0.55,
+                                        0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1];
 
         })();
 

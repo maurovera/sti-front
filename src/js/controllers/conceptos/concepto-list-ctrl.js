@@ -56,7 +56,7 @@ function ($scope, $routeParams, service, serviceTema, $controller) {
                 "name": "Nombre"
         },{
                 "key": "apriori",
-                "name": "Ariori"
+                "name": "Conocimiento Previo"
         }, {
                 "key": "peso",
                 "name": "Peso"

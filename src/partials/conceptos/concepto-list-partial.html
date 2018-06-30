@@ -44,8 +44,8 @@
                     <tbody ng-if="loading == false">
                         <tr ng-repeat="row in rows ">
                             <td>{{row.nombre}}</td>
-                            <td>{{row.peso}}</td>
-                            <td>{{row.apriori}}</td>
+                            <td>{{row.peso * 100}}%</td>
+                            <td>{{row.apriori * 100}}%</td>
                             <td>
                                 <a href="#!/asignatura/{{idAsignatura}}/tema/{{idTema}}/concepto/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
                                 <a href="#!/asignatura/{{idAsignatura}}/tema/{{idTema}}/concepto/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
