@@ -32,19 +32,24 @@
                 <dd>
                     {{recurso.enunciado}}
                 </dd>
+
                 <dt>Nivel de dificultad:</dt>
-                <dd>
-                    {{recurso.nivelDif}}
-                </dd>
+                <dd ng-if="recurso.nivelDificultad == 1">Fácil</dd>
+                <dd ng-if="recurso.nivelDificultad == 2">Normal</dd>
+                <dd ng-if="recurso.nivelDificultad == 3">Dificil</dd>
+
+
                 <dt>Descuido:</dt>
-                <dd>
-                    {{recurso.descuido}}
-                </dd>
+                <dd ng-if="recurso.adivinanza == 0.1">Bajo</dd>
+                <dd ng-if="recurso.adivinanza == 0.2">Medio</dd>
+                <dd ng-if="recurso.adivinanza == 0.3">Alto</dd>
 
 
                 <dt>Conceptos Asociados:</dt>
 
                 <dd ng-repeat="c in recurso.conceptosView">Id: {{c.id}} <br>Nombre: {{c.nombre}}</dd>
+
+
 
 
 

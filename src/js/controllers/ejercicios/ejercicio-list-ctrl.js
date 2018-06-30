@@ -20,10 +20,10 @@ function ($scope, $routeParams, service, serviceAsig, $controller) {
                 "key": "enunciado",
                 "name": "Enunciado"
         }, {
-                "key": "nivelDif",
+                "key": "nivelDificultad",
                 "name": "Nivel de dificultad"
         }, {
-                "key": "descuido",
+                "key": "adivinanza",
                 "name": "Descuido"
         }, {
                 "key": "acciones",

@@ -9,7 +9,7 @@
                 <a href="#!/asignatura/{{atras}}/tema">Temas</a>
             </li>
             <li class="active">
-                <a>Tema<span class="badge">3</span></a>
+                <a>Ejercicio<span class="badge">3</span></a>
             </li>
         </ul>
     </div>
@@ -19,7 +19,7 @@
     <section class="form-wrapper">
         <div class="top-block">
             <h2 class="title-top">Ejercicio</h2>
-            <p>A través de esta sección usted podrá gestionar la creación de temas para la aplicación {{recursoAsignatura.nombre}}.</p>
+            <p>A través de esta sección usted podrá gestionar la creación de ejercicios para la aplicación.</p>
 
         </div>
         <section class="col-md-6">
@@ -32,7 +32,7 @@
                         <p class="help-block">Identificador único del ejercicio.</p>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="col-sm-3 control-label"> Conceptos</label>
                     <div class="col-sm-7">
@@ -40,9 +40,9 @@
                             <option value="" disabled selected hidden >--Elige opcion--</option>
                         </select>
                         <br> conceptos Asociados:{{recurso.conceptosAsociados}}
-                    
+
                     </div>
-                
+
                 </div>
 
                 <div class="form-group">
@@ -54,47 +54,79 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nivelDif" class="col-sm-3 control-label">Nivel de Dificultad</label>
+                    <label for="respuesta1" class="col-sm-3 control-label">Respuesta
+								1:</label>
                     <div class="col-sm-7">
-                        <input type="number" class="form-control" id="nivelDif" placeholder="nivelDif" ng-model="recurso.nivelDif" />
+                        <input type="text" ng-model="recurso.listaRespuesta[0].descripcion" name="respuesta1" id="respuesta1" class="form-control">
                     </div>
+                </div>
+                {{recurso.listaRespuesta[0].descripcion}}
+                <div class="form-group">
+                    <label for="respuesta2" class="col-sm-3 control-label">Respuesta
+								2:</label>
+                    <div class="col-sm-7">
+                        <input type="text" ng-model="recurso.listaRespuesta[1].descripcion" name="respuesta2" id="respuesta2" class="form-control" id="respuesta2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="respuesta3" class="col-sm-3 control-label">Respuesta
+								3:</label>
+                    <div class="col-sm-7">
+                        <input type="text" ng-model="recurso.listaRespuesta[2].descripcion" name="respuesta3" id="respuesta3" class="form-control" id="respuesta3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="respuesta4" class="col-sm-3 control-label">Respuesta
+								4:</label>
+                    <div class="col-sm-7">
+                        <input type="text" ng-model="recurso.listaRespuesta[3].descripcion" name="respuesta4" id="respuesta4" class="form-control" id="respuesta4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="respuesta_correcta" class="col-sm-3 control-label">Respuesta:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control" ng-model="recurso.respuestaCorrecta" name="nivelRespuesta">
+                            <option ng-repeat="x in nivelesRespuesta" value="{{x.valor}}">{{x.nivel}}</option>
+                        </select>
+                    </div>
+                    {{recurso.respuestaCorrecta}}
                 </div>
 
                 <div class="form-group">
-                    <label for="descuido" class="col-sm-3 control-label">Descuido</label>
-                    <div class="col-sm-7">
-                        <input type="number" class="form-control" id="descuido" placeholder="descuido" ng-model="recurso.descuido" />
+                    <label for="adivinanza" class="col-sm-3 control-label">Descuido:</label>                      
+                        <div class="col-sm-7">
+                        <select class="form-control" ng-model="recurso.nivelAdivinanza" name="nivelAdivinanza">
+                            <option ng-repeat="x in nivelesAdivinanza" value="{{x.valor}}">{{x.nivel}}</option>
+                        </select>
                     </div>
+                    {{recurso.nivelAdivinanza}}
+                    
                 </div>
 
+                <div class="form-group">
+                    <label for="nivelDificultad" class="col-sm-3 control-label">Dificultad:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control" ng-model="recurso.dificultad" name="nivelDificultad">
+                            <option ng-repeat="x in nivelesDificultad" value="{{x.valor}}">{{x.nivel}}</option>
+                        </select>
+                    </div>
+                    {{recurso.dificultad}}
+                </div>
+                    
 
-               
                 <hr>
                 <a class="btn btn-primary" ng-click="guardarAsociados()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+               
             </section>
+             <hr/>
+                <a href="#!/asignatura/{{atras}}/tema" class="btn btn-default">
+                <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+                </a>
         </section>
 
-        {{recursoMauro}}
-        
-        <br> datos 
-        
-        {{datos}}
 
 
-        
-
-
-
-
-
-
-
-
-        <hr/>
-        <a href="#!/asignatura/{{atras}}/tema" class="btn btn-default">
-            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
-        </a>
     </section>
 
-    
+
 </div>

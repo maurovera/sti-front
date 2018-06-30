@@ -4,7 +4,7 @@
     <div class="wizard">
         <ul class="wizard-breadcrumbs">
             <li>
-                <a href="#!/asignatura/{{asignaturaId}}/tema">Asignatura {{recursoAsignatura.nombre}}</a>
+                <a href="#!/asignatura/">Asignatura</a>
             </li>
             <li class="active">
                 <a>Ejercicios<span class="badge">2</span></a>
@@ -25,8 +25,13 @@
                     <tbody ng-if="loading == false">
                         <tr ng-repeat="row in rows ">
                             <td>{{row.enunciado}}</td>
-                            <td>{{row.nivelDif}}</td>
-                            <td>{{row.descuido}}</td>
+                            <td ng-if="row.nivelDificultad == 1">Fácil</td>
+                            <td ng-if="row.nivelDificultad == 2">Normal</td>
+                            <td ng-if="row.nivelDificultad == 3">Dificil</td>
+                            <td ng-if="row.adivinanza == 0.1">Bajo</td>
+                            <td ng-if="row.adivinanza == 0.2">Medio</td>
+                            <td ng-if="row.adivinanza == 0.3">Alto</td>
+                            
                             <td>
                                 <a href="#!/asignatura/{{asignaturaId}}/ejercicio/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
                                 <a href="#!/asignatura/{{asignaturaId}}/ejercicio/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
