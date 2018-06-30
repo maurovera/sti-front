@@ -58,7 +58,7 @@ function ($scope, $routeParams, service, serviceAsig, $controller) {
                 "key": "descripcion",
                 "name": "Descripcion"
         }, {
-                "key": "peso",
+                "key": "pesoTema",
                 "name": "Peso"
         }, {
                 "key": "acciones",

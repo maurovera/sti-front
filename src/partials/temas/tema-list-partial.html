@@ -39,7 +39,7 @@
                 <h2 class="title-top ">Temas</h2>
                 <p>A través de esta sección usted podrá realizar consultar la lista de los temas registradas de la asignatura {{recursoAsig.nombre}}.</p>
                 <br/>
-                <a href="#!/asignatura/{{recursoAsig.id}}/ejercicio"><i class="fa fa-eye"></i> Ejercicios</a> &nbsp;
+                
 
 
 
@@ -51,7 +51,7 @@
                         <tr ng-repeat="row in rows ">
                             <td>{{row.nombre}}</td>
                             <td>{{row.descripcion}}</td>
-                            <td>{{row.peso}}</td>
+                            <td>{{row.pesoTema*100}}%</td>
                             <td>
                                 <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
                                 <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
