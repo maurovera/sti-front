@@ -1,0 +1,144 @@
+<div class="col-md-12">
+    <br/>
+    <div id="buscarCursos">
+        <form class="navbar-form" role="search">
+            <button type="submit" class="btn btn-primary">Catalogo</button>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Que desea aprender?">
+            </div>
+            <button type="submit" class="btn btn-default">Buscar</button>
+        </form>
+    </div>
+    <br/>
+
+    <nav class="col-md-3 ">
+        <div class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top ">Cursos</h2>
+                <p>Opciones disponibles</p>
+            </div>
+            <div id="list-example" class="list-group">
+                <a type="btn btn-primary" class="btn btn-primary list-group-item list-group-item-primary" ng-click="valor = 'A'">Cursos Disponibles</a>
+                <a type="btn btn-primary" class="btn btn-primary list-group-item list-group-item-primary" ng-click="valor = 'B'">Mis Cursos</a>
+            </div>
+         
+
+
+
+
+        </div>
+
+    </nav>
+
+    <section class="col-md-9 ">
+        <section class="form-wrapper">
+
+            <div ng-switch on="valor">
+                <div ng-switch-when="A">
+                    <div class="top-block">
+                        <h2 class="title-top ">Curso Disponibles</h2>
+                        <p>Cursos disponibles</p>
+                    </div>
+                    <div>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Inscribirse</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-if="loading == false">
+                                <tr ng-repeat="c in lista">
+                                    <td>{{c.id}}</td>
+                                    <td>{{c.nombre}}</td>
+                                    <td>{{c.descripcion}}</td>
+                                    <td><a href="#!/cursoAlumno/{{c.id}}/inscripcion"><i class="fa fa-share" aria-hidden="true"></i> Ir al Curso</a> &nbsp;</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr ng-if="loading == true">
+                                    <td colspan="6">
+                                        <loading></loading>
+                                    </td>
+                                </tr>
+                                <tr ng-if="loading == null">
+                                    <td colspan="6">
+                                        <no-data></no-data>
+                                    </td>
+                                </tr>
+                            </tfoot>
+
+
+                        </table>
+
+                    </div>
+                    <hr/>
+                    <a href="#!/cursoAlumno" class="btn btn-default">
+                        <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+                    </a>
+
+
+                </div>
+                <div ng-switch-when="B">
+                    <div class="top-block">
+                        <h2 class="title-top ">Mis Cursos</h2>
+                        <p>Lista de curso en los cuales estas inscripto</p>
+                    </div>
+
+                    <div>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Tareas del curso</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-if="loading == false">
+                                <tr ng-repeat="curso in listaCursoAlumno">
+                                    <td>{{curso.id}}</td>
+                                    <td>{{curso.nombre}}</td>
+                                    <td>{{curso.descripcion}}</td>
+                                    <td><a href="#!/cursoAlumno/{{curso.id}}/tarea"><i class="fa fa-binoculars" aria-hidden="true"></i> Tareas</a> &nbsp;</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr ng-if="loading == true">
+                                    <td colspan="6">
+                                        <loading></loading>
+                                    </td>
+                                </tr>
+                                <tr ng-if="loading == null">
+                                    <td colspan="6">
+                                        <no-data></no-data>
+                                    </td>
+                                </tr>
+                            </tfoot>
+
+
+                        </table>
+
+                    </div>
+                    <hr/>
+                    <a href="#!/cursoAlumno" class="btn btn-default">
+                        <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+                    </a>
+
+
+
+                </div>
+                <div ng-switch-default>Texto para cuando no es ni A ni B</div>
+            </div>
+
+
+
+
+
+
+
+        </section>
+    </section>
+</div>

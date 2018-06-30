@@ -1,0 +1,45 @@
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/cursoAlumno/">Cursos</a>
+            </li>
+            <li class="active">
+                <a>Descripcion del curso <span class="badge">2</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="tituloPrincipal">Descripción del curso: {{recurso.nombre}} </h2>
+        </div>
+
+        <div class="col-md-12 text-center">
+
+            <h1 class="tituloEjercicio"> Introducción</h1>
+            <p>Este curso esta disponible para su incripción. En teoria el curso deberia tener una introducción aqui. y deberia ir {{curso.Introduccion}}</p>
+
+            <h2  class="tituloEjercicio"> Acerca del curso</h2>
+            <p> En esta seccion deberia tener disponible una descripcion acerca del curso. 
+                <b>{{recurso.descripcion}}</b></p>
+            <h2 class="tituloEjercicio"> Para quienes </h2>
+            <p> Descripción del curso para quienes esta destinado este curso.</p>
+            <h2 class="tituloEjercicio"> Creado por: </h2>
+            <p> Aqui deberia ir el nombre del profesor. </p>
+
+            <h2 class="tituloEjercicio"> Calificación del usuario. </h2>
+            <p> Aqui por el momento una descripcion. Una calificacion del usuario o alummno al curso.</p>
+
+
+        </div>
+
+            <hr>
+            <div class="text-center">
+                <a  class="btn btn-primary btn-lg" ng-click="guardarCurso()"><i class="fa fa-floppy-o"></i>&nbsp;Inscribirse</a>
+            </div>
+    </section>
+</div>
