@@ -277,6 +277,31 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
                 controller: 'select2Ctrl',
                 resolve: resolve
             })
+            .when('/estiloAprendizaje', {
+                templateUrl: 'partials/estilosAprendizajes/ea-form-partial.html',
+                controller: 'EstiloAprendizajeFormCtrl',
+                resolve: resolve
+            })
+            .when('/cursoAlumno', {
+                templateUrl: 'partials/cursosAlumnos/ca-list-partial.html',
+                controller: 'CursoAlumnoListCtrl',
+                resolve: resolve
+            })
+            .when('/cursoAlumno/:idCurso/inscripcion', {
+                templateUrl: 'partials/cursosAlumnos/ca-inscripcion-partial.html',
+                controller: 'CursoAlumnoInscripcion',
+                resolve: resolve
+            })
+            .when('/cursoAlumno/:idCurso/tarea', {
+                templateUrl: 'partials/cursosAlumnos/ca-tareas-list-partial.html',
+                controller: 'CursoAlumnoTareaListCtrl',
+                resolve: resolve
+            })
+            .when('/cursoAlumno/:idCurso/tarea/:idTarea/ejercicio', {
+                templateUrl: 'partials/cursosAlumnos/ca-tareas-ejercicios-partial.html',
+                controller: 'CursoAlumnoTareaEjercicioCtrl',
+                resolve: resolve
+            })
 
             //finaly
             .otherwise({

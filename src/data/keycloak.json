@@ -1,7 +1,8 @@
 {
-    "realm": "gfdc",
-    "auth-server-url": "http://desa03.konecta.com.py:8090/auth",
-    "ssl-required": "none",
-    "resource": "angular-keycloak-seed",
-    "public-client": true
+  "realm": "master",
+  "auth-server-url": "http://localhost:8180/auth",
+  "ssl-required": "external",
+  "resource": "sti-front",
+  "public-client": true,
+  "use-resource-role-mappings": true
 }

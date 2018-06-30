@@ -187,7 +187,7 @@ module.exports = function (grunt) {
                 //app.js
                 '<%=app.dist%>/js/common/**/*.js',
                 '<%=app.dist%>/js/module.js',
-                '<%=app.dist%>/js/keycloak/keycloak-init.js',
+               '<%=app.dist%>/js/keycloak/keycloak-init.js',
                 '<%=app.dist%>/js/app.js',
                 '<%=app.dist%>/js/keycloak/keycloak-provider.js',
                 '<%=app.dist%>/js/keycloak/interceptor-factory.js',
