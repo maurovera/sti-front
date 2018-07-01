@@ -5,7 +5,7 @@ function ($scope, service, $controller) {
 
     
         $scope.valor="A";
-        $scope.idAProbar = 2;
+        $scope.idAProbar = 1;
         /**
          * Servicio curso
          */

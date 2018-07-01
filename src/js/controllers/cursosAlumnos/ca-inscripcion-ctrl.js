@@ -26,7 +26,7 @@ app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller
          */
         $scope.guardarCurso = function () {
                 console.log("estoy en guardarCurso");
-                $scope.recurso.alumno = 2;
+                $scope.recurso.alumno = 1;
                 this.editarRecursoAlumno();
             
         };
