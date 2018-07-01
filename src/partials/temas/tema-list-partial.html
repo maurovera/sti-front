@@ -25,7 +25,7 @@
                     <input type="text" class="form-control" ng-model="filterBy.nombre" />
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Descripcion:</label>
+                    <label class="control-label">Descripción:</label>
                     <input type="text" class="form-control" ng-model="filterBy.descripcion" />
                 </div>
                 <hr/>
@@ -37,7 +37,7 @@
         <section class="form-wrapper">
             <div class="top-block">
                 <h2 class="title-top ">Temas</h2>
-                <p>A través de esta sección usted podrá realizar consultar la lista de los temas registradas de la asignatura {{recursoAsig.nombre}}.</p>
+                <p>A través de esta sección usted podrá consultar la lista de los temas registrados de la asignatura: {{recursoAsig.nombre}}.</p>
                 <br/>
                 
 
@@ -56,7 +56,7 @@
                                 <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
                                 <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
                                 <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
-                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/concepto"><i class="fa fa-pencil-square-o"></i> Conceptos</a>
+                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/concepto"><i class="fa fa-th" aria-hidden="true"></i> Conceptos</a>
 
                             </td>
                         </tr>

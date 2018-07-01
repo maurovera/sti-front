@@ -3,7 +3,7 @@
     <div class="wizard">
         <ul class="wizard-breadcrumbs">
             <li>
-                <a href="#!/curso/">Curso </a>
+                <a href="#!/curso/">Cursos </a>
             </li>
             <li class="active">
                 <a>Tareas<span class="badge">2</span></a>
@@ -25,7 +25,7 @@
                     <input type="text" class="form-control" ng-model="filterBy.nombre" />
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Descripcion:</label>
+                    <label class="control-label">Descripción:</label>
                     <input type="text" class="form-control" ng-model="filterBy.descripcion" />
                 </div>
                 <hr/>
@@ -37,7 +37,7 @@
         <section class="form-wrapper">
             <div class="top-block">
                 <h2 class="title-top ">Tarea</h2>
-                <p>A través de esta sección usted podrá realizar consultar la lista de las tareas.</p>
+                <p>A través de esta sección usted podrá gestionar la lista de las tareas.</p>
             </div>
             <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResource " bind-init="init " bind-filters="filterBy ">
                 <table class="table table-striped ">
