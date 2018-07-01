@@ -9,7 +9,7 @@
                 <a href="#!/asignatura/{{atrasAsig}}/tema">Temas</a>
             </li>
             <li class="active">
-                <a>Conceptos de {{recursoTema.nombre}} <span class="badge">3</span></a>
+                <a>Conceptos de: {{recursoTema.nombre}} <span class="badge">3</span></a>
             </li>
         </ul>
     </div>
@@ -36,7 +36,7 @@
         <section class="form-wrapper">
             <div class="top-block">
                 <h2 class="title-top ">Conceptos</h2>
-                <p>A través de esta sección usted podrá realizar consultar la lista de los conceptos registradas del tema {{recursoTema.nombre}}.</p>
+                <p>A través de esta sección usted podrá consultar la lista de los conceptos asociados al tema: {{recursoTema.nombre}}.</p>
             </div>
             <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResource " bind-init="init " bind-filters="filterBy ">
                 <table class="table table-striped ">

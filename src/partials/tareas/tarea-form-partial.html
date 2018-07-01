@@ -3,13 +3,13 @@
     <div class="wizard">
         <ul class="wizard-breadcrumbs">
             <li>
-                <a href="#!/curso/">Curso</a>
+                <a href="#!/curso/">Cursos</a>
             </li>
             <li>
-                <a href="#!/curso/{{atras}}/tarea">Tarea</a>
+                <a href="#!/curso/{{atras}}/tarea">Tareas</a>
             </li>
             <li class="active">
-                <a>Tema<span class="badge">3</span></a>
+                <a>Tarea <span class="badge">3</span></a>
             </li>
         </ul>
     </div>
@@ -19,7 +19,7 @@
     <section class="form-wrapper">
         <div class="top-block">
             <h2 class="title-top">Tarea</h2>
-            <p>A través de esta sección usted podrá gestionar la creación de tareas para la aplicación </p>
+            <p>A través de esta sección usted podrá gestionar la creación de tareas. </p>
         </div>
 
         <section class="wrapper form-horizontal" role="form">
@@ -41,10 +41,10 @@
             </div>
 
             <div class="form-group">
-                <label for="descripcion" class="col-sm-3 control-label">Descripcion:*</label>
+                <label for="descripcion" class="col-sm-3 control-label">Descripción:*</label>
                 <div class="col-sm-7">
                     <input type="text" ng-model="recurso.descripcion" class="form-control" id="descripcion">
-                    <p class="help-block">Descripcion de la tarea.</p>
+                    <p class="help-block">Descripción de la tarea.</p>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
                 <label class="col-sm-3 control-label">Conceptos: </label>
                 <div class="col-sm-7">
                     <select ng-model="recurso.conceptosAsociados" id="selectConcepto" name="selectConcepto" multiple="multiple" style="width:300px;">
-                            <option value="" disabled selected  >--Elige opcion--</option>
+                            <option value="" disabled selected  >--Elige uno o más conceptos--</option>
                         </select>
                     <br> conceptos Asociados:{{recurso.conceptosAsociados}}
 
@@ -75,7 +75,7 @@
 
         <hr/>
         <a href="#!/curso/{{atras}}/tarea" class="btn btn-default">
-            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atrás
         </a>
     </section>
 </div>

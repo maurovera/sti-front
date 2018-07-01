@@ -1,3 +1,16 @@
+<div class="col-md-12">
+
+<br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li class="active">
+                <a>Profesores <span class="badge">1</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
 <lista-directive>
     <breadcrumb>Profesores <span class="badge">1</span></breadcrumb>
     <filtros>
@@ -6,18 +19,18 @@
             <input type="text" class="form-control" ng-model="filterBy.nombre" />
         </div>
         <div class="form-group">
-            <label class="control-label">apellido:</label>
+            <label class="control-label">Apellido:</label>
             <input type="text" class="form-control" ng-model="filterBy.apellido" />
         </div>
     </filtros>
     <titulo>Profesores</titulo>
-    <descripcion>A través de esta sección usted podrá realizar consultar la lista de profesores.</descripcion>
+    <descripcion>A través de esta sección usted podrá realizar la administración de profesores.</descripcion>
     <tabla>
         <div class='col-md-4' ng-repeat="row in config.rows">
 
             <div class="panel panel-primary">
                 <div class="panel-heading">{{row.nombre}}
-                    <a href="#!/profesor/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a>
+                    <a href="#!/profesor/{{row.id}}/ver">  <i class="fa fa-eye"></i>   Ver</a>
                 </div>
                 <div class="panel-body">
                     Apellido:{{row.apellido}}
@@ -31,3 +44,5 @@
         </div>
     </tabla>
 </lista-directive>
+
+</div>

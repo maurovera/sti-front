@@ -19,7 +19,7 @@ function ($scope, $routeParams, service, $controller) {
                 "name": "Nombre"
         }, {
                 "key": "descripcion",
-                "name": "Descripcion"
+                "name": "Descripción"
         }, {
                 "key": "estadoTarea",
                 "name": "Estado"

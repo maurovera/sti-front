@@ -39,9 +39,9 @@ app.controller('CursoFormCtrl', ['$scope', 'CursoService', 'AsignaturaService', 
                     console.log($scope.lista);
 
 
-                    //se llena el select de conceptos. 
+                    //se llena el select de asignaturas
                     $("#asignaturaSelect").select2({
-
+                    placeholder: "Seleccione una asignatura", allowClear: true
 
                     });
 

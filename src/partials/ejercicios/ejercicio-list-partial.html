@@ -17,7 +17,7 @@
         <section class="form-wrapper">
             <div class="top-block">
                 <h2 class="title-top ">Ejercicios</h2>
-                <p>A través de esta sección usted podrá realizar consultar la lista de los conceptos registradas de ejercicios.</p>
+                <p>A través de esta sección usted podrá consultar la lista de ejercicios registrados por asignatura</p>
             </div>
             <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResourceEjercicio " bind-init="init " bind-filters="filterBy ">
                 <table class="table table-striped ">
@@ -27,7 +27,7 @@
                             <td>{{row.enunciado}}</td>
                             <td ng-if="row.nivelDificultad == 1">Fácil</td>
                             <td ng-if="row.nivelDificultad == 2">Normal</td>
-                            <td ng-if="row.nivelDificultad == 3">Dificil</td>
+                            <td ng-if="row.nivelDificultad == 3">Difícil</td>
                             <td ng-if="row.adivinanza == 0.1">Bajo</td>
                             <td ng-if="row.adivinanza == 0.2">Medio</td>
                             <td ng-if="row.adivinanza == 0.3">Alto</td>
