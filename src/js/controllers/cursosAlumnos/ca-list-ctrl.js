@@ -5,7 +5,7 @@ function ($scope, service, $controller) {
 
     
         $scope.valor="A";
-        $scope.alumno = 1;
+        $scope.idAProbar = 2;
         /**
          * Servicio curso
          */
@@ -18,8 +18,8 @@ function ($scope, service, $controller) {
         * Se encarga de obtener la lista de cursos disponibles para el alumno.
          * Return <id,nombre,descripcion> de Curso
          */
-        $scope.getListaCurso = function () {
-            $scope.service.listarCurso()
+        $scope.getListaCurso = function (parametros) {
+            $scope.service.listarCurso(parametros)
                 .then(function (response) {
                     $scope.loading = false;
                     $scope.lista = response.data.rows;
@@ -38,8 +38,8 @@ function ($scope, service, $controller) {
         * Se encarga de obtener la lista de cursos disponibles para el alumno.
          * Return <id,nombre,descripcion> de Curso
          */
-        $scope.getListaCursoAlumno = function () {
-            $scope.service.listarCursoAlumno()
+        $scope.getListaCursoAlumno = function (parametros) {
+            $scope.service.listarCursoAlumno(parametros)
                 .then(function (response) {
                     $scope.loading = false;
                     $scope.listaCursoAlumno = response.data.rows;
@@ -67,10 +67,16 @@ function ($scope, service, $controller) {
          */
         (function initialize() {
 
-
+            console.log("cambio");
             //Se llama a la funcion getListaCurso
-            $scope.getListaCurso();
-             $scope.getListaCursoAlumno();
+            //Datos para la lista
+            $scope.inicial = {
+                'idAlumno': $scope.idAProbar
+                
+
+            };
+            $scope.getListaCurso($scope.inicial);
+             $scope.getListaCursoAlumno($scope.inicial);
         })();
 
 

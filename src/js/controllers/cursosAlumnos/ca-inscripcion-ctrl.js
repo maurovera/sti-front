@@ -3,11 +3,11 @@
  * Controller que implementa el formulario administración de la inscripcion
  *</a>
  */
-app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller','$routeParams',
-    function ($scope, service, $controller, $routeParams) {
+app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller','$routeParams','$location',
+    function ($scope, service, $controller, $routeParams, $location) {
 
         $scope.service = service;
-        $scope.uri = "/cursoAlumno/";
+        $scope.uri = "/cursoAlumno";
         
         
           /**imprime el idAsig, el idTema y el idConcepto**/
@@ -26,7 +26,7 @@ app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller
          */
         $scope.guardarCurso = function () {
                 console.log("estoy en guardarCurso");
-                $scope.recurso.alumno = 1;
+                $scope.recurso.alumno = 2;
                 this.editarRecursoAlumno();
             
         };

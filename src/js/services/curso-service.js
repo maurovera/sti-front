@@ -2,12 +2,16 @@ app.service('CursoService', ['$http', 'StiBaseService', function ($http, BaseSer
     return angular.extend({}, BaseService, {
         recurso: "/curso/",
 
-        listarCurso: function () {
-            return $http.get(App.REST_BASE + this.recurso + "/listaCurso", {});
+        listarCurso: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "/listaCurso", {
+                params:params
+            });
         },
-        
-        listarCursoAlumno: function () {
-            return $http.get(App.REST_BASE + this.recurso + "/listaCursoAlumno", {});
+          
+        listarCursoAlumno: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "/listaCursoAlumno", {
+                params:params
+            });
         },
         
          agregarAlumno: function (params) {
