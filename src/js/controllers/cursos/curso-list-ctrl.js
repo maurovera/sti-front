@@ -20,6 +20,9 @@ function ($scope, service, $controller) {
         }, {
             "key": "descripcion",
             "name": "Descripción"
+        },{
+            "key": "acciones",
+            "name": "Acciones"
         }
     ];
     

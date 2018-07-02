@@ -42,22 +42,34 @@
     <titulo>Alumnos</titulo>
     <descripcion>A través de esta sección usted podrá realizar la administración de alumnos.</descripcion>
     <tabla>
-        <div class='col-md-4' ng-repeat="row in config.rows">
-
-            <div class="panel panel-primary">
-                <div class="panel-heading">{{row.nombres}}
-                    <a href="#!/alumno/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a>
-                </div>
-                <div class="panel-body">
-                    Apellido:{{row.apellidos}}
-                </div>
-                <div class="panel-footer">
-                    <a href="#!/alumno/{{row.id}}/editar" right><i class="fa fa-pencil-square-o"></i> Editar</a>
-                    <a ng-click="eliminar(row)" left><i class="fa fa-trash"></i> Eliminar</a>
-                </div>
+        <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResource " bind-init="init " bind-filters="filterBy ">
+                <table class="table table-striped ">
+                    <thead tasty-thead></thead>
+                    <tbody ng-if="loading == false">
+                        <tr ng-repeat="row in rows ">
+                            <td>{{row.nombres}}</td>
+                            <td>{{row.apellidos}}</td>
+                            <td>
+                                <a href="#!/alumno/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
+                                <a href="#!/alumno/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
+                                <a href="#" ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr ng-if="loading == true">
+                            <td colspan="6">
+                                <loading></loading>
+                            </td>
+                        </tr>
+                        <tr ng-if="loading == null">
+                            <td colspan="3">
+                                <no-data></no-data>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
-
-        </div>
     </tabla>
 </lista-directive>
 

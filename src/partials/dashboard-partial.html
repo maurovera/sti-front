@@ -3,24 +3,15 @@
 
 <div class="col-md-12">
     <div class="row" ng-controller="HeaderCtrl">
-        <div class="col-md-3">
-            <section class="cloud box">
-                <i class="fa fa-file-pdf-o"></i>
-                <hr/>
-                <p class="bootom">{{user.name}}</p>
-                <hr/>
-            </section>
-        </div>
         <section class="box-body">
-            <h1>¡Bienvenido!</h1>
+            <h1>¡Bienvenido {{user.nombre}}!</h1>
             <hr/>
             <p class="text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam molestie metus. Quisque pellentesque ipsum et est pulvinar vehicula. Nunc ac nibh eget ipsum semper feugiat. Sed imperdiet massa tortor, sit amet ullamcorper massa lobortis et. Nulla a nisl et ligula faucibus aliquet a id orci. Sed porta tempor massa pretium malesuada.
             </p>
+            <a class="btn btn-cat pull-right" href="#!/cursoAlumno"><i class="fa fa-plus"></i> Cursos</a>
         </section>
     </div>
-    <a class="btn btn-primary" href="#!/cursoAlumno"><i class="fa fa-plus"></i> Cursos</a>
-
 
     <br/>
     <hr>
@@ -29,64 +20,35 @@
 
     <div class="row">
         <div class="col-md-3">
-            <div class="cloud green">
-                <i class="fa fa-users"></i>
+            <div class="cloud lila1">
+                <p class="pull-left"><i class="fa fa-graduation-cap"></i> Cursos</p> <span class="pull-right">54</span><br>
                 <hr/>
-                <p class="bootom">Administración</p>
-                <hr/>
-                <p class="value">1.234</p>
-                <p class="bootom">en total</p>
-            </div>
-            <div class="cloud-footer">
-                <p class="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam molestie metus. Quisque pellentesque ipsum et est pulvinar vehicula. Nunc ac nibh eget ipsum semper feugiat.
-                </p>
+                <p class="text-dash">Aquí podés ver todos los cursos que están disponibles en este momento.</p>
+                <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="cloud yellow">
-                <i class="fa fa-tasks"></i>
+            <div class="cloud lila2">
+                <p class="pull-left"><i class="fa fa-users"></i> Alumnos</p> <span class="pull-right">54</span><br>
                 <hr/>
-                <p class="bootom">Liquidaciones</p>
-                <hr/>
-                <p class="value">1.234</p>
-                <p class="bootom">en total</p>
-            </div>
-            <div class="cloud-footer">
-                <p class="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam molestie metus. Quisque pellentesque ipsum et est pulvinar vehicula. Nunc ac nibh eget ipsum semper feugiat.
-                </p>
+                <p class="text-dash">Aquí podés ver todos los alumnos inscriptos.</p>
+                <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="cloud blue">
-                <i class="fa fa-ticket"></i>
+            <div class="cloud lila3">
+                <p class="pull-left"><i class="fa fa-puzzle-piece"></i> Elementos didácticos</p> <span class="pull-right">54</span><br>
                 <hr/>
-                <p class="bootom">Comprobantes</p>
-                <hr/>
-                <p class="value">1.234</p>
-                <p class="bootom">en total</p>
-            </div>
-            <div class="cloud-footer">
-                <p class="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam molestie metus. Quisque pellentesque ipsum et est pulvinar vehicula. Nunc ac nibh eget ipsum semper feugiat.
-
-                </p>
+                <p class="text-dash">Aquí podés ver todos lo elementos didácticos del STI.</p>
+                <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="cloud pink">
-                <i class="fa fa-pencil"></i>
+            <div class="cloud lila4">
+               <p class="pull-left"><i class="fa fa-smile-o"></i> Estilos de aprendizaje</p> <span class="pull-right">54</span><br>
                 <hr/>
-                <p class="bootom">Firma Digital</p>
-                <hr/>
-                <p class="value">1.234</p>
-                <p class="bootom">en total</p>
-            </div>
-
-            <div class="cloud-footer">
-                <p class="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam molestie metus. Quisque pellentesque ipsum et est pulvinar vehicula. Nunc ac nibh eget ipsum semper feugiat.
+                <p class="text-dash">Aquí podés ver todos los estilos de aprendizaje.</p>
+                <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
     </div>

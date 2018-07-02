@@ -19,32 +19,30 @@
         <section class="wrapper form-horizontal" role="form">
 
             <div class="form-group" ng-if="!isCrear()">
-                <label class="col-sm-3 control-label">Id:</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
+                <label class="control-label">Id:</label>
                     <label class="control-label">{{recurso.id}}</label>
                     <p class="help-block">Identificador único del curso.</p>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="nombre" class="col-sm-3 control-label">Nombre:*</label>
-                <div class="col-sm-7">
-                    <input type="text" ng-model="recurso.nombre" class="form-control" id="nombre">
-                    <p class="help-block">Nombre del curso.</p>
+                <div class="col-sm-6">
+                <label for="nombre" class="control-label">Nombre:*</label>
+                    <input type="text" ng-model="recurso.nombre" class="form-control" id="nombre" placeholder="Nombre del curso.">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="descripcion" class="col-sm-3 control-label">Descripción:*</label>
-                <div class="col-sm-7">
-                    <input type="text" ng-model="recurso.descripcion" class="form-control" id="descripcion">
-                    <p class="help-block">Descripción del curso.</p>
+                <div class="col-sm-6">
+                <label for="descripcion" class="control-label">Descripción:*</label>
+                    <input type="text" ng-model="recurso.descripcion" class="form-control" id="descripcion" placeholder="Descripción del curso">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="asignaturaSelect" class="col-sm-3 control-label">Asignatura:*</label>
-                <div class="col-sm-7">
+                 <div class="col-sm-6">
+                <label for="asignaturaSelect" class="control-label">Asignatura:*</label>
                 <select class="form-control" name="mySelect" id="asignaturaSelect"  
                         ng-options="opcion.nombre for opcion in lista track by opcion.id" 
                         ng-model="recurso.asignaturaView"><option> </option></select>
@@ -55,7 +53,7 @@
 
 
             <hr>
-            <a class="btn btn-primary" ng-click="guardarSeleccionado()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+            <a class="btn btn-cat" ng-click="guardarSeleccionado()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
         </section>
 
         <hr/>

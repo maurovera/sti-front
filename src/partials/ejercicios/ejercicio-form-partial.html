@@ -34,57 +34,55 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"> Conceptos</label>
-                    <div class="col-sm-7">
-                        <select ng-model="recurso.conceptosAsociados" id="selectConcepto" name="selectConcepto" multiple="multiple" style="width:300px;">
+                    <div class="col-sm-6">
+                    <label for="conceptos" class="control-label"> Conceptos:</label><br>
+                        <select ng-model="recurso.conceptosAsociados" id="selectConcepto" name="selectConcepto" multiple="multiple" style="width:370px;">
                             <option value="" disabled selected hidden >--Escoja uno o más conceptos--</option>
                         </select>
-                        <br> Conceptos asociados:{{recurso.conceptosAsociados}}
-
+                       
                     </div>
 
                 </div>
 
                 <div class="form-group">
-                    <label for="nombre" class="col-sm-3 control-label">Enunciado:*</label>
-                    <div class="col-sm-7">
-                        <input type="text" ng-model="recurso.enunciado" class="form-control" id="enunciado">
-                        <p class="help-block">Nombre del enunciado.</p>
+                    <div class="col-sm-6">
+                    <label for="nombre" class="control-label">Enunciado:*</label>
+                        <input type="text" ng-model="recurso.enunciado" class="form-control" id="enunciado" placeholder="Nombre del enunciado.">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="respuesta1" class="col-sm-3 control-label">Respuesta
+                    <div class="col-sm-6">
+                    <label for="respuesta1" class="control-label">Respuesta
 								1:</label>
-                    <div class="col-sm-7">
                         <input type="text" ng-model="recurso.listaRespuesta[0].descripcion" name="respuesta1" id="respuesta1" class="form-control">
                     </div>
                 </div>
                 {{recurso.listaRespuesta[0].descripcion}}
                 <div class="form-group">
-                    <label for="respuesta2" class="col-sm-3 control-label">Respuesta
+                    <div class="col-sm-6">
+                    <label for="respuesta2" class="control-label">Respuesta
 								2:</label>
-                    <div class="col-sm-7">
                         <input type="text" ng-model="recurso.listaRespuesta[1].descripcion" name="respuesta2" id="respuesta2" class="form-control" id="respuesta2">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="respuesta3" class="col-sm-3 control-label">Respuesta
+                    <div class="col-sm-6">
+                    <label for="respuesta3" class="control-label">Respuesta
 								3:</label>
-                    <div class="col-sm-7">
                         <input type="text" ng-model="recurso.listaRespuesta[2].descripcion" name="respuesta3" id="respuesta3" class="form-control" id="respuesta3">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="respuesta4" class="col-sm-3 control-label">Respuesta
+                    <div class="col-sm-6">
+                    <label for="respuesta4" class="control-label">Respuesta
 								4:</label>
-                    <div class="col-sm-7">
                         <input type="text" ng-model="recurso.listaRespuesta[3].descripcion" name="respuesta4" id="respuesta4" class="form-control" id="respuesta4">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="respuesta_correcta" class="col-sm-3 control-label">Respuesta:</label>
-                    <div class="col-sm-7">
+                    <div class="col-sm-6">
+                    <label for="respuesta_correcta" class="control-label">Respuesta:</label>
                         <select class="form-control" ng-model="recurso.respuestaCorrecta" name="nivelRespuesta">
                             <option  disabled value="">--- Seleccione una opción ---</option>
                             <option ng-repeat="x in nivelesRespuesta" value="{{x.valor}}">{{x.nivel}}</option>
@@ -94,8 +92,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="adivinanza" class="col-sm-3 control-label">Descuido:</label>                      
-                        <div class="col-sm-7">
+                    <div class="col-sm-6">
+                    <label for="adivinanza" class="control-label">Descuido:</label>                      
                         <select class="form-control" ng-model="recurso.nivelAdivinanza" name="nivelAdivinanza">
                             <option  disabled value="">--- Seleccione una opción ---</option>
                             <option ng-repeat="x in nivelesAdivinanza" value="{{x.valor}}">{{x.nivel}}</option>
@@ -106,8 +104,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nivelDificultad" class="col-sm-3 control-label">Dificultad:</label>
-                    <div class="col-sm-7">
+                    <div class="col-sm-6">
+                    <label for="nivelDificultad" class="control-label">Dificultad:</label>
                         <select class="form-control" ng-model="recurso.dificultad" name="nivelDificultad">
                             <option  disabled value="">--- Seleccione una opción ---</option>
                             <option ng-repeat="x in nivelesDificultad" value="{{x.valor}}"ng-selected="obj.nivel == x.nivel">{{x.nivel}}</option>
@@ -120,7 +118,7 @@
                     
 
                 <hr>
-                <a class="btn btn-primary" ng-click="guardarAsociados()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+                <a class="btn btn-cat" ng-click="guardarAsociados()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
                
             </section>
              <hr/>
