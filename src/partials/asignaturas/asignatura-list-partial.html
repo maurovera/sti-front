@@ -44,11 +44,11 @@
                             <td>{{row.nombre}}</td>
                             <td>{{row.descripcion}}</td>
                             <td>
-                                <a href="#!/asignatura/{{row.id}}/ver"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a> &nbsp;
-                                <a href="#!/asignatura/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
-                                <a href="#" ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a> &nbsp;
-                                <a href="#!/asignatura/{{row.id}}/tema"><i class="fa fa-indent" aria-hidden="true"></i> Temas</a>&nbsp;
-                                <a href="#!/asignatura/{{row.id}}/ejercicio"><i class="fa fa-list" aria-hidden="true"></i> Ejercicios</a> &nbsp;
+                                <a class="btn btn-warning" href="#!/asignatura/{{row.id}}/ver" title="Ver"><i class="fa fa-eye" aria-hidden="true"></i></a> 
+                                <a class="btn btn-success" href="#!/asignatura/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
+                                <a class="btn btn-danger" href="#" ng-click="eliminar(row)" title="Eliminar"><i class="fa fa-trash"></i></a> 
+                                <a class="btn btn-primary" href="#!/asignatura/{{row.id}}/tema" title="Tema"><i class="fa fa-indent" aria-hidden="true"></i></a> 
+                                <a class="btn btn-info" href="#!/asignatura/{{row.id}}/ejercicio" title="Ejercicio"><i class="fa fa-list" aria-hidden="true"></i></a> 
                             </td>
                         </tr>
                     </tbody>

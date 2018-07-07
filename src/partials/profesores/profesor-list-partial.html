@@ -34,9 +34,9 @@
                             <td>{{row.nombre}}</td>
                             <td>{{row.apellido}}</td>
                             <td>
-                                <a href="#!/profesor/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
-                                <a href="#!/profesor/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
-                                <a href="#" ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
+                                <a class="btn btn-warning" href="#!/profesor/{{row.id}}/ver" title="Ver"><i class="fa fa-eye"></i></a> 
+                                <a class="btn btn-success" href="#!/profesor/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
+                                <a class="btn btn-danger" href="#" ng-click="eliminar(row)" title="Eliminar"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     </tbody>

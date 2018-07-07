@@ -50,9 +50,9 @@
                             <td>{{row.nombres}}</td>
                             <td>{{row.apellidos}}</td>
                             <td>
-                                <a href="#!/alumno/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
-                                <a href="#!/alumno/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
-                                <a href="#" ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
+                                <a class="btn btn-warning" href="#!/alumno/{{row.id}}/ver" title="Ver"><i class="fa fa-eye"></i></a> 
+                                <a class="btn btn-success" href="#!/alumno/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
+                                <a class="btn btn-danger" href="#" ng-click="eliminar(row)" title="Eliminar"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     </tbody>

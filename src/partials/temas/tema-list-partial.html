@@ -52,11 +52,11 @@
                             <td>{{row.nombre}}</td>
                             <td>{{row.descripcion}}</td>
                             <td>{{row.pesoTema*100}}%</td>
-                            <td>
-                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
-                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
-                                <a href="#" ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
-                                <a href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/concepto"><i class="fa fa-th" aria-hidden="true"></i> Conceptos</a>
+                            <td style="width: 20%">
+                                <a class="btn btn-warning" href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/ver" title="Ver"><i class="fa fa-eye"></i></a> 
+                                <a class="btn btn-success" href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
+                                <a class="btn btn-danger" href="#" ng-click="eliminar(row)"><i class="fa fa-trash" title="Eliminar"></i></a> 
+                                <a class="btn btn-info" href="#!/asignatura/{{recursoAsig.id}}/tema/{{row.id}}/concepto" title="Conceptos"><i class="fa fa-th" aria-hidden="true"></i></a>
 
                             </td>
                         </tr>

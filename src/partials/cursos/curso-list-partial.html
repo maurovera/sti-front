@@ -45,10 +45,10 @@
                             <td>{{row.nombre}}</td>
                             <td>{{row.descripcion}}</td>
                             <td>
-                                <a href="#!/curso/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
-                                <a href="#!/curso/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
-                                <a href="#" ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
-                                <a href="#!/curso/{{row.id}}/tarea"><i class="fa fa-suitcase" aria-hidden="true"></i> Tareas</a>
+                                <a class="btn btn-warning" href="#!/curso/{{row.id}}/ver" title="Ver"><i class="fa fa-eye"></i></a> 
+                                <a class="btn btn-success" href="#!/curso/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
+                                <a class="btn btn-danger" href="#" ng-click="eliminar(row)" title="Eliminar"><i class="fa fa-trash"></i></a> 
+                                <a class="btn btn-info" href="#!/curso/{{row.id}}/tarea" title="Tarea"><i class="fa fa-suitcase" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -71,5 +71,4 @@
             <a class="btn btn-default" href="#!/curso/crear"><i class="fa fa-plus"></i> Agregar</a>
         </section>
     </section>
-</div>
 </div>
