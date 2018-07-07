@@ -10,17 +10,8 @@
     color: #fff;
     background: $pane-gray-border;
     font-family: 'Anton', sans-serif;
-    border-radius: 0px 0px 15px 15px;
     /* creates the larger triangle */
-    &:before {
-        content: "";
-        position: absolute;
-        bottom: -50px;
-        right: 40%;
-        border-width: 31px 25px 19px 24px;
-        border-style: solid;
-        border-color: $pane-gray-border transparent transparent;
-    }
+    
     .value {
         font-size: 2.1em;
         transform: scale(1, 2);
