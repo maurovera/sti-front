@@ -23,6 +23,39 @@
                 <input type="text" ng-model="recurso.apellido" class="form-control" id="apellido" placeholder="Apellido del profesor.">
             </div>
         </div>
+        
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="apellido" class="control-label">Documento de identidad:*</label>
+                <input type="text" ng-model="recurso.cedula" class="form-control" id="cedula" placeholder="Documento de identidad del profesor.">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="apellido" class="control-label">Dirección:*</label>
+                <input type="text" ng-model="recurso.direccion" class="form-control" id="direccion" placeholder="Dirección del profesor.">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="apellido" class="control-label">E-mail:*</label>
+                <input type="text" ng-model="recurso.email" class="form-control" id="email" placeholder="E-mail del profesor.">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="respuesta_correcta" class="control-label">Género:*</label>
+                <select class="form-control" ng-model="recurso.genero" name="genero">
+                    <option  disabled value="">--- Seleccione una opción ---</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+        </div>
+
 
     </form>
 </form-directive>

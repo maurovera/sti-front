@@ -23,6 +23,24 @@
                 <input type="text" ng-model="recurso.apellidos" class="form-control" id="apellidos" placeholder="Apellido del alumno." required="required">
             </div>
         </div>
+        
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="edad" class="control-label">Edad:*</label>
+                <input type="text" ng-model="recurso.edad" class="form-control" id="edad" placeholder="Edad del alumno." required="required">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="respuesta_correcta" class="control-label">Género:*</label>
+                <select class="form-control" ng-model="recurso.genero" name="genero">
+                    <option  disabled value="">--- Seleccione una opción ---</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+        </div>
 
     </form>
 </form-directive>

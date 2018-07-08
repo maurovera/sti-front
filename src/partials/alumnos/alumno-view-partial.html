@@ -14,5 +14,20 @@
         <dd>
             {{recurso.apellidos}}
         </dd>
+        <dt>Edad:</dt>
+        <dd>
+            {{recurso.edad}}
+        </dd>
+        <dt>Género:</dt>
+        <dd ng-if="recurso.genero == 'M'">Masculino</dd>
+        <dd ng-if="recurso.genero == 'F'">Femenino</dd>
+        <dt>Estilo de aprendizaje:</dt>
+        <dd>
+            {{recurso.estilo}}
+        </dd>
+        <dt>Nivel actual:</dt>
+        <dd>
+            {{recurso.nivelActual}}
+        </dd>
     </view>
 </view-directive>

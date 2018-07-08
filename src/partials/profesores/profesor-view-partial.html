@@ -14,5 +14,21 @@
         <dd>
             {{recurso.apellido}}
         </dd>
+        <dt>Doc. de identidad:</dt>
+        <dd>
+            {{recurso.cedula}}
+        </dd>
+        <dt>Dirección:</dt>
+        <dd>
+            {{recurso.direccion}}
+        </dd>
+        <dt>E-mail:</dt>
+        <dd>
+            {{recurso.email}}
+        </dd>
+        <dt>Género:</dt>
+        <dd ng-if="recurso.genero == 'M'">Masculino</dd>
+        <dd ng-if="recurso.genero == 'F'">Femenino</dd>
+        
     </view>
 </view-directive>
