@@ -48,10 +48,9 @@
                             <td>{{row.descripcion}}</td>
                             <td>{{row.estadoTarea}}</td>
                             <td>
-                                <a href="#!/curso/{{cursoId}}/tarea/{{row.id}}/ver"><i class="fa fa-eye"></i> Ver</a> &nbsp;
-                                <a href="#!/curso/{{cursoId}}/tarea/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar</a> &nbsp;
-                                <a ng-click="eliminar(row)"><i class="fa fa-trash"></i> Eliminar</a>
-                                <a href="#!/curso/{{cursoId}}/tarea/{{row.id}}/tareaDetalle"><i class="fa fa-pencil-square-o"></i> Lista Ejercicios</a>
+                                <a class="btn btn-warning" href="#!/curso/{{cursoId}}/tarea/{{row.id}}/ver" title="Ver"><i class="fa fa-eye"></i></a> 
+                                <a class="btn btn-success" href="#!/curso/{{cursoId}}/tarea/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
+                                <a class="btn btn-danger" href="#" ng-click="eliminar(row)" title="Eliminar"><i class="fa fa-trash"></i></a> 
 
                             </td>
                         </tr>
