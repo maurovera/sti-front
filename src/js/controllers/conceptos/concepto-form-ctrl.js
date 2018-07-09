@@ -16,7 +16,7 @@ app.controller('ConceptoFormCtrl', ['$scope', '$routeParams', 'ConceptoService',
 
 
         /**imprime el idAsig, el idTema y el idConcepto**/
-        console.log($routeParams);
+        console.log("primer routeparams: "+ $routeParams);
 
 
         // le paso el id del tema y asignatura para volver atras.
@@ -43,13 +43,25 @@ app.controller('ConceptoFormCtrl', ['$scope', '$routeParams', 'ConceptoService',
             $scope.serviceTema.obtener($scope.atrasTema)
                 .then(function (response) {
                     $scope.recursoTema = response.data;
-                    console.log($scope.recursoTema);
+                    console.log("recurso: "+$scope.recursoTema);
                     /**Aqui se le asigna el tema al concepto. Para que este ligado a el**/
                     $scope.recurso.tema = $scope.recursoTema;
-                    console.log($scope.recurso);
+                    
                 }, function (data, code) {
                     Message.error("No se pudo realizar la operación de obtener el tema para el concepto form");
                 });
+        };
+        
+        
+        /**Funcion guardar concepto. */
+        $scope.guardarConcepto = function () {
+            // id de la asignatura ligada a los conceptos.
+            $scope.recurso.idAsignatura = $scope.atrasAsig;
+            
+            console.log("recurso en guardar:"+$scope.recurso.idAsignatura);
+            
+            //Funcion guardar heredado. 
+            $scope.guardar();
         };
 
 
@@ -63,7 +75,14 @@ app.controller('ConceptoFormCtrl', ['$scope', '$routeParams', 'ConceptoService',
             angular.extend(this, $controller('BaseFormCtrl', {
                 "$scope": $scope
             }));
-
+            
+            
+            $routeParams.id = $routeParams.idConcepto;
+            
+            $scope.atrasTema = $routeParams.idTema;
+            $scope.atrasAsig = $routeParams.idAsig;
+            $scope.recurso.idAsignatura = $scope.atrasAsig;
+            console.log("inicial: "+ $scope.atrasTema + ","+ $scope.atrasAsig+","+ $scope.recurso.idAsignatura + "inicio" );
             $scope.getRecursoTemaForm();
             //Lista conocimiento previo
             $scope.listaConocimiento = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5,0.55,

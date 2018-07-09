@@ -123,11 +123,13 @@ app.controller('EjercicioFormCtrl', ['$scope', '$routeParams', 'EjercicioService
          * llama al final a guardar.
          **/
         $scope.guardarAsociados = function () {
+            $scope.recurso.idAsignatura = $routeParams.idAsig;
             $scope.recurso.nivelDificultad = 0.0;
             $scope.recurso.adivinanza = 0.0;
             $scope.recurso.listaConceptos = [];
             console.log("guardados asociados");
-            // guardar solo los codigos de los conceptos asociados.
+            // guardar solo los codigos de los conceptos asociados. Creo que esta al pedo. Porque ya le cargo
+            //desde el backend
             angular.forEach($scope.recurso.conceptosAsociados, function (valor, llave) {
                 console.log(valor);
                 $scope.conceptoA = {};
@@ -148,6 +150,7 @@ app.controller('EjercicioFormCtrl', ['$scope', '$routeParams', 'EjercicioService
                 $scope.recurso.nivelDificultad = parseFloat($scope.recurso.dificultad);
                 //Nivel de Adivinanza
                 $scope.recurso.adivinanza = parseFloat($scope.recurso.nivelAdivinanza);
+                
 
             } else {
                 // nivel de dificultad

@@ -69,7 +69,7 @@ app.controller('TemaFormCtrl', ['$scope', '$routeParams','TemaService', 'Asignat
             angular.extend(this, $controller('BaseFormCtrl', {
                 "$scope": $scope
             }));
-            
+            $scope.atras = $routeParams.idAsig;
             $scope.getRecursoAsignatura();
             //console.log($scope.recursoAsignatura);
             //Lista conocimiento previo

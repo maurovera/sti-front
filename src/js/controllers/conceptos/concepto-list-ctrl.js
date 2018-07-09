@@ -55,11 +55,11 @@ function ($scope, $routeParams, service, serviceTema, $controller) {
                 "key": "nombre",
                 "name": "Nombre"
         },{
-                "key": "apriori",
-                "name": "Conocimiento Previo"
-        }, {
                 "key": "peso",
                 "name": "Peso"
+        }, {
+                "key": "apriori",
+                "name": "Conocimiento Previo"
         }, {
                 "key": "acciones",
                 "name": "Acciones"
