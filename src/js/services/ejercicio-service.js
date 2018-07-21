@@ -7,15 +7,20 @@
 app.service('EjercicioService', ['$http', 'StiBaseService', function ($http, BaseService) {
     return angular.extend({}, BaseService, {
         recurso: "/ejercicio/",
-        
-        
+
+
         listarEjercicio: function () {
-            return $http.get(App.REST_BASE + this.recurso + "/listaEjercicio", {
+            return $http.get(App.REST_BASE + this.recurso + "/listaEjercicio", {});
+        },
+
+        siguienteEjercicio: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "/siguienteEjercicio", {
+                params: params
             });
         }
-        
-        
-        
+
+
+
     });
 
 
