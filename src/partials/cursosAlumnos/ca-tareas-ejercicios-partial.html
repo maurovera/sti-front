@@ -6,78 +6,53 @@
                 <a href="#!/cursoAlumno/">Curso</a>
             </li>
             <li>
-                <a href="#!/cursoAlumno/">Tarea</a>
+                <a href="#!/cursoAlumno/1/tarea">Tarea</a>
             </li>
             <li class="active">
-                <a>Ejercicios<span class="badge">3</span></a>
+                <a>Ejercicios <span class="badge">3</span></a>
             </li>
         </ul>
     </div>
-
-    <br/>
-
-    <nav class="col-md-3 ">
-        <div class="form-wrapper">
-            <div class="top-block">
-                <h2 class="title-top ">Filtros</h2>
-                <p>Criterios de búsqueda.</p>
-            </div>
-
-        </div>
-    </nav>
-    <section class="col-md-9 ">
+    <section class="row">
         <section class="form-wrapper">
             <div class="top-block">
                 <h2 class="title-top ">Ejercicio</h2>
-                <p>A través de esta sección usted podrá consultar la lista de tareas del curso {{recursoCurso.nombre}}.</p>
-                <br/>
+                <p>Favor responda correctamente el ejercicio de la siguiente tarea <strong>Nombre de la tarea</strong>.</p>
             </div>
 
-    
-            
             <div class="enunciado">
                 <div class="col-sm-6">
                     <label for="enunciado" class="control-label">{{ejercicio.enunciado}}</label>
                 </div>
             </div>
-            
             <br/>
             <hr/>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="1" name="optradio">{{ejercicio.listaRespuesta[0].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
                 </div>
             </div>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="2" name="optradio">{{ejercicio.listaRespuesta[1].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
                 </div>
             </div>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="3" name="optradio">{{ejercicio.listaRespuesta[2].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
                 </div>
             </div>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="4" name="optradio">{{ejercicio.listaRespuesta[3].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="4" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
                 </div>
             </div>
-            {{numero}}
-            
+            <!--{{numero}}-->
             <hr color="blue" size=10><hr/>
+            <hr>
+            <br />
+            <a class="btn btn-cat"><i class="fa fa-floppy-o"></i> Siguiente Ejercicio</a>
             
-
-
-         
-
-            <br/>
-            <a class="btn btn-cat"><i class="fa fa-floppy-o"></i>&nbsp;SiguienteEjercicio</a>
-
-
-
-
-
         </section>
 
     </section>

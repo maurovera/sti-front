@@ -21,11 +21,6 @@
                 <a type="btn btn-primary" class="btn btn-primary list-group-item list-group-item-primary" ng-click="valor = 'A'">Cursos Disponibles</a>
                 <a type="btn btn-primary" class="btn btn-primary list-group-item list-group-item-primary" ng-click="valor = 'B'">Mis Cursos</a>
             </div>
-         
-
-
-
-
         </div>
 
     </nav>
@@ -37,42 +32,20 @@
                 <div ng-switch-when="A">
                     <div class="top-block">
                         <h2 class="title-top ">Cursos Disponibles</h2>
-                        <p>Cursos disponibles</p>
+                        <p>Seleccione el curso al cual desea inscribirse</p>
                     </div>
                     <div>
-                        <table class="table table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Descripción</th>
-                                    <th scope="col">Inscribirse</th>
-                                </tr>
-                            </thead>
-                            <tbody ng-if="loading == false">
-                                <tr ng-repeat="c in lista">
-                                    <td>{{c.id}}</td>
-                                    <td>{{c.nombre}}</td>
-                                    <td>{{c.descripcion}}</td>
-                                    <td><a href="#!/cursoAlumno/{{c.id}}/inscripcion"><i class="fa fa-share" aria-hidden="true"></i> Ir al Curso</a> &nbsp;</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr ng-if="loading == true">
-                                    <td colspan="6">
-                                        <loading></loading>
-                                    </td>
-                                </tr>
-                                <tr ng-if="loading == null">
-                                    <td colspan="6">
-                                        <no-data></no-data>
-                                    </td>
-                                </tr>
-                            </tfoot>
-
-
-                        </table>
-
+                        <div class="row cajacursos" ng-repeat="c in lista">
+                        <div class="col-md-2"><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size: 60pt;"></i></div>
+                        <div class="col-md-3"><strong>{{c.nombre}}</strong></div>
+                        <div class="col-md-4">{{c.descripcion}}</div>
+                        <div class="col-md-2" style="float: right;">
+                            <a href="#!/cursoAlumno/{{c.id}}/inscripcion" class="btn btn-cat">
+                                Ir al Curso
+                            </a>
+                        </div>
+                    </div>
+                        
                     </div>
                     <hr/>
                     <a href="#!/cursoAlumno" class="btn btn-default">
@@ -102,7 +75,7 @@
                                     <td>{{curso.id}}</td>
                                     <td>{{curso.nombre}}</td>
                                     <td>{{curso.descripcion}}</td>
-                                    <td><a href="#!/cursoAlumno/{{curso.id}}/tarea"><i class="fa fa-binoculars" aria-hidden="true"></i> Tareas</a> &nbsp;</td>
+                                    <td><a class="btn btn-primary" href="#!/cursoAlumno/{{curso.id}}/tarea" title="Tareas"><i class="fa fa-binoculars" aria-hidden="true"></i></a></td>
                                 </tr>
                             </tbody>
                             <tfoot>

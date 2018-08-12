@@ -4478,6 +4478,10 @@ a:hover, a:focus {
   color: #fff;
   text-decoration: underline;
 }
+
+.ahover:hover{
+    color: #563d7c !important;
+}
 a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
@@ -11759,4 +11763,10 @@ tfoot {
   width: 100%;
 }
 
+.cajacursos{
+    border: solid 1px #ccc;
+    padding: 10px 10px;
+    margin: 0 10px 10px;
+    
+}
 /*# sourceMappingURL=main.css.map */
