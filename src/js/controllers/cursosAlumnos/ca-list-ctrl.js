@@ -1,11 +1,21 @@
 /***Controller para asignacion de curso al alumno.
  **/
 app.controller('CursoAlumnoListCtrl', ['$scope', 'CursoService', '$controller',
-function ($scope, service, $controller) {
+    function ($scope, service, $controller) {
 
-    
-        $scope.valor="A";
-        $scope.idAProbar = 1;
+        /**Valor para el panel de disponible y no disponible. */
+        $scope.valor = "A";
+        /**Obtenemos del cookie el id para listar. Esto tiene que ser una factoria
+         * o guardase en una factoria
+         */
+        var userGuardado = localStorage.getItem("user");
+        var userGuardado = JSON.parse(userGuardado);
+        console.log("user id del usuario: " + userGuardado.userId);
+        console.log("nombre del usuario: " + userGuardado.usuario);
+        $scope.idAlu = userGuardado.userId;
+       
+
+
         /**
          * Servicio curso
          */
@@ -17,6 +27,7 @@ function ($scope, service, $controller) {
         /**
         * Se encarga de obtener la lista de cursos disponibles para el alumno.
          * Return <id,nombre,descripcion> de Curso
+         * Este listar esta mal porque trae muchisimos. 
          */
         $scope.getListaCurso = function (parametros) {
             $scope.service.listarCurso(parametros)
@@ -33,7 +44,7 @@ function ($scope, service, $controller) {
         };
 
         /****FIN DE LISTA DE CURSO DISPONIBLES*/
-    
+
         /**
         * Se encarga de obtener la lista de cursos disponibles para el alumno.
          * Return <id,nombre,descripcion> de Curso
@@ -54,31 +65,20 @@ function ($scope, service, $controller) {
 
         /****FIN DE LISTA DE CURSO DISPONIBLES*/
 
-    
-    
-    
-    
-    
-    
-    
         /**
          * Constructor / Entrypoint
          * @constructor
          */
         (function initialize() {
 
-            console.log("cambio");
-            //Se llama a la funcion getListaCurso
-            //Datos para la lista
             $scope.inicial = {
-                'idAlumno': $scope.idAProbar
-                
-
+                'idAlumno': $scope.idAlu
             };
+
             $scope.getListaCurso($scope.inicial);
-             $scope.getListaCursoAlumno($scope.inicial);
+            $scope.getListaCursoAlumno($scope.inicial);
         })();
 
 
 
-}]);
+    }]);

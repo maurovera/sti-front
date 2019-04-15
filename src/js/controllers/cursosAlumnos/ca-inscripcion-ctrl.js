@@ -9,11 +9,20 @@ app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller
         $scope.service = service;
         $scope.uri = "/cursoAlumno";
         
+        /**Obtenemos del cookie el id para listar. Esto tiene que ser una factoria
+         * o guardase en una factoria
+         */
+        var userGuardado = localStorage.getItem("user");
+        var userGuardado = JSON.parse(userGuardado);
+        console.log("user id del usuario: " + userGuardado.userId);
+        console.log("nombre del usuario: " + userGuardado.usuario);
+        $scope.idAlu = userGuardado.userId;
+       
         
-          /**imprime el idAsig, el idTema y el idConcepto**/
+          /**imprime el id y el idCurso**/
         console.log($routeParams);
 
-
+      
 
         // esto es para que le llame a modificar curso.
         $routeParams.id = $routeParams.idCurso;
@@ -26,7 +35,7 @@ app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller
          */
         $scope.guardarCurso = function () {
                 console.log("estoy en guardarCurso");
-                $scope.recurso.alumno = 1;
+                $scope.recurso.alumno = userGuardado.userId;
                 this.editarRecursoAlumno();
             
         };
@@ -54,7 +63,7 @@ app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller
          */
         $scope.guardarSuccessAlumno = function (response) {
             $scope.disabledButtonSave = false;
-            Message.ok("El Alumno se ha inscripto exitosamente.");
+            Message.ok("El Alumno "+ userGuardado.usuario + " se ha inscripto exitosamente.");
             $location.url($scope.uri);
         };
         // fin de agregar alumno.

@@ -15,7 +15,6 @@
   "dependencies": {
     "ksass": "http://gitlab.konecta.com.py/konecta-public/ksass.git#master",
     "ng-tasty": "^0.6.1",
-    "keycloak": "keycloak/keycloak-js-bower#^3.0.0",
     "angular": "^1.6.4",
     "angular-route": "^1.6.4",
     "jquery": "^3.2.1",

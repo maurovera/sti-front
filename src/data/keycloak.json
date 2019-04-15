@@ -1,8 +1,0 @@
-{
-  "realm": "master",
-  "auth-server-url": "http://localhost:8180/auth",
-  "ssl-required": "external",
-  "resource": "sti-front",
-  "public-client": true,
-  "use-resource-role-mappings": true
-}

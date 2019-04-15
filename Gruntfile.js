@@ -173,7 +173,6 @@ module.exports = function (grunt) {
             libs: {
                 src: [
                 //vendors js
-                '<%=app.src%>/vendors/keycloak/dist/keycloak.min.js',
                 '<%=app.src%>/vendors/jquery/dist/jquery.min.js',
                 '<%=app.src%>/vendors/bootstrap-sass/assets/javascripts/bootstrap.min.js',
                 //angular
@@ -187,10 +186,8 @@ module.exports = function (grunt) {
                 //app.js
                 '<%=app.dist%>/js/common/**/*.js',
                 '<%=app.dist%>/js/module.js',
-               '<%=app.dist%>/js/keycloak/keycloak-init.js',
                 '<%=app.dist%>/js/app.js',
-                '<%=app.dist%>/js/keycloak/keycloak-provider.js',
-                '<%=app.dist%>/js/keycloak/interceptor-factory.js',
+                '<%=app.dist%>/js/setup.js',
                 // se importan los componetes que son reutilizables.
                 '<%=app.src%>/vendors/ksass/src/js/common/**/*.js',
                 '<%=app.src%>/vendors/ksass/src/js/directives/sidebar-directive.js',
@@ -208,7 +205,8 @@ module.exports = function (grunt) {
                 //directives
                 '<%=app.dist%>/js/directives/**/*.js',
                 //controllers
-                '<%=app.dist%>/js/controllers/**/*.js'
+                //'<%=app.dist%>/js/controllers/**/*.js'
+                '<%=app.src%>/js/controllers/**/*.js'
                 ],
                 dest: '<%=app.dist%>/libs/app.min.js'
             }

@@ -4,7 +4,12 @@
 <div class="col-md-12">
     <div class="row" ng-controller="HeaderCtrl">
         <section class="box-body">
-            <h1>¡Bienvenido {{user.nombre}}!</h1>
+            <h1>¡Bienvenido {{user.username}}!</h1>
+            <a class="btn btn-cat" ng-click="reload()"><i class="fa fa-floppy-o"></i>&nbsp;Recargar</a>
+            
+            <a href="#!/registro" class="btn btn-default">
+                <i class="fa fa-mail-reply" aria-hidden="true"></i> Registro
+            </a>
             <hr/>
             <p class="text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam molestie metus. Quisque pellentesque ipsum et est pulvinar vehicula. Nunc ac nibh eget ipsum semper feugiat. Sed imperdiet massa tortor, sit amet ullamcorper massa lobortis et. Nulla a nisl et ligula faucibus aliquet a id orci. Sed porta tempor massa pretium malesuada.

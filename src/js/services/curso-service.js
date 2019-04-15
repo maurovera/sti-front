@@ -3,13 +3,13 @@ app.service('CursoService', ['$http', 'StiBaseService', function ($http, BaseSer
         recurso: "/curso/",
 
         listarCurso: function (params) {
-            return $http.get(App.REST_BASE + this.recurso + "/listaCurso", {
+            return $http.get(App.REST_BASE + this.recurso + "/listaCursoDisponible", {
                 params:params
             });
         },
           
         listarCursoAlumno: function (params) {
-            return $http.get(App.REST_BASE + this.recurso + "/listaCursoAlumno", {
+            return $http.get(App.REST_BASE + this.recurso + "/listaCursoInscripto", {
                 params:params
             });
         },

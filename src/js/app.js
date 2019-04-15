@@ -1,20 +1,29 @@
 /*
  * Se configuran las rutas de la aplicación
  */
-app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
-    function ($routeProvider, $httpProvider, keycloakLauncherProvider) {
+app.config(['$routeProvider', '$httpProvider', // 'keycloakLauncherProvider',
+    function ($routeProvider, $httpProvider) {
+
+       
         /*
-         * Se registran los interceptors de keycloak.
+         * Se registran los interceptors.
          */
-        $httpProvider.interceptors.push('errorInterceptor');
-        $httpProvider.interceptors.push('authInterceptor');
+
+        //$httpProvider.interceptors.push('errorInterceptor');
+        //$httpProvider.interceptors.push('authInterceptor');
+        
+        //$httpProvider.interceptors.push('Interceptor');     
+        
         /*
          * Route resolver que se utiliza para restringir las páginas que necesitan 
          * que el usuario este logeado en el sistema para acceder a al misma. 
          */
         var resolve = {
-            init: ['keycloakLauncher', '$location', function (keycloakLauncher, $location) {
-                if (!keycloakLauncher.loggedIn) {
+            init: [ '$location', function ( $location) {
+                
+                var user = localStorage.getItem("user");
+                console.log("user en resolve: "+ user);
+                if (user === null) {
                     $location.url("/");
                 }
             }]
@@ -25,8 +34,17 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
          * cuando el usuario está logeado.
          */
         var publicResolve = {
-            init: ['keycloakLauncher', '$location', function (keycloakLauncher, $location) {
-                if (keycloakLauncher.loggedIn) {
+            
+            init: ['$location','$routeParams', function ( $location,$routeParams) {
+                
+               
+                console.log("$routeParams: "+ $routeParams);
+                console.log("header.loggedIn :  " );
+                console.log("tamaño local storage: "+ localStorage.length);
+                var user = localStorage.getItem("user");
+                console.log("user en resolve public: "+ user);
+
+                if (user != null) {
                     $location.url("/dashboard");
                 }
             }]
@@ -36,8 +54,14 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
          * Se definen las rutas de la aplicación
          */
         $routeProvider
+
             .when('/', {
                 templateUrl: 'partials/public-partial.html',
+                resolve: publicResolve
+            })
+            .when('/registro', {
+                templateUrl: 'partials/registroUsuario/registro-form-partial.html',
+                controller: 'RegistroFormCtrl',
                 resolve: publicResolve
             })
             .when('/dashboard', {
@@ -298,8 +322,13 @@ app.config(['$routeProvider', '$httpProvider', 'keycloakLauncherProvider',
                 resolve: resolve
             })
             .when('/cursoAlumno/:idCurso/tarea/:idTarea/ejercicio', {
-                templateUrl: 'partials/cursosAlumnos/ca-tareas-ejercicios-partial.html',
+                templateUrl: 'partials/cursosAlumnos/ca-tarea-ejercicio-partial.html',
                 controller: 'CursoAlumnoTareaEjercicioCtrl',
+                resolve: resolve
+            
+            }).when('/cursoAlumno/:idCurso/tarea/:idTarea/ejercicioTutor', {
+                templateUrl: 'partials/cursosAlumnos/ca-tarea-ejercicio-tutor-partial.html',
+                controller: 'CursoAlumnoTareaEjercicioTutorCtrl',
                 resolve: resolve
             })
 

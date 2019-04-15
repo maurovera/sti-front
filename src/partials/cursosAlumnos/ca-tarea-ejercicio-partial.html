@@ -22,36 +22,37 @@
 
             <div class="enunciado">
                 <div class="col-sm-6">
-                    <label for="enunciado" class="control-label">{{ejercicio.enunciado}}</label>
+                    <label for="enunciado" class="control-label">{{ejercicio.enunciado}} criterio: {{criterioValor}}</label>
                 </div>
             </div>
             <br/>
             <hr/>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
                 </div>
             </div>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
                 </div>
             </div>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
                 </div>
             </div>
             <div class="respuesta">
                 <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="4" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
+                    <label><input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
                 </div>
             </div>
             <!--{{numero}}-->
             <hr color="blue" size=10><hr/>
             <hr>
             <br />
-            <a class="btn btn-cat" ng-click="respuestaEjercicio()"><i class="fa fa-floppy-o"></i> Siguiente Ejercicio</a>
+            <a class="btn btn-cat" data-ng-show="mostrar()"  ng-click="respuestaEjercicio()"><i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
+            <a  ng-hide="mostrar()" > No hay mas ejercicios</a>
             
         </section>
         
