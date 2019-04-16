@@ -54,6 +54,24 @@ app.service('EjercicioService', ['$http', 'StiBaseService', function ($http, Bas
 
         responderMaterial: function (params) {
             return $http.post(App.REST_BASE + this.recurso + '/responderMaterial', params);
+        },
+
+        listarResueltoInicial: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "/listaResueltoInicial", {
+                params:params
+            });
+        },
+
+        listarResueltoTestTutor: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "/listaResueltoTestTutor", {
+                params:params
+            });
+        },
+
+        listarCamino: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "/listaCamino", {
+                params:params
+            });
         }
     
     });

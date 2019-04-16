@@ -49,16 +49,52 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
 
         $scope.valor = "A";
         //$scope.alumno = 19;
-        $scope.asignatura = 2;
+        //$scope.asignatura = 2;
         $scope.ejercicioService = ejercicioService;
         $scope.sesionTutorService = sesionTutorService;
+        $scope.serviceCurso = service;
+
         $scope.ejercicio = {};
         $scope.sesionTutor = {};
         $scope.numero = 0;
         $scope.criterioValor = false;
-
+        $scope.curso = {};
+        $scope.idCursoNumero = $routeParams.idCurso;
         /**imprime el idAsig y el idTema**/
         console.log($routeParams);
+
+
+
+        /**
+         * Trae un curso. 
+         * Para poder asignarle el id de la asignatura. solamente para eso.
+         */
+        $scope.getRecursoCurso = function (parametroCurso) {
+            $scope.serviceCurso.obtener(parametroCurso)
+                .then(function (response) {
+                    $scope.curso = response.data;
+                    $scope.valoresSiguiente.idAsignatura = $scope.curso.asignatura.id;
+                }, function (data, code) {
+                    $scope.recursoCurso = {};
+                    Message.error("No se pudo realizar la operación de obtener el curso");
+                });
+        };
+
+
+        /**
+         * Trae la lista de resueltos en el primer test. 
+         */
+        $scope.resueltos = {};
+        $scope.getListaResueltos = function () {
+            $scope.ejercicioService.listarResueltoInicial($scope.valoresSesion)
+                .then(function (response) {
+                    $scope.resueltos = response.data.rows;
+                }, function (data, code) {
+                    $scope.recursoCurso = {};
+                    Message.error("No se pudo realizar la operación de obtener la lista de resueltos");
+                });
+        };
+
 
 
         /**
@@ -123,6 +159,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
          * Obtiene el criterio del primer test.  
          *
          */
+        $scope.valorVentana = "A";
         $scope.criterio = function (parametros) {
             $scope.ejercicioService.criterio(parametros)
                 .then(function (response) {
@@ -132,8 +169,12 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     console.log($scope.criterioValor);
                     if ($scope.criterioValor) {
                         console.log("criterio true. parar el tema");
+                        $scope.valorVentana = "B";
+                        /**Se llama para traer los resultados */
+                        $scope.getListaResueltos();
                     } else {
                         console.log("criterio false. seguir nde loco");
+                        $scope.valorVentana = "A";
                         $scope.siguienteEjercicio($scope.valoresSiguiente);
                     }
                 }, function (data, code) {
@@ -144,29 +185,31 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
 
         /**mostrar btn */
         $scope.mostrar = function () {
-            if($scope.criterioValor){
+            if ($scope.criterioValor) {
                 return false;
-            }else{
+            } else {
                 return true;
             }
         };
 
 
         /**funcion para llamar a responder del primer test.**/
-        $scope.respuestaEjercicio = function () {
+        $scope.respuestaEjercicio = function (parametro) {
+            console.log("el parametro es: " + parametro);
+            $scope.numero = parametro;
             console.log("el numero de la respuesta es: " + $scope.numero);
             console.log("el id del ejercicio es: " + $scope.ejercicio.id);
             // datos inicial para sesion
             $scope.variableResponder = {
                 'idTarea': $scope.tarea,
                 'idAlumno': $scope.alumno,
-                'idAsignatura': 1,
+                'idAsignatura': $scope.curso.asignatura.id,
                 'respuesta': $scope.ejercicio.listaRespuesta[$scope.numero].descripcion,
                 'idEjercicio': $scope.ejercicio.id
             };
             /**No llamo directamente */
             $scope.responder($scope.variableResponder);
-            
+
             /**llama al criterio de nuevo. */
             $scope.criterio($scope.valoresSesion);
             $scope.numero = 0;
@@ -183,7 +226,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
             //$scope.traerSesion($scope.valoresSesion);
 
             $scope.criterio($scope.valoresSesion);
-
+            $scope.getRecursoCurso($scope.idCursoNumero);
 
             initPath();
 

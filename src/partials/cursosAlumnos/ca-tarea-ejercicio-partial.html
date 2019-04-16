@@ -9,56 +9,108 @@
                 <a href="#!/cursoAlumno/1/tarea">Tarea</a>
             </li>
             <li class="active">
-                <a>Ejercicios <span class="badge">3</span></a>
+                <a>Ejercicios
+                    <span class="badge">3</span>
+                </a>
             </li>
         </ul>
     </div>
     <section class="row">
-        <section class="form-wrapper">
-            <div class="top-block">
-                <h2 class="title-top ">Ejercicio</h2>
-                <p>Favor responda correctamente el ejercicio de la siguiente tarea <strong>Nombre de la tarea</strong>.</p>
-            </div>
+        <section class="col-md-12 ">
+            <section class="form-wrapper">
 
-            <div class="enunciado">
-                <div class="col-sm-6">
-                    <label for="enunciado" class="control-label">{{ejercicio.enunciado}} criterio: {{criterioValor}}</label>
+                <div ng-switch on="valorVentana">
+                    <div ng-switch-when="A">
+                        <div class="top-block">
+                            <h2 class="title-top ">Siguiente Ejercicio</h2>
+                            <p>Se muestra el siguiente ejercicio</p>
+                            <div class="enunciado">
+                                <div class="col-sm-6">
+                                    <label for="enunciado" class="control-label">{{ejercicio.enunciado}} criterio: {{criterioValor}}</label>
+                                </div>
+                            </div>
+                            <br/>
+                            <hr/>
+                            <div class="respuesta">
+                                <div class="col-sm-6">
+                                    <label>
+                                        <input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
+                                </div>
+                            </div>
+                            <div class="respuesta">
+                                <div class="col-sm-6">
+                                    <label>
+                                        <input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
+                                </div>
+                            </div>
+                            <div class="respuesta">
+                                <div class="col-sm-6">
+                                    <label>
+                                        <input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
+                                </div>
+                            </div>
+                            <div class="respuesta">
+                                <div class="col-sm-6">
+                                    <label>
+                                        <input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
+                                </div>
+                            </div>
+
+                            <hr color="blue" size=10>
+                            <hr/>
+                            <hr>
+                            <br />
+                            <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicio(numero)">
+                                <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
+                            <a ng-hide="mostrar()"> No hay mas ejercicios</a>
+
+
+
+                            <strong>{{resul.idTarea}}</strong>
+                            <strong>{{numero}}</strong>
+
+                        </div>
+                    </div>
+                    <div ng-switch-when="B">
+
+                        <div class="top-block">
+                            <h2 class="title-top ">Resultados</h2>
+                            <p>Resultados del primer test para averiguar mi situación. Nivel por asignatura</p>
+                        </div>
+                        <div>
+                            <table class="table table-striped ">
+                                <thead>
+                                    <td>
+                                        <b>Ejercicio</b>
+                                    </td>
+                                    <td>
+                                        <b>Respuesta</b>
+                                    </td>
+                                    <td>
+                                        <b>Es Correcto</b>
+                                    </td>
+                                    <td>
+                                        <b>Nivel Inicial</b>
+                                    </td>
+                                    <td>
+                                        <b>Nivel Final</b>
+                                    </td>
+                                </thead>
+                                <tr ng-repeat="r in resueltos">
+                                    <td>{{ r.idEjercicio }}</td>
+                                    <td>{{ r.respuesta }}</td>
+                                    <td ng-if="r.esCorrecto == true">Verdadero</td>
+                                    <td ng-if="r.esCorrecto == false">Falso</td>
+                                    <td>{{ r.nivelInicial | number:3 }}</td>
+                                    <td>{{ r.nivelFinal | number:3}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div ng-switch-default>Texto para cuando no es ni A ni C ni B</div>
                 </div>
-            </div>
-            <br/>
-            <hr/>
-            <div class="respuesta">
-                <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
-                </div>
-            </div>
-            <div class="respuesta">
-                <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
-                </div>
-            </div>
-            <div class="respuesta">
-                <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
-                </div>
-            </div>
-            <div class="respuesta">
-                <div class="col-sm-6">
-                    <label><input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
-                </div>
-            </div>
-            <!--{{numero}}-->
-            <hr color="blue" size=10><hr/>
-            <hr>
-            <br />
-            <a class="btn btn-cat" data-ng-show="mostrar()"  ng-click="respuestaEjercicio()"><i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
-            <a  ng-hide="mostrar()" > No hay mas ejercicios</a>
-            
+
+            </section>
         </section>
-        
-        <strong>{{resul.idTarea}}</strong>
-         <strong>{{numero}}</strong>
-            
-
     </section>
 </div>

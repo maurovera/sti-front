@@ -93,8 +93,7 @@
 
                                 <dt>Estrategia:</dt>
                                 <dd>
-                                    {{material.estrategia}}
-                                    VIDEO
+                                    {{material.estrategia}} VIDEO
                                 </dd>
 
                                 <dt>Url del material:</dt>
@@ -111,13 +110,97 @@
                         </form>
                         <hr/>
                         <a class="btn btn-cat" ng-click="respuestaMaterialTutor()">
-                                <i class="fa fa-file-video-o" aria-hidden="true"></i> Siguiente
+                            <i class="fa fa-file-video-o" aria-hidden="true"></i> Siguiente
                         </a>
 
                     </div>
                     <div ng-switch-when="C">
+                        <div class="col-md-6">
+                            <div class="top-block">
+                                <h2 class="title-top ">Conceptos Evaluados</h2>
+                                <p>Estado de cada concepto evaluado. Niveles por Concepto</p>
+                            </div>
+                            <div>
+                                <table class="table table-striped ">
+                                    <thead>
+                                        <td>
+                                            <b>idConcepto</b>
+                                        </td>
+                                        <td>
+                                            <b>Concepto</b>
+                                        </td>
+                                        <td>
+                                            <b>Estilo</b>
+                                        </td>
+                                        <td>
+                                            <b>Nivel Inicial</b>
+                                        </td>
+                                        <td>
+                                            <b>Nivel Final</b>
+                                        </td>
+                                    </thead>
+                                    <tr ng-repeat="r in caminos">
+                                        <td>{{ r.idConcepto }}</td>
+                                        <td>{{ r.nombreConcepto }}</td>
+                                        <td>{{ r.estilo }}</td>
+                                        <td>{{ r.nivelInicial | number:3 }}</td>
+                                        <td>{{ r.nivelFinal | number:3 }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="top-block">
+                                <h2 class="title-top ">Resultados</h2>
+                                <p>Resultados del segundo Test. Niveles por asignatura</p>
+                            </div>
+                            <div>
+                                <table class="table table-striped ">
+                                    <thead>
+                                        <td>
+                                            <b>Concepto</b>
+                                        </td>
+                                        <td>
+                                            <b>Ejercicio</b>
+                                        </td>
+                                        <td>
+                                            <b>Material</b>
+                                        </td>
+                                        <td>
+                                            <b>Respuesta</b>
+                                        </td>
+                                        <td>
+                                            <b>Es Correcto</b>
+                                        </td>
+                                        <td>
+                                            <b>Nivel Inicial</b>
+                                        </td>
+                                        <td>
+                                            <b>Nivel Final</b>
+                                        </td>
+                                    </thead>
+                                    <tr ng-repeat="r in resueltos">
+                                        <td>{{ r.idConcepto }}</td>
+                                        <td>{{ r.idEjercicio }}</td>
+                                        <td>{{ r.idMaterial }}</td>
+                                        <td>{{ r.respuesta }}</td>
+                                        <td ng-if="r.esCorrecto == true">Verdadero</td>
+                                        <td ng-if="r.esCorrecto == false">Falso</td>
+                                        <td>{{ r.nivelInicial | number:3 }}</td>
+                                        <td>{{ r.nivelFinal | number:3 }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-switch-when="D">
                         <div class="top-block">
-                            <h2 class="title-top ">{{criterioValorTutor.mensaje}}</h2>
+                            <h2 class="title-top ">El sistema se quedó sin materiales disponibles. Avisar al tutor
+                                <a href="#!/cursoAlumno/{{curso.id}}/tarea" class="btn btn-default">
+                                    <i class="fa fa-mail-reply" aria-hidden="true"></i> Volver
+                                </a>
+                            </h2>
+
                         </div>
                     </div>
                     <div ng-switch-default>Texto para cuando no es ni A ni C ni B</div>
