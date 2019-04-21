@@ -89,6 +89,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
             $scope.ejercicioService.listarResueltoInicial($scope.valoresSesion)
                 .then(function (response) {
                     $scope.resueltos = response.data.rows;
+                    $scope.valorVentana = "B";
                 }, function (data, code) {
                     $scope.recursoCurso = {};
                     Message.error("No se pudo realizar la operación de obtener la lista de resueltos");
@@ -169,7 +170,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     console.log($scope.criterioValor);
                     if ($scope.criterioValor) {
                         console.log("criterio true. parar el tema");
-                        $scope.valorVentana = "B";
+                        
                         /**Se llama para traer los resultados */
                         $scope.getListaResueltos();
                     } else {

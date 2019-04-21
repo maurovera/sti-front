@@ -16,11 +16,12 @@
         </ul>
     </div>
     <section class="row">
-        <section class="col-md-12 ">
-            <section class="form-wrapper">
 
-                <div ng-switch on="valorVentana">
-                    <div ng-switch-when="A">
+        <section class="form-wrapper">
+
+            <div ng-switch on="valorVentana">
+                <div ng-switch-when="A">
+                    <div class="col-md-9 ">
                         <div class="top-block">
                             <h2 class="title-top ">Siguiente Ejercicio</h2>
                             <p>Se muestra el siguiente ejercicio</p>
@@ -64,53 +65,78 @@
                                 <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
                             <a ng-hide="mostrar()"> No hay mas ejercicios</a>
 
-
-
-                            <strong>{{resul.idTarea}}</strong>
-                            <strong>{{numero}}</strong>
-
                         </div>
                     </div>
-                    <div ng-switch-when="B">
-
+                    <div class="col-md-3 ">
                         <div class="top-block">
-                            <h2 class="title-top ">Resultados</h2>
-                            <p>Resultados del primer test para averiguar mi situación. Nivel por asignatura</p>
-                        </div>
-                        <div>
-                            <table class="table table-striped ">
-                                <thead>
-                                    <td>
-                                        <b>Ejercicio</b>
-                                    </td>
-                                    <td>
-                                        <b>Respuesta</b>
-                                    </td>
-                                    <td>
-                                        <b>Es Correcto</b>
-                                    </td>
-                                    <td>
-                                        <b>Nivel Inicial</b>
-                                    </td>
-                                    <td>
-                                        <b>Nivel Final</b>
-                                    </td>
-                                </thead>
-                                <tr ng-repeat="r in resueltos">
-                                    <td>{{ r.idEjercicio }}</td>
-                                    <td>{{ r.respuesta }}</td>
-                                    <td ng-if="r.esCorrecto == true">Verdadero</td>
-                                    <td ng-if="r.esCorrecto == false">Falso</td>
-                                    <td>{{ r.nivelInicial | number:3 }}</td>
-                                    <td>{{ r.nivelFinal | number:3}}</td>
-                                </tr>
-                            </table>
+                            <h2 class="title-top ">Datos del ejercicio</h2>
+                            <p>Se muestra los datos del ejercicio</p>
+                            <form class="wrapper form-horizontal" role="form">
+                                <dl class="dl-horizontal">
+                                    <dt>Dificultad:</dt>
+                                    <dd ng-if="ejercicio.nivelDificultad == 1">Fácil</dd>
+                                    <dd ng-if="ejercicio.nivelDificultad == 2">Normal</dd>
+                                    <dd ng-if="ejercicio.nivelDificultad == 3">Dificil</dd>
+                                
+                                    <dt>Adivinanza:</dt>
+                                    <dd ng-if="ejercicio.adivinanza == 0.1">Bajo</dd>
+                                    <dd ng-if="ejercicio.adivinanza == 0.2">Medio</dd>
+                                    <dd ng-if="ejercicio.adivinanza == 0.3">Alto</dd>
+                    
+                                    <dt>Conceptos:</dt>
+                                    <dd ng-repeat="c in ejercicio.conceptosView">{{c.nombre}}</dd>
+                                    
+                                    <dt>Ejercicio Anterior:</dt>
+                                    <dd ng-if="resp == false">Fallo</dd>
+                                    <dd ng-if="resp == true">Acerto</dd>
+                                </dl>
+                                <hr>
+                            </form>
+
+
                         </div>
                     </div>
-                    <div ng-switch-default>Texto para cuando no es ni A ni C ni B</div>
                 </div>
+                <div ng-switch-when="B">
 
-            </section>
+                    <div class="top-block">
+                        <h2 class="title-top ">Resultados</h2>
+                        <p>Resultados del primer test para averiguar mi situación. Nivel por asignatura</p>
+                    </div>
+                    <div>
+                        <table class="table table-striped ">
+                            <thead>
+                                <td>
+                                    <b>Ejercicio</b>
+                                </td>
+                                <td>
+                                    <b>Respuesta</b>
+                                </td>
+                                <td>
+                                    <b>Es Correcto</b>
+                                </td>
+                                <td>
+                                    <b>Nivel Inicial</b>
+                                </td>
+                                <td>
+                                    <b>Nivel Final</b>
+                                </td>
+                            </thead>
+                            <tr ng-repeat="r in resueltos">
+                                <td>{{ r.idEjercicio }}</td>
+                                <td>{{ r.respuesta }}</td>
+                                <td ng-if="r.esCorrecto == true">Verdadero</td>
+                                <td ng-if="r.esCorrecto == false">Falso</td>
+                                <td>{{ r.nivelInicial | number:3 }}</td>
+                                <td>{{ r.nivelFinal | number:3}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div ng-switch-default>Texto para cuando no es ni A ni C ni B</div>
+            </div>
+
         </section>
+
     </section>
 </div>

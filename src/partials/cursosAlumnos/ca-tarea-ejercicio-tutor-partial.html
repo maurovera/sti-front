@@ -21,49 +21,76 @@
 
                 <div ng-switch on="valor">
                     <div ng-switch-when="A">
-                        <div class="top-block">
-                            <h2 class="title-top ">Siguiente Ejercicio</h2>
-                            <p>Se muestra el siguiente ejercicio</p>
-                            <div class="enunciado">
-                                <div class="col-sm-6">
-                                    <label for="enunciado" class="control-label">{{ejercicio.enunciado}}</label>
+                        <div class="col-md-9 ">
+                            <div class="top-block">
+                                <h2 class="title-top ">Siguiente Ejercicio</h2>
+                                <p>Se muestra el siguiente ejercicio</p>
+                                <div class="enunciado">
+                                    <div class="col-sm-6">
+                                        <label for="enunciado" class="control-label">{{ejercicio.enunciado}}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <br/>
-                            <hr/>
-                            <div class="respuesta">
-                                <div class="col-sm-6">
-                                    <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
+                                <br/>
+                                <hr/>
+                                <div class="respuesta">
+                                    <div class="col-sm-6">
+                                        <label>
+                                            <input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="respuesta">
-                                <div class="col-sm-6">
-                                    <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
+                                <div class="respuesta">
+                                    <div class="col-sm-6">
+                                        <label>
+                                            <input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="respuesta">
-                                <div class="col-sm-6">
-                                    <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
+                                <div class="respuesta">
+                                    <div class="col-sm-6">
+                                        <label>
+                                            <input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="respuesta">
-                                <div class="col-sm-6">
-                                    <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
+                                <div class="respuesta">
+                                    <div class="col-sm-6">
+                                        <label>
+                                            <input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
+                                    </div>
                                 </div>
+                                {{numero}}
+                                <hr color="blue" size=10>
+                              
+                                
+                                <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicioTutor(numero)">
+                                    <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
+                                <a ng-hide="mostrar()"> No hay mas ejercicios</a>
                             </div>
-                            {{numero}}
-                            <hr color="blue" size=10>
-                            <hr/>
-                            <hr>
-                            <br />
-                            <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicioTutor(numero)">
-                                <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
-                            <a ng-hide="mostrar()"> No hay mas ejercicios</a>
+                        </div>
+                        <div class="col-md-3 ">
+                            <div class="top-block">
+                                <h2 class="title-top ">Datos del ejercicio</h2>
+                                <p>Se muestra los datos del ejercicio</p>
+                                <form class="wrapper form-horizontal" role="form">
+                                    <dl class="dl-horizontal">
+                                        <dt>Dificultad:</dt>
+                                        <dd ng-if="ejercicio.nivelDificultad == 1">Fácil</dd>
+                                        <dd ng-if="ejercicio.nivelDificultad == 2">Normal</dd>
+                                        <dd ng-if="ejercicio.nivelDificultad == 3">Dificil</dd>
 
+                                        <dt>Adivinanza:</dt>
+                                        <dd ng-if="ejercicio.adivinanza == 0.1">Bajo</dd>
+                                        <dd ng-if="ejercicio.adivinanza == 0.2">Medio</dd>
+                                        <dd ng-if="ejercicio.adivinanza == 0.3">Alto</dd>
+
+                                        <dt>Conceptos:</dt>
+                                        <dd ng-repeat="c in ejercicio.conceptosView">{{c.nombre}}</dd>
+
+                                        <dt>Ejercicio Anterior:</dt>
+                                        <dd ng-if="resp == false">Fallo</dd>
+                                        <dd ng-if="resp == true">Acerto</dd>
+                                    </dl>
+                                    <hr>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <div ng-switch-when="B">
@@ -179,7 +206,7 @@
                                             <b>Nivel Final</b>
                                         </td>
                                     </thead>
-                                    <tr ng-repeat="r in resueltos">
+                                    <tr ng-repeat="r in resueltos ">
                                         <td>{{ r.idConcepto }}</td>
                                         <td>{{ r.idEjercicio }}</td>
                                         <td>{{ r.idMaterial }}</td>
