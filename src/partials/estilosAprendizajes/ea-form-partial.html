@@ -3,13 +3,20 @@
         <div class="top-block">
             <h2 class="title-top">Estilo de Aprendizaje</h2>
             <div class="p-3 mb-2 bg-secondary text-white">
-                <p><b>Descripción:</b> Este cuestionario tiene como propósito ayudarle a conocer cómo trabaja con la información y cuál es su estilo de aprendizaje preferido para captar, procesar y proporcionar ideas e información. Los diferentes estilos que se manejan en este cuestionario son:</p>
+                <p>
+                    <b>Descripción:</b> Este cuestionario tiene como propósito ayudarle a conocer cómo trabaja con la información
+                    y cuál es su estilo de aprendizaje preferido para captar, procesar y proporcionar ideas e información.
+                    Los diferentes estilos que se manejan en este cuestionario son:</p>
                 <li>Visual</li>
                 <li>Auditivo</li>
                 <li>Lecto-escritor</li>
                 <li>Kinestésico</li>
-                <p>Básicamente usted podrá identificar y hacer conscientes sus preferencias sensoriales de manera que identifique situaciones de aprendizaje que pueda aprovechar a su favor. Los estilos de aprendizaje son variables en el tiempo y existe siempre la posibilidad de ser multisensorial, por lo cual usted podría compartir características de los demás estilos según esta taxonomía.</p>
-                <p><b>Instrucciones:</b>
+                <p>Básicamente usted podrá identificar y hacer conscientes sus preferencias sensoriales de manera que identifique
+                    situaciones de aprendizaje que pueda aprovechar a su favor. Los estilos de aprendizaje son variables
+                    en el tiempo y existe siempre la posibilidad de ser multisensorial, por lo cual usted podría compartir
+                    características de los demás estilos según esta taxonomía.</p>
+                <p>
+                    <b>Instrucciones:</b>
                     <li>Escoja las respuestas que más se acercan a su preferencia y elija la letra.</li>
                     <li>Deje en blanco toda pregunta que no sea aplicable.</li>
                     <li>Al terminar dé clic en el botón guardar para conocer su resultado.</li>
@@ -21,32 +28,25 @@
 
         <section class="wrapper form-horizontal" role="form">
 
-
-
             <div class="form-group">
                 <div class="pregunta" ng-repeat="p in listaPregunta">
                     <h4>{{p.pregunta}}</h4>
                     <div class="respuesta" ng-repeat="r in p.respuestas">
 
-                        <label><input type="checkbox"  ng-model = "r.habilitado" 
-                    id="{{r.id}}pregunta"  title="{{r.titulo}}"/>
-            {{r.titulo}}</label>
+                        <label>
+                            <input type="checkbox" ng-model="r.habilitado" id="{{r.id}}pregunta" title="{{r.titulo}}" /> {{r.titulo}}
+                        </label>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
         </section>
-        <a class="btn btn-cat" ng-click="guardarEA()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+        <button class="btn btn-cat" ng-disabled="bloquear()" ng-click="guardarEA()">
+            <i class="fa fa-floppy-o"></i>&nbsp;Guardar</button>
+
 
         <a href="#!/estiloAprendizaje" class="btn btn-cat">
             <i class="fa fa-mail-reply" aria-hidden="true"></i> Atrás
         </a>
+       
     </section>
 </div>

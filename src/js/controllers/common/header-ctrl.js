@@ -134,9 +134,9 @@ app.controller('HeaderCtrl', ['$scope', '$timeout', 'SessionService', '$location
             // llamamos a la funcion logear
             $scope.loginUser($scope.credenciales);
             // marcamos como usuario logeado
-            $scope.loggedIn = true;
+            //$scope.loggedIn = true;
 
-            console.log("usuario logeado: " + $scope.loggedIn);
+            //console.log("usuario logeado: " + $scope.loggedIn);
             // se va dashboard
             
         };
@@ -169,7 +169,10 @@ app.controller('HeaderCtrl', ['$scope', '$timeout', 'SessionService', '$location
                     }
 
                 }, function (data, code) {
-                    Message.error("no se pudo realizar la peticion de login");
+                    
+                        Message.error("no se pudo obtener el usuario");
+                    
+                    
                 });
         };
 
@@ -246,6 +249,27 @@ app.controller('HeaderCtrl', ['$scope', '$timeout', 'SessionService', '$location
                     $scope.loggedIn = false;
                     //Message.error("no se pudo obtener el usuarioLogeado");
                 });
+        };
+
+
+        $scope.mostrar = function () {
+            var resultado = false;
+            if($scope.user!=null && $scope.user.idProfesor != null){
+                resultado = true;
+            }
+                
+
+            return resultado;    
+        };
+
+        $scope.mostrarEstilo = function () {
+            var resultado = false;
+            if($scope.user!=null){
+                resultado = true;
+            }
+                
+
+            return resultado;    
         };
 
 

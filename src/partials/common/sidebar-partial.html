@@ -4,40 +4,46 @@
             <a href="#!/dashboard"><i class="fa fa fa-dashboard"></i> Dashboard</a>
         </li>
 
-        <li ng-if="user != null">
+        <li ng-show="mostrar()">
             <a href="#!/profesor/" title="Administración de profesores">
                 <i  class="fa fa-user-circle-o" aria-hidden="true"></i> Profesores
             </a>
         </li>
-        <li ng-if="user != null">
+        <li ng-show="mostrar()">
             <a href="#!/alumno/" title="Administración de Alumnos">
                 <i class="fa fa-users" aria-hidden="true"></i> Alumnos
             </a>
         </li>
-        <li ng-if="user != null">
+        <li ng-show="mostrar()">
             <a href="#!/asignatura/" title="Administración de Asignaturas">
                 <i class="fa fa  fa-book"></i> Asignaturas
             </a>
         </li>
 
-        <li ng-if="user != null">
+        <li ng-show="mostrar()">
             <a href="#!/curso/" title="Administración de Cursos">
                 <i class="fa fa-graduation-cap" aria-hidden="true"></i>Cursos
             </a>
         </li>
 
-        <li ng-if="user != null">
-            <a href="#!/estiloAprendizaje/" title="Estilo de aprendizaje">
+        
+        <li ng-show="mostrarEstilo()">
+            <a href="#!/resumenEstiloAprendizaje/" title="Estilo del alumno">
                 <i class="fa fa-id-card-o" aria-hidden="true"></i> Estilo de aprendizaje
             </a>
         </li>
  
+        <li>
+            <a href="#!/materiales" title="Materiales">
+                <i class="fa fa-id-card-o" aria-hidden="true"></i> Materiales
+            </a>
+        </li>   
         
         
         
         <li role="separator" class="hidden-sm hidden-md hidden-lg divider"></li>
         <li class="hidden-sm hidden-md hidden-lg" ng-if="user != null">
-            <a><i class="fa fa-fw fa-user"></i> {{user}} </a>
+            <a><i class="fa fa-fw fa-user"></i> {{user.username}} </a>
         </li>
         <li class="hidden-sm hidden-md hidden-lg" ng-if="user == null">
             <a ng-click="login()"> <i class="fa fa-fw fa-user-circle-o"></i> Ingresar </a>

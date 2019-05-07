@@ -9,13 +9,13 @@ app.service('AsignaturaService', ['$http', 'StiBaseService', function ($http, Ba
         recurso: "/asignatura/",
 
         listarEjercicio: function (params) {
-            return $http.get(App.REST_BASE + this.recurso + "/listaEjercicio", {
+            return $http.get(App.REST_BASE + this.recurso + "listaEjercicio", {
                 params: params
             });
         },
         
         listarAsignatura: function () {
-            return $http.get(App.REST_BASE + this.recurso + "/listaAsignatura", {
+            return $http.get(App.REST_BASE + this.recurso + "listaAsignatura", {
             });
         }
         

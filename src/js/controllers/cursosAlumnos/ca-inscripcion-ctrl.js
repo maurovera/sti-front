@@ -14,9 +14,9 @@ app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller
          */
         var userGuardado = localStorage.getItem("user");
         var userGuardado = JSON.parse(userGuardado);
-        console.log("user id del usuario: " + userGuardado.userId);
+        console.log("user id del usuario: " + userGuardado.idAlumno);
         console.log("nombre del usuario: " + userGuardado.usuario);
-        $scope.idAlu = userGuardado.userId;
+        $scope.idAlu = userGuardado.idAlumno;
        
         
           /**imprime el id y el idCurso**/
@@ -35,7 +35,7 @@ app.controller('CursoAlumnoInscripcion', ['$scope', 'CursoService', '$controller
          */
         $scope.guardarCurso = function () {
                 console.log("estoy en guardarCurso");
-                $scope.recurso.alumno = userGuardado.userId;
+                $scope.recurso.alumno = userGuardado.idAlumno;
                 this.editarRecursoAlumno();
             
         };

@@ -27,9 +27,9 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
         //Trae el id de alumno y id tarea
         var userGuardado = localStorage.getItem("user");
         var userGuardado = JSON.parse(userGuardado);
-        console.log("user id del usuario: " + userGuardado.userId);
+        console.log("user id del usuario: " + userGuardado.idAlumno);
         console.log("nombre del usuario: " + userGuardado.usuario);
-        $scope.alumno = userGuardado.userId;
+        $scope.alumno = userGuardado.idAlumno;
         $scope.tarea = $routeParams.idTarea;
 
         // datos inicial para sesion
@@ -102,6 +102,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
          * Obtiene la sesion anterior de alumno. o crea una nueva sesion
          *
          */
+        $scope.tipoDeTest = "";
         $scope.traerSesion = function (parametros) {
             $scope.sesionTutorService.comprobarSesion(parametros)
                 .then(function (response) {
@@ -110,6 +111,11 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     console.log("Sesion y cantidad ejercicios resueltos:  ");
                     console.log($scope.sesionTutor.id);
                     console.log($scope.sesionTutor.cantidadEjerciciosResueltos);
+                    if($scope.sesionTutor.testfinal === true){
+                        $scope.tipoDeTest = "Test Final";
+                    }else{
+                        $scope.tipoDeTest = "Test Inicial";
+                    };
                 }, function (data, code) {
                     $scope.lista = [];
                     Message.error("No se pudo realizar la operación de obtener la sesion");
@@ -228,6 +234,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
 
             $scope.criterio($scope.valoresSesion);
             $scope.getRecursoCurso($scope.idCursoNumero);
+            $scope.traerSesion($scope.valoresSesion);
 
             initPath();
 

@@ -1,8 +1,10 @@
 /***Controller para asignacion de curso tutor al alumno.
  **/
-app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope', '$routeParams', '$location', 'CursoService', 'EjercicioService', 'SesionTutorService', '$controller',
+app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope', 
+'$routeParams', '$location', 'CursoService', 'EjercicioService', 
+'SesionTutorService', '$controller','$sce',
     function ($scope, $routeParams, $location, service, ejercicioService,
-        sesionTutorService, $controller) {
+        sesionTutorService, $controller, $sce) {
 
 
         //#################DE LA CLASE ANTERIOR PADRE#########################################
@@ -27,9 +29,9 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope', '$routeParams', 
         //Trae el id de alumno y id tarea
         var userGuardado = localStorage.getItem("user");
         var userGuardado = JSON.parse(userGuardado);
-        console.log("user id del usuario: " + userGuardado.userId);
+        console.log("user id del usuario: " + userGuardado.idAlumno);
         console.log("nombre del usuario: " + userGuardado.usuario);
-        $scope.alumno = userGuardado.userId;
+        $scope.alumno = userGuardado.idAlumno;
         $scope.tarea = $routeParams.idTarea;
 
         // datos inicial para sesion
@@ -215,6 +217,7 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope', '$routeParams', 
                     } else if (!$scope.criterioValorTutor.exitoso && !$scope.criterioValorTutor.esEjercicio) {
                         console.log("esEjercicio false. lado material");
                         $scope.valor = "B";
+
                         $scope.valoresSiguienteMaterial.idConcepto = $scope.criterioValorTutor.concepto;
                         $scope.siguienteMaterialTutor($scope.valoresSiguienteMaterial);
 
@@ -258,6 +261,54 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope', '$routeParams', 
             $scope.numero = 0;
         };
 
+        /**Funcion para renderizar los materiales */
+        $scope.trustSrc = function (src) {
+            return $sce.trustAsResourceUrl(src);
+        };
+
+        /**funcion para youtube. Seria visual, auditivo y kinestesico, por el momento en duro*/
+        $scope.urlFinal = "";
+        $scope.youtubeLink = "https://youtu.be/xE2VLXwZiw8";
+        $scope.videoUrlYoutube = function(){
+            var embedUrl = "https://www.youtube.com/embed/";
+            var youTubeLinkParts = $scope.youtubeLink.split("/");
+            var id = youTubeLinkParts[youTubeLinkParts.length - 1];
+            embedUrl += id;
+            console.log(embedUrl);
+            $scope.urlFinal = embedUrl;
+            
+        };
+
+        
+        /**define que sera la url */
+        $scope.resolucionMaterial = function(){
+            console.log("llame a la resolucion de material");
+            if($scope.material.estilo != null){
+                if($scope.material.estilo === "lector" ){
+                    console.log("entre en lector");
+                    $scope.pdfContent = $scope.material.urlMaterial;
+                    $scope.lectorUrl();
+                }else{
+                    console.log("entre en no lector");
+                    $scope.youtubeLink = $scope.material.urlMaterial;
+                    $scope.videoUrlYoutube();
+                }
+            }
+                
+        };
+
+        /***Para pdf. solo lecto */
+        $scope.pdfContent = "http://www3.uah.es/pramos/Blog/Profesor-Primero-A-1-8-print.pdf";
+        $scope.lectorUrl = function () {
+            var parteIncial = "http://docs.google.com/gview?url=";
+            var parteFinal = "&embedded=true";
+            var retorno = parteIncial + $scope.pdfContent + parteFinal;
+            console.log("retorno :" + retorno)
+            $scope.urlFinal = retorno;
+        };
+
+       
+        /** fin de renderizar materiales. */
 
         /**
          * Obtiene el siguiente material dentro del test adaptativo
@@ -276,6 +327,7 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope', '$routeParams', 
                         $scope.valor = "D";
                     }else{
                         console.log($scope.material.id);
+                        $scope.resolucionMaterial();
                     }
                     
                     

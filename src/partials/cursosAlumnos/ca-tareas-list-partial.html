@@ -6,7 +6,9 @@
                 <a href="#!/cursoAlumno/">Curso {{recursoCurso.nombre}}</a>
             </li>
             <li class="active">
-                <a>Tareas<span class="badge">2</span></a>
+                <a>Tareas
+                    <span class="badge">2</span>
+                </a>
             </li>
         </ul>
     </div>
@@ -29,50 +31,65 @@
                     <input type="text" class="form-control" ng-model="filterBy.descripcion" />
                 </div>
                 <hr/>
-                <a class="btn btn-default" ng-click="limpiar()"><i class="fa fa-ban"></i>&nbsp;Limpiar</a>
+                <a class="btn btn-default" ng-click="limpiar()">
+                    <i class="fa fa-ban"></i>&nbsp;Limpiar</a>
             </div>
         </div>
     </nav>
     <section class="col-md-9 ">
         <section class="form-wrapper">
             <div class="top-block">
-                <h2 class="title-top ">Tareas</h2>
+                <h2 class="title-top ">Tareas del alumno</h2>
                 <p>A través de esta sección usted podrá consultar la lista de tareas del curso {{recursoCurso.nombre}}.</p>
                 <br/>
-                
-
-
-
             </div>
-            <div class="wrapper table-responsive" tasty-table bind-resource-callback="getResource " bind-init="init " bind-filters="filterBy ">
+            <div class="wrapper table-responsive">
                 <table class="table table-striped ">
-                    <thead tasty-thead></thead>
-                    <tbody ng-if="loading == false">
-                        <tr ng-repeat="row in rows ">
-                            <td>{{row.nombre}}</td>
-                            <td>{{row.descripcion}}</td>
-                            <td>{{row.estadoTarea}}</td>
-                            <td><a class="btn btn-primary" href="#!/cursoAlumno/{{recursoCurso.id}}/tarea/{{row.id}}/ejercicio" title="Iniciar tarea"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <a class="btn btn-primary" href="#!/cursoAlumno/{{recursoCurso.id}}/tarea/{{row.id}}/ejercicioTutor" title="Iniciar Tutorizacion"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>       
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr ng-if="loading == true">
-                            <td colspan="6">
-                                <loading></loading>
-                            </td>
-                        </tr>
-                        <tr ng-if="loading == null">
-                            <td colspan="6">
-                                <no-data></no-data>
-                            </td>
-                        </tr>
-                    </tfoot>
+                    <thead>
+                        <td>
+                            <b>Nombre</b>
+                        </td>
+                        <td>
+                            <b>Descripcion</b>
+                        </td>
+                        <td>
+                            <b>Test final</b>
+                        </td>
+                        <td>
+                            <b>Parar</b>
+                        </td>
+                        <td>
+                            <b>Estado</b>
+                        </td>
+                        <td>
+                            <b>Acciones</b>
+                        </td>
+                    </thead>
+                    <tr ng-repeat="t in listaTareas">
+
+                        <td>{{ t.nombre }}</td>
+                        <td>{{ t.descripcion }}</td>
+                        <td>{{ t.testFinal }}</td>
+                        <td>{{ t.parar }}</td>
+                        <td ng-if="t.testFinal  && !t.parar">Test Final</td>
+                        <td ng-if="!t.testFinal && t.parar">Test Tutor</td>
+                        <td ng-if="!t.testFinal && !t.parar">Test Inicial</td>
+                        <td ng-if="t.testFinal && t.parar">Tarea finalizada</td>
+                        <td>
+                            <a ng-show="t.testFinal && !t.parar" class="btn btn-primary" href="#!/cursoAlumno/{{recursoCurso.id}}/tarea/{{t.id}}/ejercicio" title="Test Final">
+                                <i class="fa fa-th-list" aria-hidden="true"></i>                                
+                            </a>
+                            <a ng-show="!t.testFinal && !t.parar" class="btn btn-primary" href="#!/cursoAlumno/{{recursoCurso.id}}/tarea/{{t.id}}/ejercicio" title="Iniciar tarea">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                            <a ng-show="!t.testFinal && t.parar" class="btn btn-primary" href="#!/cursoAlumno/{{recursoCurso.id}}/tarea/{{t.id}}/ejercicioTutor" title="Iniciar Tutorizacion">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
                 </table>
-                <div class="tasty-pagination-responsive" tasty-pagination></div>
             </div>
         </section>
-        
+
     </section>
 </div>

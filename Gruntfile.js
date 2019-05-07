@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             dist: "dist",
             src: "src",
             host: "localhost",
-            port: "8888",
+            port: "8881",
             apiPort: 8080
         },
 

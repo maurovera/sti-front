@@ -5,18 +5,15 @@
     <div class="row" ng-controller="HeaderCtrl">
         <section class="box-body">
             <h1>¡Bienvenido {{user.username}}!</h1>
-            <a class="btn btn-cat" ng-click="reload()"><i class="fa fa-floppy-o"></i>&nbsp;Recargar</a>
             
-            <a href="#!/registro" class="btn btn-default">
-                <i class="fa fa-mail-reply" aria-hidden="true"></i> Registro
-            </a>
+            
             <hr/>
-            <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam molestie metus. Quisque pellentesque ipsum et est pulvinar vehicula. Nunc ac nibh eget ipsum semper feugiat. Sed imperdiet massa tortor, sit amet ullamcorper massa lobortis et. Nulla a nisl et ligula faucibus aliquet a id orci. Sed porta tempor massa pretium malesuada.
+            <p class="text-justify-intro">
+                Te damos la bienvenida al sistema de tutorización basado en machine learning
             </p>
-            <a class="btn btn-cat pull-right" href="#!/cursoAlumno"><i class="fa fa-plus"></i> Cursos</a>
         </section>
     </div>
+    
 
     <br/>
     <hr>
@@ -24,38 +21,32 @@
     <br/>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="cloud lila1">
-                <p class="pull-left"><i class="fa fa-graduation-cap"></i> Cursos</p> <span class="pull-right">54</span><br>
+                <p class="pull-left"><i class="fa fa-graduation-cap"></i> Cursos</p> <span class="pull-right">1</span><br>
                 <hr/>
                 <p class="text-dash">Aquí podés ver todos los cursos que están disponibles en este momento.</p>
-                <a href="#!/curso" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                <a href="#!/cursoAlumno" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="cloud lila2">
-                <p class="pull-left"><i class="fa fa-users"></i> Alumnos</p> <span class="pull-right">54</span><br>
-                <hr/>
-                <p class="text-dash">Aquí podés ver todos los alumnos inscriptos.</p>
-                <a href="#!/alumno" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="cloud lila3">
-                <p class="pull-left"><i class="fa fa-puzzle-piece"></i> Elementos didácticos</p> <span class="pull-right">54</span><br>
-                <hr/>
-                <p class="text-dash">Aquí podés ver todos lo elementos didácticos del STI.</p>
-                <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
-            </div>
-        </div>
-        <div class="col-md-3">
+       
+        
+        <div class="col-md-4">
             <div class="cloud lila4">
-               <p class="pull-left"><i class="fa fa-smile-o"></i> Estilos de aprendizaje</p> <span class="pull-right">54</span><br>
+               <p class="pull-left"><i class="fa fa-smile-o"></i> Estilos de aprendizaje</p> <span class="pull-right">2</span><br>
                 <hr/>
-                <p class="text-dash">Aquí podés ver todos los estilos de aprendizaje.</p>
-                <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                <p class="text-dash">Aquí podés ver todos tus estilos de aprendizaje.</p>
+                <a href="#!/resumenEstiloAprendizaje" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
+        <div class="col-md-4">
+                <div class="cloud lila4">
+                   <p class="pull-left"><i class="fa fa-smile-o"></i> Resultados </p> <span class="pull-right">3</span><br>
+                    <hr/>
+                    <p class="text-dash">Aquí podés ver todo lo relacionado a tu rendimiento.</p>
+                    <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                </div>
+            </div>
     </div>
 </div>
 

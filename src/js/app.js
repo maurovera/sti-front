@@ -1,3 +1,4 @@
+
 /*
  * Se configuran las rutas de la aplicación
  */
@@ -23,8 +24,22 @@ app.config(['$routeProvider', '$httpProvider', // 'keycloakLauncherProvider',
                 
                 var user = localStorage.getItem("user");
                 console.log("user en resolve: "+ user);
-                if (user === null) {
+
+                if (user === null || user === undefined) {
+                    /**el usuario es nulo */
+                    console.log("usuario nulo");
                     $location.url("/");
+                }else{
+                    console.log("usuario no nulo");
+                    var userGuardado = JSON.parse(user);
+                    var mostrar = userGuardado.mostrar;
+                    var alumno = userGuardado.idAlumno;
+                    if(mostrar && alumno!= null){
+                        console.log("usuario sin estilo de aprendizaje");
+                        $location.url("/estiloAprendizaje");
+                    }else{
+                        console.log("usuario con estilo de aprendizaje");
+                    }
                 }
             }]
         };
@@ -305,6 +320,11 @@ app.config(['$routeProvider', '$httpProvider', // 'keycloakLauncherProvider',
                 templateUrl: 'partials/estilosAprendizajes/ea-form-partial.html',
                 controller: 'EstiloAprendizajeFormCtrl',
                 resolve: resolve
+            }).
+            when('/resumenEstiloAprendizaje', {
+                templateUrl: 'partials/estilosAprendizajes/ea-view-partial.html',
+                controller: 'EstiloAprendizajeResumenViewCtrl',
+                resolve: resolve
             })
             .when('/cursoAlumno', {
                 templateUrl: 'partials/cursosAlumnos/ca-list-partial.html',
@@ -325,10 +345,15 @@ app.config(['$routeProvider', '$httpProvider', // 'keycloakLauncherProvider',
                 templateUrl: 'partials/cursosAlumnos/ca-tarea-ejercicio-partial.html',
                 controller: 'CursoAlumnoTareaEjercicioCtrl',
                 resolve: resolve
-            
-            }).when('/cursoAlumno/:idCurso/tarea/:idTarea/ejercicioTutor', {
+            })
+            .when('/cursoAlumno/:idCurso/tarea/:idTarea/ejercicioTutor', {
                 templateUrl: 'partials/cursosAlumnos/ca-tarea-ejercicio-tutor-partial.html',
                 controller: 'CursoAlumnoTareaEjercicioTutorCtrl',
+                resolve: resolve
+            })   
+            .when('/materiales', {
+                templateUrl: 'partials/estilosAprendizajes/materiales-view-partial.html',
+                controller: 'MaterialesViewCtrl',
                 resolve: resolve
             })
 

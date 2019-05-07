@@ -10,9 +10,9 @@ app.controller('CursoAlumnoListCtrl', ['$scope', 'CursoService', '$controller',
          */
         var userGuardado = localStorage.getItem("user");
         var userGuardado = JSON.parse(userGuardado);
-        console.log("user id del usuario: " + userGuardado.userId);
+        console.log("user id del usuario: " + userGuardado.idAlumno);
         console.log("nombre del usuario: " + userGuardado.usuario);
-        $scope.idAlu = userGuardado.userId;
+        $scope.idAlu = userGuardado.idAlumno;
        
 
 

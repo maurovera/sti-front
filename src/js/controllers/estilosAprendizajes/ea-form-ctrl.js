@@ -9,8 +9,17 @@ app.controller('EstiloAprendizajeFormCtrl', ['$scope', 'EstiloAprendizajeService
 
 
 
+        //Trae el id de alumno y id tarea
+        var userGuardado = localStorage.getItem("user");
+        var userGuardado = JSON.parse(userGuardado);
+        console.log("user id del usuario: " + userGuardado.userId);
+        console.log("nombre del usuario: " + userGuardado.usuario);
+        $scope.alumnoNumero = userGuardado.idAlumno;
+
+
         $scope.service = service;
-        $scope.uri = "/alumno/";
+        // a esta uri le va a enviar al guardar
+        $scope.uri = "/resumenEstiloAprendizaje";
         /*variable que guarda el resultado del test**/
         /*$scope.varkPrueba = {
             "v": 0,
@@ -23,22 +32,53 @@ app.controller('EstiloAprendizajeFormCtrl', ['$scope', 'EstiloAprendizajeService
         /**Variable que guarda el nombre y resultado
          */
         $scope.vark = [{
-                "nombre": "v",
-                "valor": 0
-            },
-            {
-                "nombre": "a",
-                "valor": 0
-            },
-            {
-                "nombre": "r",
-                "valor": 0
-            },
-            {
-                "nombre": "k",
-                "valor": 0
+            "nombre": "v",
+            "completo": "visual",
+            "valor": 0
+        },
+        {
+            "nombre": "a",
+            "completo": "auditivo",
+            "valor": 0
+        },
+        {
+            "nombre": "r",
+            "completo": "lector",
+            "valor": 0
+        },
+        {
+            "nombre": "k",
+            "completo": "kinestesico",
+            "valor": 0
+        }
+        ];
+
+
+
+        /**Funcion que sirve para bloquear el btn 
+         *    
+         *
+          **/
+        $scope.bloquear = function () {
+
+            var resultado = false;
+            var contador = 0;
+            $scope.listaPregunta.forEach(function (valor, llave) {
+                valor.respuestas.forEach(function (value, key) {
+
+                    if (value.habilitado === true) {
+                        contador = contador + 1;
+                    }
+                });
+            });
+            if(contador < 10){
+                resultado = true;
+            }else{
+                resultado = false;
             }
-                       ];
+
+            return resultado;
+        }
 
 
 
@@ -98,7 +138,15 @@ app.controller('EstiloAprendizajeFormCtrl', ['$scope', 'EstiloAprendizajeService
             console.log($scope.vark);
 
             //faltaria asignar el primerEstilo. Se le asigna el mayor.
-            $scope.recurso.primerEstilo = $scope.vark["0"].nombre;
+            //$scope.recurso.primerEstilo = $scope.vark["0"].nombre;
+            $scope.recurso.primerEstilo = $scope.vark["0"].completo;
+            //le asignamos el alumno por debajo
+            $scope.recurso.idAlumno = $scope.alumnoNumero;
+            //seteamos el localStorage para que alCargarse sepa que ya cambio.
+            userGuardado.mostrar = false;
+            localStorage.setItem("user", JSON.stringify(userGuardado));
+
+            /**Aqui se hace un cambio en el  */
 
             /***Para el segundo estilo se calcula el factor de distancia
              * 1- Si se puede llegar al siguiente ovalo con un valor igual o menor al factor
@@ -160,20 +208,21 @@ app.controller('EstiloAprendizajeFormCtrl', ['$scope', 'EstiloAprendizajeService
             //para ver si es multimodal o monomodal
             // se resta el mayor valor obtenido con el rango para comprobar si es factible la distancia. Se guarda en diferencia
             $scope.diferencia = $scope.vark["0"].valor - $scope.factor;
-            
+
             /**Si la diferencia es igual o menor al siguiente valor del vark, entonces tiene un
             * estilo mas. Que seria el segundo. Esto se puede ir haciendo con los otros
             * pero nosotros solo utilizaremos dos.
             * Se le asigna el segundo estilo si cumple. si no se imprime que solo es monomodal
             */
-            if($scope.diferencia  <= $scope.vark["1"].valor ){
-                $scope.recurso.segundoEstilo = $scope.vark["1"].nombre; 
+            if ($scope.diferencia <= $scope.vark["1"].valor) {
+                //$scope.recurso.segundoEstilo = $scope.vark["1"].nombre; 
+                $scope.recurso.segundoEstilo = $scope.vark["1"].completo;
                 console.log("multimodal");
-            }else{
+            } else {
                 console.log("monomodal");
             }
-            
-                
+
+
 
             //y llama a la funcion guardar.
             $scope.guardar();

@@ -1,40 +1,44 @@
 <br/>
 <br/>
 
-<div class="col-md-12">
-    <div class="row">
-        <div class="col-md-12">
+
+<div class="row">
+
+
+
+    <div class="col-md-12" ng-controller="HeaderCtrl">
+
+        <div class="logeoUser">
             <h1>Acceso al sistema</h1>
             <hr/>
-            <div class="col-md-6" ng-controller="HeaderCtrl" align="center">
-                <p>Si cuentas con un usuario en la herramienta, y deseas acceder a las funcionalidades debes iniciar sesión.</p>
-                <form class="form-signin" ng-submit="login()" role="form">
-                    <h2 class="form-signin-heading">Por favor registrarse</h2>
-                    <label for="inputUsuario" class="sr-only">Nombre de Usuario</label>
-                    <input type="text" ng-model="credenciales.username" id="inputUsuario" class="form-control" placeholder="nombre de usuario" required="" autofocus="">
-                    <label for="inputContraseña" class="sr-only">Contraseña</label>
-                    <input type="password" ng-model="credenciales.password" id="inputContraseña" class="form-control" placeholder="contraseña" required="">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
-                </form>
-                <hr/>
-                <a class="btn btn-cat" ng-click="logout()"><i class="fa fa-floppy-o"></i>&nbsp;CerrarSesion</a>
-                <a class="btn btn-cat" ng-click="cantidadLocal()"><i class="fa fa-floppy-o"></i>&nbsp;cantidad Sesion</a>
-                
-                <a href="#!/registro" class="btn btn-default">
-                    <i class="fa fa-mail-reply" aria-hidden="true"></i> Registro
-                </a>
-            </div>
+            <p>Si cuentas con un usuario en la herramienta, y deseas acceder a las funcionalidades debes iniciar sesión.
+            </p>
+            <form class="form-signin" ng-submit="login()" role="form" border border-light p-5>
+                <h2 class="form-signin-heading">Por favor Logueate</h2>
+                <label for="inputUsuario" class="sr-only">Cedula de Identidad</label>
+                <input type="text" ng-model="credenciales.username" id="inputUsuario" class="form-control" placeholder="Cedula de identidad"
+                    required="" autofocus="">
+                <label for="inputContraseña" class="sr-only">Contraseña</label>
+                <input type="password" ng-model="credenciales.password" id="inputContraseña" class="form-control" placeholder="Contraseña"
+                    required="">
+                <br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+            </form>
             <hr/>
-            
-        </div>
         
+            <!-- Register -->
+            <p>No sos miembro?
+                <br>
+                <btn href="#!/registro" class="btn btn-primary">
+                    <i class="fa fa-mail-reply" aria-hidden="true"></i> Registrate
+                </btn>
+            </p>
+        </div>
     </div>
+    <hr/>
+
 </div>
+
 
 <br/>
 <br/>

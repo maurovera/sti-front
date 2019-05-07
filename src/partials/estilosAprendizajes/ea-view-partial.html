@@ -1,0 +1,27 @@
+<view-directive>
+    <titulo>Resultados del Estilo de Aprendizaje</titulo>
+    <descripcion>
+        <a class="btn btn-primary" href="#!/cursoAlumno/" title="Ir al curso">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </a>
+    </descripcion>
+    <view>
+        <dt>Id:</dt>
+        <dd>
+            {{estilo.id}}
+        </dd>
+        <dt>Alumno:</dt>
+        <dd>
+            {{alumno.nombres}}
+        </dd>
+        <dt>Primer Estilo:</dt>
+        <dd>
+            {{estilo.primerEstilo}}
+        </dd>
+        <dt>Segundo estilo:</dt>
+        <dd ng-if="estilo.segundoEstilo == null">No tiene segundo estilo</dd>
+        <dd ng-if="estilo.segundoEstilo != null">{{estilo.segundoEstilo}}</dd>
+        
+    </view>
+
+</view-directive>

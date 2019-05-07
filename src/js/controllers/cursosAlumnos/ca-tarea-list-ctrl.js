@@ -12,7 +12,7 @@ function ($scope, $routeParams, service, serviceCurso, $controller) {
 
         /** para ver el id del curso */
         console.log($routeParams);
-
+        $scope.idCursoAlu = $routeParams.idCurso;
 
         /**
          * Se inserta un servicio que trae el curso
@@ -38,6 +38,36 @@ function ($scope, $routeParams, service, serviceCurso, $controller) {
                 });
         };
 
+
+        /////////////LISTA TAREA ALUMNO INICIO /////////////////////////////////////
+        //Trae el id de alumno y id tarea
+        var userGuardado = localStorage.getItem("user");
+        var userGuardado = JSON.parse(userGuardado);
+        console.log("user id del usuario: " + userGuardado.idAlumno);
+        console.log("nombre del usuario: " + userGuardado.usuario);
+        $scope.alumno = userGuardado.idAlumno;
+
+
+        $scope.inicio = {
+            "idAlumno": $scope.alumno,
+            "idCurso": $scope.idCursoAlu
+        };
+
+        $scope.listaTareas = {};
+
+        $scope.getListaTareaAlumno = function (parametros) {
+            $scope.service.listarTareaAlumno(parametros)
+                .then(function (response) {
+                    $scope.listaTareas = response.data.rows;
+                    $scope.tam = response.data.count;
+                    console.log("tamaño: "+ $scope.tam);
+                }, function (data, code) {
+                    $scope.listaTareas = {};
+                    Message.error("No se pudo realizar la operación de obtener la lista de tareas alumno");
+                });
+        };
+
+        /////////LISTA TAREA ALUMNO FIN////////////////////////////////
 
         /**
          * Configuraciones de la cabecera de la grilla.
@@ -81,6 +111,9 @@ function ($scope, $routeParams, service, serviceCurso, $controller) {
 
             // se trae el curso
             $scope.getRecursoCurso();
+
+            //se trae la lista de tareas por alumno
+            $scope.getListaTareaAlumno($scope.inicio);
 
 
 

@@ -9,7 +9,7 @@ app.service('SesionTutorService', ['$http', 'StiBaseService', function ($http, B
         recurso: "/sesion/",
 
         comprobarSesion: function (params) {
-            return $http.get(App.REST_BASE + this.recurso + "/comprobarSesion", {
+            return $http.get(App.REST_BASE + this.recurso + "comprobarSesion", {
                 params: params
             });
         }

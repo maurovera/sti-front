@@ -1,0 +1,61 @@
+<div class="col-md-12">
+    <br/>
+    
+    <section class="row">
+
+        <section class="form-wrapper">
+
+            <div ng-switch on="valor">
+
+                <div ng-switch-when="control2">
+                    <p>{{lecto.title}}</p>
+                    <iframe class="youtube-player" 
+                    type="text/html" width="100%" 
+                    height="385" ng-src="{{trustSrc(lecto.src)}}" allowfullscreen
+                        frameborder="0">
+                    </iframe>
+                </div>
+
+                <div ng-switch-when="control3">
+                    <div class="top-block">
+                        <div class="col-md-8 ">
+                            <h2 class="title-top ">Material {{movie.title}}</h2>
+                        <hr>
+                            <iframe class="youtube-player" type="text/html" width="100%" 
+                            height="385" ng-src="{{trustSrc(movie.src)}}" 
+                            allow="accelerometer; 
+                            autoplay; 
+                            encrypted-media; 
+                            gyroscope; 
+                            picture-in-picture" allowfullscreen frameborder="0">
+                            </iframe>
+                        </div>
+                        <div class="col-md-4 ">
+
+                            <h2 class="title-top ">Datos del material</h2>
+                            <p>Los datos del material son: </p>
+                            <form class="wrapper form-horizontal" role="form">
+                                <dl class="dl-horizontal">
+                                    <dt>Dificultad:</dt>
+                                    <dd>hola</dd>
+                                    <dt>Adivinanza:</dt>
+                                    <dd>dos</dd>
+                                    <dt>Conceptos:</dt>
+                                    <dd>tres</dd>
+                                    <dt>Ejercicio Anterior:</dt>
+                                    <dd>datos</dd>
+                                </dl>
+                                <hr>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div ng-switch-default>Texto para cuando no es ni A ni C ni B</div>
+                </div>
+            </div>
+
+        </section>
+
+    </section>
+</div>

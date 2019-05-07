@@ -58,8 +58,8 @@
                                 </div>
                                 {{numero}}
                                 <hr color="blue" size=10>
-                              
-                                
+
+
                                 <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicioTutor(numero)">
                                     <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
                                 <a ng-hide="mostrar()"> No hay mas ejercicios</a>
@@ -94,53 +94,65 @@
                         </div>
                     </div>
                     <div ng-switch-when="B">
+
                         <div class="top-block">
-                            <h2 class="title-top ">Materiales</h2>
-                            <p>Visualización del material</p>
+                            <div class="col-md-8 ">
+                                <h2 class="title-top ">Material </h2>
+                                <hr>
+                                <iframe class="youtube-player" type="text/html" width="100%" height="385" ng-src="{{trustSrc(urlFinal)}}"
+                                    allowfullscreen frameborder="0">
+                                </iframe>
+                            </div>
+                            <div class="col-md-4 ">
+
+                                <h2 class="title-top ">Materiales</h2>
+                                <p>Visualización del material</p>
+
+                                <form class="wrapper form-horizontal" role="form">
+                                    <dl class="dl-horizontal">
+                                        <dt>Id:</dt>
+                                        <dd>
+                                            {{material.id}}
+                                        </dd>
+                                        <dt>Concepto:</dt>
+                                        <dd>
+                                            {{material.concepto}}
+                                        </dd>
+                                        <dt>Nivel:</dt>
+                                        <dd>
+                                            {{material.nivel}}
+                                        </dd>
+
+                                        <dt>Estilo:</dt>
+                                        <dd>
+                                            {{material.estilo}}
+                                        </dd>
+
+                                        <dt>Estrategia:</dt>
+                                        <dd>
+                                            {{material.estrategia}} VIDEO
+                                        </dd>
+
+                                        <dt>Url del material:</dt>
+                                        <dd>
+                                            {{material.urlMaterial}}
+                                        </dd>
+
+                                        <dt>Asignatura:</dt>
+                                        <dd>
+                                            {{material.idAsignatura}}
+                                        </dd>
+                                    </dl>
+                                    <hr>
+                                </form>
+                                <hr/>
+                                <a class="btn btn-cat" ng-click="respuestaMaterialTutor()">
+                                    <i class="fa fa-file-video-o" aria-hidden="true"></i> Siguiente
+                                </a>
+                            </div>
                         </div>
-                        <form class="wrapper form-horizontal" role="form">
-                            <dl class="dl-horizontal">
-                                <dt>Id:</dt>
-                                <dd>
-                                    {{material.id}}
-                                </dd>
-                                <dt>Concepto:</dt>
-                                <dd>
-                                    {{material.concepto}}
-                                </dd>
-                                <dt>Nivel:</dt>
-                                <dd>
-                                    {{material.nivel}}
-                                </dd>
-
-                                <dt>Estilo:</dt>
-                                <dd>
-                                    {{material.estilo}}
-                                </dd>
-
-                                <dt>Estrategia:</dt>
-                                <dd>
-                                    {{material.estrategia}} VIDEO
-                                </dd>
-
-                                <dt>Url del material:</dt>
-                                <dd>
-                                    {{material.urlMaterial}}
-                                </dd>
-
-                                <dt>Asignatura:</dt>
-                                <dd>
-                                    {{material.idAsignatura}}
-                                </dd>
-                            </dl>
-                            <hr>
-                        </form>
-                        <hr/>
-                        <a class="btn btn-cat" ng-click="respuestaMaterialTutor()">
-                            <i class="fa fa-file-video-o" aria-hidden="true"></i> Siguiente
-                        </a>
-
                     </div>
+
                     <div ng-switch-when="C">
                         <div class="col-md-6">
                             <div class="top-block">
@@ -222,7 +234,7 @@
                     </div>
                     <div ng-switch-when="D">
                         <div class="top-block">
-                            <h2 class="title-top ">El sistema se quedó sin materiales disponibles. Avisar al tutor
+                            <h2 class="title-top ">El sistema se quedó sin materiales disponibles. Avisar al tutor por favor
                                 <a href="#!/cursoAlumno/{{curso.id}}/tarea" class="btn btn-default">
                                     <i class="fa fa-mail-reply" aria-hidden="true"></i> Volver
                                 </a>
@@ -230,7 +242,17 @@
 
                         </div>
                     </div>
-                    <div ng-switch-default>Texto para cuando no es ni A ni C ni B</div>
+                    <div ng-switch-when="E">
+                            <div class="top-block">
+                                <h2 class="title-top ">El sistema se quedó sin Ejercicios disponibles. Avisar al tutor por favor
+                                    <a href="#!/cursoAlumno/{{curso.id}}/tarea" class="btn btn-default">
+                                        <i class="fa fa-mail-reply" aria-hidden="true"></i> Volver
+                                    </a>
+                                </h2>
+    
+                            </div>
+                        </div>
+                    <div ng-switch-default>Texto para cuando no es ni A ni C ni B ni D ni E</div>
                 </div>
 
             </section>
