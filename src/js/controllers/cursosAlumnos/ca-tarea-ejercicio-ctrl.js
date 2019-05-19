@@ -155,6 +155,8 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     } else {
                         Message.error("Respondiste mal el ejercicio");
                     }*/
+                    $scope.criterio($scope.valoresSesion);
+                    $scope.numero = 0;
                 }, function (data, code) {
                     $scope.lista = [];
                     Message.error("No se pudo responder el ejercicio.");
@@ -218,8 +220,8 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
             $scope.responder($scope.variableResponder);
 
             /**llama al criterio de nuevo. */
-            $scope.criterio($scope.valoresSesion);
-            $scope.numero = 0;
+            //$scope.criterio($scope.valoresSesion);
+            //$scope.numero = 0;
         };
 
 

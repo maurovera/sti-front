@@ -99,9 +99,31 @@
                             <div class="col-md-8 ">
                                 <h2 class="title-top ">Material </h2>
                                 <hr>
-                                <iframe class="youtube-player" type="text/html" width="100%" height="385" ng-src="{{trustSrc(urlFinal)}}"
-                                    allowfullscreen frameborder="0">
-                                </iframe>
+                                <div ng-if="material.fuente === true">
+                                    <iframe class="youtube-player" type="text/html" width="100%" height="385" ng-src="{{trustSrc(urlFinal)}}" allowfullscreen
+                                        frameborder="0">
+                                    </iframe>
+                                </div>
+                                <div ng-if="material.fuente === false">
+
+                                    <div ng-if="numeroServidor === 1">
+                                        <img ng-src="{{urlFinal}}" alt="no se carga la imagen del servidor" width=100% height="385" />
+                                    </div>
+                                    <div ng-if="numeroServidor === 2">
+                                        <audio width="100%" height="385" controls>
+                                            <source src="{{urlFinal}}" type="audio/mpeg">
+                                            <p>Tu navegador no implementa el elemento audio.</p>
+                                        </audio>
+                                    </div>
+                                    <div ng-if="numeroServidor === 3">
+                                        <video width="100%" height="385" controls>
+                                            <source src="{{urlFinal}}" type="video/mp4"> Tu navegador no implementa el elemento video.
+                                        </video>
+                                    </div>
+                                    <div ng-if="numeroServidor === 4">
+                                        <embed src="{{urlFinal}}" width="100%" height="385" alt="No se pudo mostrar la imagen" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-4 ">
 
@@ -243,15 +265,15 @@
                         </div>
                     </div>
                     <div ng-switch-when="E">
-                            <div class="top-block">
-                                <h2 class="title-top ">El sistema se quedó sin Ejercicios disponibles. Avisar al tutor por favor
-                                    <a href="#!/cursoAlumno/{{curso.id}}/tarea" class="btn btn-default">
-                                        <i class="fa fa-mail-reply" aria-hidden="true"></i> Volver
-                                    </a>
-                                </h2>
-    
-                            </div>
+                        <div class="top-block">
+                            <h2 class="title-top ">El sistema se quedó sin Ejercicios disponibles. Avisar al tutor por favor
+                                <a href="#!/cursoAlumno/{{curso.id}}/tarea" class="btn btn-default">
+                                    <i class="fa fa-mail-reply" aria-hidden="true"></i> Volver
+                                </a>
+                            </h2>
+
                         </div>
+                    </div>
                     <div ng-switch-default>Texto para cuando no es ni A ni C ni B ni D ni E</div>
                 </div>
 

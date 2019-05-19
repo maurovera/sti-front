@@ -1,8 +1,8 @@
 /***Controller para asignacion de curso tutor al alumno.
  **/
-app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope', 
-'$routeParams', '$location', 'CursoService', 'EjercicioService', 
-'SesionTutorService', '$controller','$sce',
+app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
+    '$routeParams', '$location', 'CursoService', 'EjercicioService',
+    'SesionTutorService', '$controller', '$sce',
     function ($scope, $routeParams, $location, service, ejercicioService,
         sesionTutorService, $controller, $sce) {
 
@@ -92,9 +92,9 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
                     $scope.valoresSiguienteEjercicio.idAsignatura = $scope.curso.asignatura.id;
                     $scope.valoresCriterioTutor.idAsignatura = $scope.curso.asignatura.id;
                     $scope.valoresSiguienteMaterial.idAsignatura = $scope.curso.asignatura.id;
-                    console.log("Traemos el id de la asignatura: "+ $scope.curso.asignatura.id);
-                     /**llama al criterio de nuevo. */
-                     $scope.criterioTutor($scope.valoresCriterioTutor);
+                    console.log("Traemos el id de la asignatura: " + $scope.curso.asignatura.id);
+                    /**llama al criterio de nuevo. */
+                    $scope.criterioTutor($scope.valoresCriterioTutor);
                 }, function (data, code) {
                     $scope.recursoCurso = {};
                     Message.error("No se pudo realizar la operación de obtener el curso");
@@ -159,9 +159,9 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
 
 
         //##################INFORMES###################################
-         /**
-         * Trae la lista de resueltos en el test tutor. 
-         */
+        /**
+        * Trae la lista de resueltos en el test tutor. 
+        */
         $scope.resueltos = {};
         $scope.getListaResueltos = function () {
             $scope.ejercicioService.listarResueltoTestTutor($scope.valoresSesion)
@@ -172,9 +172,9 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
                 });
         };
 
-         /**
-         * Trae la lista de caminos. 
-         */
+        /**
+        * Trae la lista de caminos. 
+        */
         $scope.caminos = {};
         $scope.getListaCaminos = function () {
             $scope.ejercicioService.listarCamino($scope.valoresSesion)
@@ -262,6 +262,8 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
         };
 
         /**Funcion para renderizar los materiales */
+
+        /***Parte inicio url */
         $scope.trustSrc = function (src) {
             return $sce.trustAsResourceUrl(src);
         };
@@ -269,18 +271,29 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
         /**funcion para youtube. Seria visual, auditivo y kinestesico, por el momento en duro*/
         $scope.urlFinal = "";
         $scope.youtubeLink = "https://youtu.be/xE2VLXwZiw8";
-        $scope.videoUrlYoutube = function(){
+        $scope.videoUrlYoutube = function () {
             var embedUrl = "https://www.youtube.com/embed/";
             var youTubeLinkParts = $scope.youtubeLink.split("/");
             var id = youTubeLinkParts[youTubeLinkParts.length - 1];
             embedUrl += id;
             console.log(embedUrl);
             $scope.urlFinal = embedUrl;
-            
+
         };
 
-        
-        /**define que sera la url */
+        /***Para pdf. solo lecto */
+        $scope.pdfContent = "http://www3.uah.es/pramos/Blog/Profesor-Primero-A-1-8-print.pdf";
+        $scope.lectorUrl = function () {
+            var parteIncial = "http://docs.google.com/gview?url=";
+            var parteFinal = "&embedded=true";
+            var retorno = parteIncial + $scope.pdfContent + parteFinal;
+            console.log("retorno :" + retorno)
+            $scope.urlFinal = retorno;
+        };
+
+        /**parte url fin */
+
+        /**define que sera la url 
         $scope.resolucionMaterial = function(){
             console.log("llame a la resolucion de material");
             if($scope.material.estilo != null){
@@ -295,17 +308,70 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
                 }
             }
                 
+        };*/
+        /***Define por cual camino ira. */
+        $scope.numeroServidor = 0;
+
+        $scope.resolucionMaterial = function () {
+            console.log("llame a la resolucion de material");
+            //si fuente es true. Entonces es url 
+            if ($scope.material.fuente) {
+                //tipo pdf
+                if ($scope.material.tipo === "pdf") {
+                    console.log("entre en tipo pdf");
+                    $scope.pdfContent = $scope.material.urlMaterial;
+                    $scope.lectorUrl();
+                    //tipo youtube
+                } else if ($scope.material.tipo === "youtube") {
+                    console.log("entre en tipo youtube");
+                    $scope.youtubeLink = $scope.material.urlMaterial;
+                    $scope.videoUrlYoutube();
+                    //tipo imagen
+                } else if ($scope.material.tipo === "imagen") {
+                    console.log("entre en tipo imagen");
+                    $scope.urlFinal = $scope.material.urlMaterial;
+                } else {
+                    console.log("no es imagen ni youtube ni pdf en url");
+                }
+                //si es servidor 
+            } else {
+
+                if ($scope.material.tipo === "pdf") {
+                    $scope.funcionServidorGeneradorUrl();
+                    $scope.numeroServidor = 4;
+                } else if ($scope.material.tipo === "video") {
+                    $scope.funcionServidorGeneradorUrl();
+                    $scope.numeroServidor = 3;
+                } else if ($scope.material.tipo === "audio") {
+                    $scope.funcionServidorGeneradorUrl();
+                    $scope.numeroServidor = 2;
+                } else if ($scope.material.tipo === "imagen") {
+                    $scope.funcionServidorGeneradorUrl();
+                    $scope.numeroServidor = 1;
+                } else {
+                    console.log("no es imagen ni audio ni video ni pdf");
+                }
+
+
+            }
+
         };
 
-        /***Para pdf. solo lecto */
-        $scope.pdfContent = "http://www3.uah.es/pramos/Blog/Profesor-Primero-A-1-8-print.pdf";
-        $scope.lectorUrl = function () {
-            var parteIncial = "http://docs.google.com/gview?url=";
-            var parteFinal = "&embedded=true";
-            var retorno = parteIncial + $scope.pdfContent + parteFinal;
-            console.log("retorno :" + retorno)
-            $scope.urlFinal = retorno;
+
+        /**transformador de url de sevidor */
+        $scope.funcionServidorGeneradorUrl = function () {
+
+            var todoRet = $scope.material.urlMaterial + "/" +
+                $scope.material.concepto + "/" +
+                $scope.material.nivel + "/" +
+                $scope.material.tipo + "/" +
+                $scope.material.nombreEnlace;
+            console.log("url final transformado:" + todoRet)
+            $scope.urlFinal = todoRet;
+
         };
+
+
 
        
         /** fin de renderizar materiales. */
@@ -322,15 +388,15 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
                     $scope.loading = false;
                     $scope.material = response.data;
                     console.log("Material:  ");
-                    if($scope.material.id == null){
+                    if ($scope.material.id == null) {
                         console.log("Material nulo");
                         $scope.valor = "D";
-                    }else{
+                    } else {
                         console.log($scope.material.id);
                         $scope.resolucionMaterial();
                     }
-                    
-                    
+
+
 
                 }, function (data, code) {
                     $scope.lista = [];

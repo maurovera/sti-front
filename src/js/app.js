@@ -2,6 +2,7 @@
 /*
  * Se configuran las rutas de la aplicación
  */
+
 app.config(['$routeProvider', '$httpProvider', // 'keycloakLauncherProvider',
     function ($routeProvider, $httpProvider) {
 

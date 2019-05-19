@@ -113,6 +113,11 @@ module.exports = function (grunt) {
                         dest: '<%=app.dist%>/images',
                         expand: true
                     }, {
+                        cwd: '<%=app.src%>/materiales',
+                        src: '**/*',
+                        dest: '<%=app.dist%>/materiales',
+                        expand: true
+                    }, {
                         cwd: '<%=app.src%>/',
                         src: '*.html',
                         dest: '<%=app.dist%>/',

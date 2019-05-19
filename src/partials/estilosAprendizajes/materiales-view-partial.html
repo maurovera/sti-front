@@ -1,17 +1,113 @@
 <div class="col-md-12">
     <br/>
-    
+
     <section class="row">
 
         <section class="form-wrapper">
 
             <div ng-switch on="valor">
 
+                <div ng-switch-when="control111">
+                    <h1>{{pdfServidorLector.titulo}}</h1>
+                    <embed src="{{pdfServidorLector.src}}" width="100%" height="300" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+                </div>
+
+                <div ng-switch-when="control1112">
+                    <p>{{videoServidorVisual.titulo}}</p>
+                    <video width="100%" height="300" controls>
+                        <source src="{{videoServidorVisual.src}}" type="video/mp4"> Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div ng-switch-when="control1113">
+                    <p>{{audioServidorAuditivo.titulo}}</p>
+                    <ul>
+
+                        <audio controls>
+                            <source src="{{audioServidorAuditivo.src}}" type="audio/mpeg">
+                            <p>Tu navegador no implementa el elemento audio.</p>
+                        </audio>
+                    </ul>
+                </div>
+
+                <div ng-switch-when="control1114">
+                    <p>{{imagenServidorVisual.titulo}}</p>
+                    <ul>
+                        <img ng-src="{{imagenServidorVisual.src}}" alt="no se carga la imagen" width=60% height=210/>
+
+                    </ul>
+                </div>
+
+                <div ng-switch-when="control1115">
+                    <div ng-if="servidor1">
+
+
+                        <div ng-if="servidorValor() === 1">
+                            <p>Imagen {{imagenServidorVisual.titulo}}</p>
+                            <ul>
+                                <img ng-src="{{imagenServidorVisual.src}}" alt="no se carga la imagen" width=60% height=210/>
+
+                            </ul>
+                        </div>
+                        <div ng-if="servidorValor() === 2">
+                            <p>Audio {{audioServidorAuditivo.titulo}}</p>
+                            <ul>
+
+                                <audio controls>
+                                    <source src="{{audioServidorAuditivo.src}}" type="audio/mpeg">
+                                    <p>Tu navegador no implementa el elemento audio.</p>
+                                </audio>
+                            </ul>
+                        </div>
+                        <div ng-if="servidorValor() === 3">
+                            <p>Video {{videoServidorVisual.titulo}}</p>
+                            <video width="100%" height="300" controls>
+                                <source src="{{videoServidorVisual.src}}" type="video/mp4"> Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div ng-if="servidorValor() === 4">
+                            <h1> Pdf {{pdfServidorLector.titulo}}</h1>
+                            <embed src="{{pdfServidorLector.src}}" width="100%" height="300" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+                <div ng-switch-when="control0">
+                    <p>{{imagenServidor.title}}</p>
+                    <ul>
+                        <li>Nombre: Charles Angelo Savarin</li>
+                        <li>Año de nacimiento: 1943</li>
+                        <li>Nacionalidad:
+                            <img ng-src="../materiales/intranet/imagenes/Enlace_intranet.jpg" alt="Dominica" width=100% height=210/>
+                        </li>
+                        ../../../ /home/mauro/proyectos/tesis/sti-front/src/
+                    </ul>
+                </div>
+
+
+                <div ng-switch-when="control1">
+                    <p>{{urlMate.title}}</p>
+                    <iframe class="materialUrl" type="text/html" width="100%" height="385" ng-src="{{trustSrc(urlMate.src)}}" allowfullscreen
+                        frameborder="0">
+                    </iframe>
+                </div>
+
                 <div ng-switch-when="control2">
                     <p>{{lecto.title}}</p>
-                    <iframe class="youtube-player" 
-                    type="text/html" width="100%" 
-                    height="385" ng-src="{{trustSrc(lecto.src)}}" allowfullscreen
+                    <iframe class="youtube-player" type="text/html" width="100%" height="385" ng-src="{{trustSrc(lecto.src)}}" allowfullscreen
                         frameborder="0">
                     </iframe>
                 </div>
@@ -20,10 +116,8 @@
                     <div class="top-block">
                         <div class="col-md-8 ">
                             <h2 class="title-top ">Material {{movie.title}}</h2>
-                        <hr>
-                            <iframe class="youtube-player" type="text/html" width="100%" 
-                            height="385" ng-src="{{trustSrc(movie.src)}}" 
-                            allow="accelerometer; 
+                            <hr>
+                            <iframe class="youtube-player" type="text/html" width="100%" height="385" ng-src="{{trustSrc(movie.src)}}" allow="accelerometer; 
                             autoplay; 
                             encrypted-media; 
                             gyroscope; 
