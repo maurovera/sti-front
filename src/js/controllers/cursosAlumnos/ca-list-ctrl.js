@@ -4,7 +4,7 @@ app.controller('CursoAlumnoListCtrl', ['$scope', 'CursoService', '$controller',
     function ($scope, service, $controller) {
 
         /**Valor para el panel de disponible y no disponible. */
-        $scope.valor = "A";
+        $scope.valor = "B";
         /**Obtenemos del cookie el id para listar. Esto tiene que ser una factoria
          * o guardase en una factoria
          */

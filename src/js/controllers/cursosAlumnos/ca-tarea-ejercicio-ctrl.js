@@ -31,6 +31,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
         console.log("nombre del usuario: " + userGuardado.usuario);
         $scope.alumno = userGuardado.idAlumno;
         $scope.tarea = $routeParams.idTarea;
+        $scope.idCursoNumero = $routeParams.idCurso;
 
         // datos inicial para sesion
         $scope.valoresSesion = {
@@ -57,9 +58,10 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
         $scope.ejercicio = {};
         $scope.sesionTutor = {};
         $scope.numero = 0;
+        $scope.espacio = " ";
         $scope.criterioValor = false;
         $scope.curso = {};
-        $scope.idCursoNumero = $routeParams.idCurso;
+        
         /**imprime el idAsig y el idTema**/
         console.log($routeParams);
 
@@ -111,9 +113,12 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     console.log("Sesion y cantidad ejercicios resueltos:  ");
                     console.log($scope.sesionTutor.id);
                     console.log($scope.sesionTutor.cantidadEjerciciosResueltos);
-                    if($scope.sesionTutor.testfinal === true){
+                    console.log("este puto:"+$scope.sesionTutor.testFinal);
+                    if($scope.sesionTutor.testFinal === true){
+                        console.log("entre en test final");
                         $scope.tipoDeTest = "Test Final";
                     }else{
+                        console.log("entre en test inicial");
                         $scope.tipoDeTest = "Test Inicial";
                     };
                 }, function (data, code) {
@@ -133,6 +138,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     $scope.ejercicio = response.data;
                     console.log("Ejercicio ");
                     console.log($scope.ejercicio.id);
+                    $scope.numero = "0";
 
                 }, function (data, code) {
                     $scope.lista = [];
@@ -156,7 +162,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                         Message.error("Respondiste mal el ejercicio");
                     }*/
                     $scope.criterio($scope.valoresSesion);
-                    $scope.numero = 0;
+                    $scope.numero = "0";
                 }, function (data, code) {
                     $scope.lista = [];
                     Message.error("No se pudo responder el ejercicio.");
@@ -184,6 +190,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     } else {
                         console.log("criterio false. seguir nde loco");
                         $scope.valorVentana = "A";
+                        $scope.numero = "0";
                         $scope.siguienteEjercicio($scope.valoresSiguiente);
                     }
                 }, function (data, code) {
@@ -237,6 +244,7 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
             $scope.criterio($scope.valoresSesion);
             $scope.getRecursoCurso($scope.idCursoNumero);
             $scope.traerSesion($scope.valoresSesion);
+            $scope.numero = "0";
 
             initPath();
 

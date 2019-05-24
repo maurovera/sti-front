@@ -15,32 +15,12 @@
 
     <br/>
 
-    <nav class="col-md-3 ">
-        <div class="form-wrapper">
-            <div class="top-block">
-                <h2 class="title-top ">Filtros</h2>
-                <p>Criterios de búsqueda.</p>
-            </div>
-            <div class="form">
-                <div class="form-group">
-                    <label class="control-label">Nombre:</label>
-                    <input type="text" class="form-control" ng-model="filterBy.nombre" />
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Descripción:</label>
-                    <input type="text" class="form-control" ng-model="filterBy.descripcion" />
-                </div>
-                <hr/>
-                <a class="btn btn-default" ng-click="limpiar()">
-                    <i class="fa fa-ban"></i>&nbsp;Limpiar</a>
-            </div>
-        </div>
-    </nav>
-    <section class="col-md-9 ">
+    
+    <section class="col-md-12 ">
         <section class="form-wrapper">
             <div class="top-block">
-                <h2 class="title-top ">Tareas del alumno</h2>
-                <p>A través de esta sección usted podrá consultar la lista de tareas del curso {{recursoCurso.nombre}}.</p>
+                <h2 class="title-top ">Tareas del curso {{recursoCurso.nombre}}</h2>
+                <p>A través de esta sección podes consultar la lista de tareas del curso {{recursoCurso.nombre}}.</p>
                 <br/>
             </div>
             <div class="wrapper table-responsive">
@@ -50,13 +30,7 @@
                             <b>Nombre</b>
                         </td>
                         <td>
-                            <b>Descripcion</b>
-                        </td>
-                        <td>
-                            <b>Test final</b>
-                        </td>
-                        <td>
-                            <b>Parar</b>
+                            <b>Descripción</b>
                         </td>
                         <td>
                             <b>Estado</b>
@@ -69,8 +43,6 @@
 
                         <td>{{ t.nombre }}</td>
                         <td>{{ t.descripcion }}</td>
-                        <td>{{ t.testFinal }}</td>
-                        <td>{{ t.parar }}</td>
                         <td ng-if="t.testFinal  && !t.parar">Test Final</td>
                         <td ng-if="!t.testFinal && t.parar">Test Tutor</td>
                         <td ng-if="!t.testFinal && !t.parar">Test Inicial</td>
@@ -80,7 +52,7 @@
                                 <i class="fa fa-th-list" aria-hidden="true"></i>                                
                             </a>
                             <a ng-show="!t.testFinal && !t.parar" class="btn btn-primary" href="#!/cursoAlumno/{{recursoCurso.id}}/tarea/{{t.id}}/ejercicio" title="Iniciar tarea">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                <i class="fa fa-text-width" aria-hidden="true"></i>                                
                             </a>
                             <a  ng-show="!t.testFinal && t.parar" class="btn btn-primary" href="#!/cursoAlumno/{{recursoCurso.id}}/tarea/{{t.id}}/ejercicioTutor" title="Iniciar Tutorizacion">
                                 <i class="fa fa-graduation-cap" aria-hidden="true"></i>

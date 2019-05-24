@@ -72,7 +72,7 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
         $scope.serviceCurso = service;
         $scope.ejercicio = {};
         $scope.sesionTutor = {};
-        $scope.numero = 0;
+        $scope.numero = "0";
         $scope.curso = {};
         /**inicializador */
         $scope.criterioValorTutor = {};
@@ -132,6 +132,7 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
                     $scope.ejercicio = response.data;
                     console.log("Ejercicio ");
                     console.log($scope.ejercicio.id);
+                    $scope.numero = "0";
 
                 }, function (data, code) {
                     $scope.lista = [];

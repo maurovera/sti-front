@@ -6,7 +6,7 @@
                 <a href="#!/cursoAlumno/">Curso</a>
             </li>
             <li>
-                <a href="#!/cursoAlumno/1/tarea">Tarea</a>
+                <a href="#!/cursoAlumno/{{curso.id}}/tarea">Tarea</a>
             </li>
             <li class="active">
                 <a>Ejercicios del {{tipoDeTest}}
@@ -26,45 +26,46 @@
                             <h2 class="title-top ">Siguiente Ejercicio del {{tipoDeTest}}</h2>
                             <p>Se muestra el siguiente ejercicio</p>
                             <div class="enunciado">
-                                <div class="col-sm-6">
-                                    <label for="enunciado" class="control-label">{{ejercicio.enunciado}} criterio: {{criterioValor}}</label>
+                                <div class="col-sm-9">
+                                    <label for="enunciado" class="control-label">{{ejercicio.enunciado}}</label>
                                 </div>
                             </div>
                             <br/>
                             <hr/>
                             <div class="respuesta">
-                                <div class="col-sm-6">
+                                <div class="col-sm-9">
                                     <label>
                                         <input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
                                 </div>
                             </div>
                             <div class="respuesta">
-                                <div class="col-sm-6">
+                                <div class="col-sm-9">
                                     <label>
                                         <input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
                                 </div>
                             </div>
                             <div class="respuesta">
-                                <div class="col-sm-6">
+                                <div class="col-sm-9">
                                     <label>
                                         <input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
                                 </div>
                             </div>
                             <div class="respuesta">
-                                <div class="col-sm-6">
+                                <div class="col-sm-9">
                                     <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
+                                        <input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}
+                                    </label>
                                 </div>
                             </div>
 
-                            <hr color="blue" size=10>
-                            <hr/>
-                            <hr>
-                            <br />
-                            <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicio(numero)">
-                                <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
-                            <a ng-hide="mostrar()"> No hay mas ejercicios</a>
 
+                            <div class="responderEjercicio">
+                                <div class="col-sm-9">
+                                    <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicio(numero)">
+                                        <i class="fa fa-slack" aria-hidden="true"></i>Responder Ejercicio</a>
+                                    <a ng-hide="mostrar()"> No hay mas ejercicios</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3 ">
@@ -77,15 +78,15 @@
                                     <dd ng-if="ejercicio.nivelDificultad == 1">Fácil</dd>
                                     <dd ng-if="ejercicio.nivelDificultad == 2">Normal</dd>
                                     <dd ng-if="ejercicio.nivelDificultad == 3">Dificil</dd>
-                                
+
                                     <dt>Adivinanza:</dt>
                                     <dd ng-if="ejercicio.adivinanza == 0.1">Bajo</dd>
                                     <dd ng-if="ejercicio.adivinanza == 0.2">Medio</dd>
                                     <dd ng-if="ejercicio.adivinanza == 0.3">Alto</dd>
-                    
+
                                     <dt>Conceptos:</dt>
                                     <dd ng-repeat="c in ejercicio.conceptosView">{{c.nombre}}</dd>
-                                    
+
                                     <dt>Ejercicio Anterior:</dt>
                                     <dd ng-if="resp == false">Fallo</dd>
                                     <dd ng-if="resp == true">Acerto</dd>
@@ -132,6 +133,9 @@
                             </tr>
                         </table>
                     </div>
+                    <a  ng-hide="sesionTutor.testFinal" class="btn btn-primary" href="#!/cursoAlumno/{{idCursoNumero}}/tarea/{{tarea}}/ejercicioTutor" title="Iniciar Tutorización">Iniciar Tutorización 
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </a>
                 </div>
                 <div ng-switch-default>Texto para cuando no es ni A ni C ni B</div>
             </div>

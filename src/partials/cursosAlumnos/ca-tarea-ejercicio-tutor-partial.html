@@ -6,10 +6,10 @@
                 <a href="#!/cursoAlumno/">Curso</a>
             </li>
             <li>
-                <a href="#!/cursoAlumno/1/tarea">Tarea</a>
+                <a href="#!/cursoAlumno/{{curso.id}}/tarea">Tarea</a>
             </li>
             <li class="active">
-                <a>Ejercicios
+                <a>Tutorización
                     <span class="badge">3</span>
                 </a>
             </li>
@@ -23,7 +23,7 @@
                     <div ng-switch-when="A">
                         <div class="col-md-9 ">
                             <div class="top-block">
-                                <h2 class="title-top ">Siguiente Ejercicio</h2>
+                                <h2 class="title-top ">Siguiente Ejercicio de tutorización</h2>
                                 <p>Se muestra el siguiente ejercicio</p>
                                 <div class="enunciado">
                                     <div class="col-sm-6">
@@ -33,36 +33,39 @@
                                 <br/>
                                 <hr/>
                                 <div class="respuesta">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-9">
                                         <label>
                                             <input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
                                     </div>
                                 </div>
                                 <div class="respuesta">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-9">
                                         <label>
                                             <input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
                                     </div>
                                 </div>
                                 <div class="respuesta">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-9">
                                         <label>
                                             <input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
                                     </div>
                                 </div>
                                 <div class="respuesta">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-9">
                                         <label>
                                             <input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}</label>
                                     </div>
                                 </div>
-                                {{numero}}
-                                <hr color="blue" size=10>
+                                {{espacio}}
+                                
 
-
-                                <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicioTutor(numero)">
-                                    <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
-                                <a ng-hide="mostrar()"> No hay mas ejercicios</a>
+                                <div class="responderEjercicio">
+                                    <div class="col-sm-9">
+                                        <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicioTutor(numero)">
+                                            <i class="fa fa-floppy-o"></i>Responder Ejercicio</a>
+                                        <a ng-hide="mostrar()"> No hay mas ejercicios</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3 ">
@@ -253,6 +256,9 @@
                                 </table>
                             </div>
                         </div>
+                        <a  class="btn btn-primary" href="#!/cursoAlumno/{{parametroCursoR}}/tarea/{{tarea}}/ejercicio" title="Test Final">Iniciar Test Final 
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        </a>
                     </div>
                     <div ng-switch-when="D">
                         <div class="top-block">
