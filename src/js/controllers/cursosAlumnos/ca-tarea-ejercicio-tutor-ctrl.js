@@ -285,7 +285,8 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
         /***Para pdf. solo lecto */
         $scope.pdfContent = "http://www3.uah.es/pramos/Blog/Profesor-Primero-A-1-8-print.pdf";
         $scope.lectorUrl = function () {
-            var parteIncial = "http://docs.google.com/gview?url=";
+            //var parteIncial = "http://docs.google.com/gview?url=";
+            var parteIncial = "https://docs.google.com/viewer?url=";
             var parteFinal = "&embedded=true";
             var retorno = parteIncial + $scope.pdfContent + parteFinal;
             console.log("retorno :" + retorno)
@@ -433,7 +434,8 @@ app.controller('CursoAlumnoTareaEjercicioTutorCtrl', ['$scope',
                 'idAlumno': $scope.alumno,
                 'idAsignatura': $scope.material.idAsignatura,
                 'idMaterial': $scope.material.id,
-                'idConcepto': $scope.criterioValorTutor.concepto
+                'idConcepto': $scope.criterioValorTutor.concepto,
+                'esRegla':$scope.material.esRegla
             };
             /**No llamo directamente */
             $scope.responderMaterial($scope.variableResponder);

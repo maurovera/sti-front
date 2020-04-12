@@ -32,6 +32,34 @@
         </div>
         
         <div class="form-group">
+            <div class="col-md-6">
+                <label for="cedula" class="control-label">cedula:*</label>
+                <input type="text" ng-model="recurso.cedula" class="form-control" id="cedula" placeholder="Cedula del alumno." required="required">
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+                <div class="col-md-6">
+                    <label class="control-label">Email:*</label>
+                    <input type="email" name="input" id="email" ng-model="recurso.email" class="form-control" placeholder="Email del alumno." required>
+                    <div role="alert">
+                        <span class="error" ng-show="Form.input.$error.required">
+                        Requerido!</span>
+                        <span class="error" ng-show="Form.input.$error.email">
+                        Email no valido!</span>
+                    </div>
+                </div>
+        </div>
+
+        
+
+
+
+
+
+
+        <div class="form-group">
             <div class="col-sm-6">
             <label for="respuesta_correcta" class="control-label">Género:*</label>
                 <select class="form-control" ng-model="recurso.genero" name="genero">

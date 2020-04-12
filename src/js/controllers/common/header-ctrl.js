@@ -264,7 +264,7 @@ app.controller('HeaderCtrl', ['$scope', '$timeout', 'SessionService', '$location
 
         $scope.mostrarEstilo = function () {
             var resultado = false;
-            if($scope.user!=null){
+            if($scope.user!=null && $scope.user.idAlumno != null){
                 resultado = true;
             }
                 

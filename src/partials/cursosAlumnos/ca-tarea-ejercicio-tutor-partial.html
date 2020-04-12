@@ -103,7 +103,7 @@
                                 <h2 class="title-top ">Material </h2>
                                 <hr>
                                 <div ng-if="material.fuente === true">
-                                    <iframe class="youtube-player" type="text/html" width="100%" height="385" ng-src="{{trustSrc(urlFinal)}}" allowfullscreen
+                                    <iframe class="youtube-player" type="text/html" width="100%" height="700px" ng-src="{{trustSrc(urlFinal)}}" allowfullscreen
                                         frameborder="0">
                                     </iframe>
                                 </div>
@@ -113,18 +113,21 @@
                                         <img ng-src="{{urlFinal}}" alt="no se carga la imagen del servidor" width=100% height="385" />
                                     </div>
                                     <div ng-if="numeroServidor === 2">
-                                        <audio width="100%" height="385" controls>
+                                        <audio width="100%" height="700px" controls>
                                             <source src="{{urlFinal}}" type="audio/mpeg">
                                             <p>Tu navegador no implementa el elemento audio.</p>
                                         </audio>
                                     </div>
                                     <div ng-if="numeroServidor === 3">
-                                        <video width="100%" height="385" controls>
+                                        <video width="100%" height="700px" controls>
                                             <source src="{{urlFinal}}" type="video/mp4"> Tu navegador no implementa el elemento video.
                                         </video>
                                     </div>
                                     <div ng-if="numeroServidor === 4">
-                                        <embed src="{{urlFinal}}" width="100%" height="385" alt="No se pudo mostrar la imagen" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+                                        <!--<embed src="{{urlFinal}}" width="100%" height="500" alt="No se pudo mostrar la imagen" 
+                                        >
+                                        pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"-->
+                                        <embed src="{{urlFinal}}" type="application/pdf" width="100%" height="700px" alt="No se pudo mostrar el pdf"/>
                                     </div>
                                 </div>
                             </div>

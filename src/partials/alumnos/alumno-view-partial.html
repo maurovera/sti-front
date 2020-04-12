@@ -18,16 +18,17 @@
         <dd>
             {{recurso.edad}}
         </dd>
+        <dt>Cedula:</dt>
+        <dd>
+            {{recurso.cedula}}
+        </dd>
+        <dt>Email:</dt>
+        <dd>
+            {{recurso.email}}
+        </dd>
         <dt>Género:</dt>
-        <dd ng-if="recurso.genero == 'M'">Masculino</dd>
-        <dd ng-if="recurso.genero == 'F'">Femenino</dd>
-        <dt>Estilo de aprendizaje:</dt>
-        <dd>
-            {{recurso.estilo}}
-        </dd>
-        <dt>Nivel actual:</dt>
-        <dd>
-            {{recurso.nivelActual}}
-        </dd>
+        <dd ng-if="recurso.genero == 'M' ||  recurso.genero == 'm'">Masculino</dd>
+        <dd ng-if="recurso.genero == 'F' ||  recurso.genero == 'f'">Femenino</dd>
+        
     </view>
 </view-directive>
