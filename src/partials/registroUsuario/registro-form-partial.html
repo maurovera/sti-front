@@ -1,29 +1,89 @@
-<form name="registerUserForm">
-    <fieldset>
-
-        <legend>Formulario de registro</legend>
-        <div class="row">
-            <div ng-show="flash_error">
-                <div data-alert class="alert-box alert round">{{ flash_error }}</div>
+<form-directive>
+    <titulo>Registro de usuario</titulo>
+    <descripcion>A través de esta sección usted podrá registrarse al sistema.</descripcion>
+    <form>
+        <div class="form-group" ng-if="!isCrear()">
+            <label class="col-sm-3 control-label">Id:</label>
+            <div class="col-sm-7">
+                <label class="control-label">{{recurso.id}}</label>
+                <p class="help-block">Identificador único.</p>
             </div>
-
-            <div ng-show="flash_success">
-                <div data-alert class="alert-box success round">{{ flash_success }}</div>
-            </div>
-
-            <label>Nombre</label>
-            <input type="text" required placeholder="Introduce un nombre..." ng-model="user.nombre" />
-
-             <label>Email</label>
-             <input type="email" required placeholder="Introduce un email correcto..." ng-model="user.email" />
-
-             <label>Password</label>
-             <input type="password" required placeholder="Introduce un password..." ng-model="user.password" />
-
-             <button ng-disabled="!registerUserForm.$valid" ng-click="registerUser(user)" type="submit" class="button radius large-5 columns">Regístrarme</button>
-            <button type="reset" class="button radius alert large-5 columns">Reset</button>
-
         </div>
-    </fieldset>
-</form>
-<p1>{{hola}}</p1>
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="nombre" class="control-label">Nombre:*</label>
+                <input type="text" ng-model="recurso.nombre" class="form-control" id="nombre" placeholder="Nombre del Usuario" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="descripcion" class="control-label">Apellido:*</label>
+                <input type="text" ng-model="recurso.apellido" class="form-control" id="apellido" placeholder="Apellido del Usuario" required="required">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="edad" class="control-label">Edad:*</label>
+                <input type="text" ng-model="recurso.edad" class="form-control" id="edad" placeholder="Edad del Usuario" required="required">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="cedula" class="control-label">cedula:*</label>
+                <input type="text" ng-model="recurso.cedula" class="form-control" id="cedula" placeholder="Cedula del alumno." required="required">
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+                <div class="col-md-6">
+                    <label class="control-label">Email:*</label>
+                    <input type="email" name="input" id="email" ng-model="recurso.email" class="form-control" placeholder="Email del Usuario." required>     
+                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="username" class="control-label">Nick:*</label>
+                <input type="text" ng-model="recurso.username" class="form-control" id="username" placeholder="Nick del Usuario" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="contraseña" class="control-label">Contraseña:*</label>
+                <input type="password" ng-model="recurso.password" id="password" class="form-control" placeholder="Contraseña" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="respuesta_correcta" class="control-label">Género:*</label>
+                <select class="form-control" ng-model="recurso.genero" name="genero">
+                    <option  disabled value="">--- Seleccione una opción ---</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="respuesta_correcta" class="control-label">Tipo de usuario:*</label>
+                <select class="form-control" ng-model="recurso.esAlumno" name="genero">
+                    <option  disabled value="">--- Seleccione una opción ---</option>
+                    <option value="true">Alumno</option>
+                    <option value="false">Docente</option>
+                </select>
+            </div>
+        </div>
+
+
+    </form>
+</form-directive>
+
+

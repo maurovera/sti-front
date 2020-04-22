@@ -240,15 +240,15 @@ app.controller('EjercicioFormCtrl', ['$scope', '$routeParams', 'EjercicioService
             // valores de nivel de dificultad
             $scope.nivelesDificultad = [
                 {
-                    valor: "1.0",
+                    valor: "0.5",
                     nivel: "Fácil"
                 },
                 {
-                    valor: "2.0",
+                    valor: "1",
                     nivel: "Normal"
                 },
                 {
-                    valor: "3.0",
+                    valor: "1.5",
                     nivel: "Dificil"
                 }
              ];

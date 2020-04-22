@@ -1,5 +1,5 @@
 <div>
-    <br/>
+    <br />
     <div class="wizard">
         <ul class="wizard-breadcrumbs">
             <li>
@@ -14,7 +14,7 @@
         </ul>
     </div>
 
-    <br/>
+    <br />
 
     <section class="form-wrapper">
         <div class="top-block">
@@ -22,101 +22,127 @@
             <p>A través de esta sección usted podrá gestionar ejercicios.</p>
 
         </div>
-        <section class="col-md-6">
+        <section class="col-md-12">
             <section class="wrapper form-horizontal" role="form">
 
-                <div class="form-group" ng-if="!isCrear()">
-                    <label class="col-sm-3 control-label">Id:</label>
-                    <div class="col-sm-7">
-                        <label class="control-label">{{recurso.id}}</label>
-                        <p class="help-block">Identificador único del ejercicio.</p>
+                <nav class="col-md-6">
+                    <div class="form-wrapper">
+                        <div class="top-block">
+                            <h2 class="title-top">Enunciado y concepto</h2>
+                            <p>Enunciado del ejercicio y conceptos asociados</p>
+                        </div>
+
+
+
+                        <div class="form-wrapper">
+
+                            <div class="form-group" ng-if="!isCrear()">
+                                <label class="col-sm-3 control-label">Id:</label>
+                                <div class="col-sm-7">
+                                    <label class="control-label">{{recurso.id}}</label>
+                                    <p class="help-block">Identificador único del ejercicio.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="conceptos" class="control-label"> Conceptos:</label><br>
+                                    <select ng-model="recurso.conceptosAsociados" id="selectConcepto"
+                                        name="selectConcepto" multiple="multiple" >
+                                        <option value="" disabled selected hidden>--Escoja uno o más conceptos--
+                                        </option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="nombre" class="control-label">Enunciado:*</label>
+                                    <textarea type="text" ng-model="recurso.enunciado" class="form-control"
+                                        id="enunciado" placeholder="Nombre del enunciado.">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-6">
-                    <label for="conceptos" class="control-label"> Conceptos:</label><br>
-                        <select ng-model="recurso.conceptosAsociados" id="selectConcepto" name="selectConcepto" multiple="multiple" style="width:370px;">
-                            <option value="" disabled selected hidden >--Escoja uno o más conceptos--</option>
-                        </select>
-                       
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-6">
-                    <label for="nombre" class="control-label">Enunciado:*</label>
-                        <input type="text" ng-model="recurso.enunciado" class="form-control" id="enunciado" placeholder="Nombre del enunciado.">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-6">
-                    <label for="respuesta1" class="control-label">Respuesta
-								1:</label>
-                        <input type="text" ng-model="recurso.listaRespuesta[0].descripcion" name="respuesta1" id="respuesta1" class="form-control">
-                    </div>
-                </div>
-                {{recurso.listaRespuesta[0].descripcion}}
-                <div class="form-group">
-                    <div class="col-sm-6">
-                    <label for="respuesta2" class="control-label">Respuesta
-								2:</label>
-                        <input type="text" ng-model="recurso.listaRespuesta[1].descripcion" name="respuesta2" id="respuesta2" class="form-control" id="respuesta2">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                    <label for="respuesta3" class="control-label">Respuesta
-								3:</label>
-                        <input type="text" ng-model="recurso.listaRespuesta[2].descripcion" name="respuesta3" id="respuesta3" class="form-control" id="respuesta3">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                    <label for="respuesta4" class="control-label">Respuesta
-								4:</label>
-                        <input type="text" ng-model="recurso.listaRespuesta[3].descripcion" name="respuesta4" id="respuesta4" class="form-control" id="respuesta4">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                    <label for="respuesta_correcta" class="control-label">Respuesta correcta:</label>
-                        <select class="form-control" ng-model="recurso.respuestaCorrecta" name="nivelRespuesta">
-                            <option  disabled value="">--- Seleccione una opción ---</option>
-                            <option ng-repeat="x in nivelesRespuesta" value="{{x.valor}}">{{x.nivel}}</option>
-                        </select>
-                    </div>
-                    {{recurso.respuestaCorrecta}}
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                     <label for="adivinanza" class="control-label">Descuido:</label>                      
                         <select class="form-control" ng-model="recurso.nivelAdivinanza" name="nivelAdivinanza">
                             <option  disabled value="">--- Seleccione una opción ---</option>
                             <option ng-repeat="x in nivelesAdivinanza" value="{{x.valor}}">{{x.nivel}}</option>
                         </select>
                     </div>
-                    {{recurso.nivelAdivinanza}}
+            
                     
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                     <label for="nivelDificultad" class="control-label">Dificultad:</label>
                         <select class="form-control" ng-model="recurso.dificultad" name="nivelDificultad">
                             <option  disabled value="">--- Seleccione una opción ---</option>
                             <option ng-repeat="x in nivelesDificultad" value="{{x.valor}}"ng-selected="obj.nivel == x.nivel">{{x.nivel}}</option>
                         </select>
                     </div>
-
-                    
-                    {{recurso.dificultad}}
                 </div>
-                    
+         
 
+            </div>
+
+        </div>
+    </nav>
+    <nav class="col-md-6">
+        <div class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top">Respuestas</h2>
+                <p>Respuestas del ejercicio y respuesta correcta</p>
+            </div>
+            <div class="form-wrapper">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                    <label for="respuesta1" class="control-label">Respuesta
+								1:</label>
+                        <textarea type="text" ng-model="recurso.listaRespuesta[0].descripcion" name="respuesta1" id="respuesta1" class="form-control">
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <div class="col-sm-12">
+                    <label for="respuesta2" class="control-label">Respuesta
+								2:</label>
+                        <textarea type="text" ng-model="recurso.listaRespuesta[1].descripcion" name="respuesta2" id="respuesta2" class="form-control" id="respuesta2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                    <label for="respuesta3" class="control-label">Respuesta
+								3:</label>
+                        <textarea type="text" ng-model="recurso.listaRespuesta[2].descripcion" name="respuesta3" id="respuesta3" class="form-control" id="respuesta3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                    <label for="respuesta4" class="control-label">Respuesta
+								4:</label>
+                        <textarea type="text" ng-model="recurso.listaRespuesta[3].descripcion" name="respuesta4" id="respuesta4" class="form-control" id="respuesta4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                    <label for="respuesta_correcta" class="control-label">Respuesta correcta:</label>
+                        <select class="form-control" ng-model="recurso.respuestaCorrecta" name="nivelRespuesta">
+                            <option  disabled value="">--- Seleccione una opción ---</option>
+                            <option ng-repeat="x in nivelesRespuesta" value="{{x.valor}}">{{x.nivel}}</option>
+                        </select>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+              
                 <hr>
                 <a class="btn btn-cat" ng-click="guardarAsociados()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
                

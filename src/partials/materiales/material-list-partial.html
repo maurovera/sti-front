@@ -4,13 +4,18 @@
     <br/>
    
     
+    
     <div class="wizard">
         <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/">Asignatura</a>
+            </li>
             <li class="active">
-                <a>Alumnos <span class="badge">1</span></a>
+                <a>Materiales<span class="badge">2</span></a>
             </li>
         </ul>
     </div>
+    
     <br/>
     <br/>
     <div class="row">
@@ -22,12 +27,16 @@
                 </div>
                 <div class="form">
                     <div class="form-group">
-                        <label class="control-label">Nombre:</label>
-                        <input type="text" class="form-control" ng-model="filterBy.nombres" />
+                        <label class="control-label">Nivel:</label>
+                        <input type="text" class="form-control" ng-model="filterBy.nivel" />
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Apellido:</label>
-                        <input type="text" class="form-control" ng-model="filterBy.apellidos" />
+                        <label class="control-label">Estilo:</label>
+                        <input type="text" class="form-control" ng-model="filterBy.estilo" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Concepto:</label>
+                        <input type="text" class="form-control" ng-model="filterBy.concepto" />
                     </div>
                     <hr>
                     <a class="btn btn-default" ng-click="limpiar()">
@@ -39,20 +48,22 @@
         <section class="col-md-9">
             <section class="form-wrapper">
                 <div class="top-block">
-                    <h2 class="title-top" >Alumnos</h2>
-                    <p >A través de esta sección usted podrá realizar la administración de alumnos.</p>
+                    <h2 class="title-top" >Materiales</h2>
+                    <p >A través de esta sección usted podrá realizar la administración de materiales didácticos.</p>
                 </div>
                 <div class="wrapper table-responsive" tasty-table="" bind-resource-callback="getResource " bind-init="init " bind-filters="filterBy ">
                     <table class="table table-striped ">
                         <thead tasty-thead></thead>
                         <tbody ng-if="loading == false">
                             <tr ng-repeat="row in rows ">
-                                <td>{{row.nombres}}</td>
-                                <td>{{row.apellidos}}</td>
+                                <td>{{row.estilo}}</td>
+                                <td>{{row.nivel}}</td>
+                                <td>{{row.tipo}}</td>
+                                <td>{{row.concepto}}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="#!/alumno/{{row.id}}/ver" title="Ver"><i class="fa fa-eye"></i></a> 
-                                    <a class="btn btn-success" href="#!/alumno/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
-                                    <a class="btn btn-danger" href="#" ng-click="eliminarNuevo(row)" title="Eliminar"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-warning" href="#!/asignatura/{{asignaturaId}}/material/{{row.id}}/ver" title="Ver"><i class="fa fa-eye"></i></a> 
+                                    <a class="btn btn-success" href="#!/asignatura/{{asignaturaId}}/material/{{row.id}}/editar" title="Editar"><i class="fa fa-pencil-square-o"></i></a> 
+                                    <a class="btn btn-danger" href="#" ng-click="eliminar(row)" title="Eliminar"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -75,7 +86,7 @@
                 <div >
                 
                         <hr/>
-                        <a class="btn btn-default" href="#!alumno/crear">
+                        <a class="btn btn-default" href="#!/asignatura/{{asignaturaId}}/material/crear">
                             <i class="fa fa-plus"></i> Agregar</a>
                     
                 </div>

@@ -20,33 +20,57 @@
     <br/>
     <br/>
 
+
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" ng-show="!mostrar()">
             <div class="cloud lila1">
-                <p class="pull-left"><i class="fa fa-graduation-cap"></i> Cursos</p> <span class="pull-right">1</span><br>
+                <p class="pull-left"><i class="fa fa-graduation-cap"></i> Asignatura</p> <span class="pull-right">1</span><br>
                 <hr/>
-                <p class="text-dash">Aquí podés ver todos los cursos que están disponibles en este momento.</p>
-                <a href="#!/cursoAlumno" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                <p class="text-dash">Aquí podés ver todas tus asignaturas creadas.</p>
+                <a href="#!/asignatura" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
        
         
-        <div class="col-md-4">
+        <div class="col-md-4" ng-show="!mostrar()">
             <div class="cloud lila4">
-               <p class="pull-left"><i class="fa fa-smile-o"></i> Estilos de aprendizaje</p> <span class="pull-right">2</span><br>
+               <p class="pull-left"><i class="fa fa-smile-o"></i> Cursos</p> <span class="pull-right">2</span><br>
                 <hr/>
-                <p class="text-dash">Aquí podés ver todos tus estilos de aprendizaje.</p>
-                <a href="#!/resumenEstiloAprendizaje" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                <p class="text-dash">Aquí podés ver todos tus cursos creados.</p>
+                <a href="#!/curso" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
             </div>
         </div>
-        <div class="col-md-4">
+       
+        <!--Alumno-->
+
+            <div class="col-md-4" ng-show="mostrarEstilo()">
                 <div class="cloud lila1">
-                   <p class="pull-left"><i class="fa fa-smile-o"></i> Resultados </p> <span class="pull-right">3</span><br>
+                    <p class="pull-left"><i class="fa fa-graduation-cap"></i> Cursos</p> <span class="pull-right">1</span><br>
                     <hr/>
-                    <p class="text-dash">Aquí podés ver todo lo relacionado a tu rendimiento.</p>
-                    <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                    <p class="text-dash">Aquí podés ver todos los cursos que están disponibles en este momento.</p>
+                    <a href="#!/cursoAlumno" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
                 </div>
             </div>
+           
+            
+            <div class="col-md-4" ng-show="mostrarEstilo()">
+                <div class="cloud lila4">
+                   <p class="pull-left"><i class="fa fa-smile-o"></i> Estilos de aprendizaje</p> <span class="pull-right">2</span><br>
+                    <hr/>
+                    <p class="text-dash">Aquí podés ver todos tus estilos de aprendizaje.</p>
+                    <a href="#!/resumenEstiloAprendizaje" class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4" ng-show="mostrarEstilo()">
+                    <div class="cloud lila1">
+                       <p class="pull-left"><i class="fa fa-smile-o"></i> Resultados </p> <span class="pull-right">3</span><br>
+                        <hr/>
+                        <p class="text-dash">Aquí podés ver todo lo relacionado a tu rendimiento.</p>
+                        <a class="bootom pull-right">ver más <i class="fa fa-plus" style="font-size: 0.9em"></i></a>
+                    </div>
+                </div>    
+
+
     </div>
 </div>
 

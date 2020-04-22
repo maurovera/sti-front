@@ -1,0 +1,48 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!/asignatura/">Asignaturas</a>
+        </li>
+        <li>
+            <a href="#!/asignatura/{{atras}}/material">Materiales</a>
+        </li>
+        <li class="active">
+            <a>Material <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<br/>
+<view-directive>
+    <titulo>Materiales</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos de un material didáctico.</descripcion>
+    <view>
+        <dt>Id:</dt>
+        <dd>
+            {{recurso.id}}
+        </dd>
+        <dt>Estilo:</dt>
+        <dd>
+            {{recurso.estilo}}
+        </dd>
+        <dt>Nivel:</dt>
+        <dd>
+            {{recurso.nivel}}
+        </dd>
+        <dt>Url:</dt>
+        <dd>
+            {{recurso.urlMaterial}}
+        </dd>
+        <dt>Concepto:</dt>
+        <dd>
+            {{recurso.concepto}}
+        </dd>
+
+        <dt>Tipo:</dt>
+        <dd>
+            {{recurso.tipo}}
+        </dd>
+        
+    </view>
+</view-directive>

@@ -1,10 +1,10 @@
 /**
  * @class
- * Controller que implementa el formulario administración de Alumnos
+ * Controller que implementa el formulario administración de Materiales
  *</a>
  */
-app.controller('RegistroFormCtrl', ['$scope', 'RegistroUsuarioService', '$controller',
-    function ($scope, service, $controller) {
+app.controller('MaterialFormCtrl', ['$scope', 'MaterialService', '$controller','$routeParams',
+    function ($scope, service, $controller, $routeParams) {
 
         /**
          * Service utilizdo para recuperar los datos y realizar las operaciones.
@@ -13,12 +13,18 @@ app.controller('RegistroFormCtrl', ['$scope', 'RegistroUsuarioService', '$contro
          */
         $scope.service = service;
 
+         // le paso el id la asignatura para volver atras.
+         $scope.atras = $routeParams.idAsig;
+         // esto lo usa en base controller de view, el id es el recurso que consulta. 
+         $routeParams.id = $routeParams.idMaterial;    
+
+
         /**
          * Url del recurso
          * @field
          * @type {Object}
          */
-        $scope.uri = "/usuarios/";
+        $scope.uri = "/asignatura/" + $scope.atras + "/material/";
 
         /**
          * Constructor / Entrypoint
@@ -32,10 +38,6 @@ app.controller('RegistroFormCtrl', ['$scope', 'RegistroUsuarioService', '$contro
         })();
         
         console.log($scope.recurso);
-        $scope.recurso.publico = false;
-        $scope.recurso.interno = true;
-        $scope.recurso.recibirNotificacion = true;
-
         
         
         

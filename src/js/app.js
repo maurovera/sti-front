@@ -357,6 +357,24 @@ app.config(['$routeProvider', '$httpProvider', // 'keycloakLauncherProvider',
                 controller: 'MaterialesViewCtrl',
                 resolve: resolve
             })
+            .when('/asignatura/:idAsig/material', {
+                templateUrl: 'partials/materiales/material-list-partial.html',
+                controller: 'MaterialListCtrl',
+                resolve: resolve
+            }).when('/asignatura/:idAsig/material/:idMaterial/ver', {
+                templateUrl: 'partials/materiales/material-view-partial.html',
+                controller: 'MaterialViewCtrl',
+                resolve: resolve
+            })
+            .when('/asignatura/:idAsig/material/:idMaterial/editar', {
+                templateUrl: 'partials/materiales/material-form-partial.html',
+                controller: 'MaterialFormCtrl',
+                resolve: resolve
+            }).when('/asignatura/:idAsig/material/crear', {
+                templateUrl: 'partials/materiales/material-form-partial.html',
+                controller: 'MaterialFormCtrl',
+                resolve: resolve
+            })
 
             //finaly
             .otherwise({

@@ -1,0 +1,142 @@
+<div>
+    <br />
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!/asignatura/">Asignaturas</a>
+            </li>
+            <li>
+                <a href="#!/asignatura/{{atras}}/material">Materiales</a>
+            </li>
+            <li class="active">
+                <a>Material <span class="badge">3</span></a>
+            </li>
+        </ul>
+    </div>  
+
+    <br />
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Materiales</h2>
+            <p>A través de esta sección usted podrá gestionar materiales didáticos.</p>
+
+        </div>
+        <section class="col-md-12">
+            <section class="wrapper form-horizontal" role="form">
+
+
+
+                <div class="form-group" ng-if="!isCrear()">
+                    <label class="col-sm-3 control-label">Id:</label>
+                    <div class="col-sm-7">
+                        <label class="control-label">{{recurso.id}}</label>
+                        <p class="help-block">Identificador único del material.</p>
+                    </div>
+                </div> 
+
+                <div class="form-group">
+                    <div class="col-sm-6">
+                    <label for="Estilo" class="control-label">Estilo:*</label>
+                        <select class="form-control" ng-model="recurso.estilo" name="estilo">
+                            <option  disabled value="">--- Seleccione una opción ---</option>
+                            <option value="visual">Visual</option>
+                            <option value="auditivo">Auditivo</option>
+                            <option value="lector">Lector</option>
+                            <option value="kinestesico">Kinestésico</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-6">
+                    <label for="Nivel" class="control-label">Nivel:*</label>
+                        <select class="form-control" ng-model="recurso.nivel" name="nivel">
+                            <option  disabled value="">--- Seleccione una opción ---</option>
+                            <option value="bajo">Bajo</option>
+                            <option value="medio">Medio</option>
+                            <option value="alto">Alto</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6">
+                    <label for="Nivel" class="control-label">Concepto:*</label>
+                        <select class="form-control" ng-model="recurso.concepto" name="concepto">
+                            <option  disabled value="">--- Seleccione una opción ---</option>
+                            <option value="internet">Internet</option>
+                            <option value="intranet">Intranet</option>
+                            <option value="recursos_web">Recursos Web</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                        <div class="col-sm-6">
+                        <label for="tipo" class="control-label">Tipo de material:*</label>
+                            <select class="form-control" ng-model="recurso.tipo" name="tipo">
+                                <option  disabled value="">--- Seleccione una opción ---</option>
+                                <option value="Video">Video</option>
+                                <option value="pdf">Pdf</option>
+                                <option value="audio">Audio online</option>
+                                <option value="youtube">Video de Youtube</option>
+                                <option value="mp3">Mp3</option>
+                                <option value="imagen">Imagen online</option>
+                                <option value="imagen">Foto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6">
+                    <label for="fuente" class="control-label">Fuente:*</label>
+                        <select class="form-control" ng-model="recurso.fuente" name="fuente">
+                            <option  disabled value="">--- Seleccione una opción ---</option>
+                            <option value="true">Online</option>
+                            <option value="false">Servidor</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group"   ng-if="recurso.fuente == 'true'">
+                    <div class="col-md-6">
+                        <label for="urlMaterial" class="control-label">Enlace:*</label>
+                        <textarea type="text" ng-model="recurso.urlMaterial" class="form-control" id="url" placeholder="Enlace del material didáctico" required="required">
+                    </div>
+                </div>
+
+                <div class="form-group"   ng-if="recurso.fuente == 'false'">
+                    <div class="col-md-6">
+                        <label for="urlMaterial" class="control-label">Nombre del archivo:*</label>
+                        <text type="text" ng-model="recurso.nombreEnlace" class="form-control" id="nombreEnlace" placeholder="Nombre del material didáctico" required="required">
+                                
+                        </div>
+                        <div class="row-md-6">                        
+                            <a href="#" class="btn btn-primary">
+                            <i class="fa fa-mail-reply" aria-hidden="true"></i> Subir Material
+                            </a>
+                        </div>
+    
+                </div>
+ 
+
+
+              
+                <hr>
+                <a class="btn btn-cat" ng-click="guardar()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+               
+            </section>
+             <hr/>
+                <a href="#!/asignatura/{{atras}}/material" class="btn btn-default">
+                <i class="fa fa-mail-reply" aria-hidden="true"></i> Atrás
+                </a>
+        </section>
+
+
+
+    </section>
+
+
+</div>
