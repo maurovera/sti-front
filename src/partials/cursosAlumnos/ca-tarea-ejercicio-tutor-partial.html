@@ -75,9 +75,9 @@
                                 <form class="wrapper form-horizontal" role="form">
                                     <dl class="dl-horizontal">
                                         <dt>Dificultad:</dt>
-                                        <dd ng-if="ejercicio.nivelDificultad == 1">Fácil</dd>
-                                        <dd ng-if="ejercicio.nivelDificultad == 2">Normal</dd>
-                                        <dd ng-if="ejercicio.nivelDificultad == 3">Dificil</dd>
+                                        <dd ng-if="ejercicio.nivelDificultad == 0.5">Fácil</dd>
+                                        <dd ng-if="ejercicio.nivelDificultad == 1">Normal</dd>
+                                        <dd ng-if="ejercicio.nivelDificultad == 1.5">Dificil</dd>
 
                                         <dt>Adivinanza:</dt>
                                         <dd ng-if="ejercicio.adivinanza == 0.1">Bajo</dd>
@@ -90,6 +90,7 @@
                                         <dt>Ejercicio Anterior:</dt>
                                         <dd ng-if="resp == false">Fallo</dd>
                                         <dd ng-if="resp == true">Acerto</dd>
+                                        <dd ng-if="resp == null">Ninguno</dd>
                                     </dl>
                                     <hr>
                                 </form>
@@ -158,7 +159,7 @@
 
                                         <dt>Estrategia:</dt>
                                         <dd>
-                                            {{material.estrategia}} VIDEO
+                                            {{material.tipo}}
                                         </dd>
 
                                         <dt>Url del material:</dt>
@@ -210,8 +211,8 @@
                                         <td>{{ r.idConcepto }}</td>
                                         <td>{{ r.nombreConcepto }}</td>
                                         <td>{{ r.estilo }}</td>
-                                        <td>{{ r.nivelInicial | number:3 }}</td>
-                                        <td>{{ r.nivelFinal | number:3 }}</td>
+                                        <td>{{ r.nivelInicial*100 | number:3 }}%</td>
+                                        <td>{{ r.nivelFinal*100 | number:3 }}%</td>
                                     </tr>
                                 </table>
                             </div>
@@ -253,8 +254,8 @@
                                         <td>{{ r.respuesta }}</td>
                                         <td ng-if="r.esCorrecto == true">Verdadero</td>
                                         <td ng-if="r.esCorrecto == false">Falso</td>
-                                        <td>{{ r.nivelInicial | number:3 }}</td>
-                                        <td>{{ r.nivelFinal | number:3 }}</td>
+                                        <td>{{ r.nivelInicial *100 | number:3 }}%</td>
+                                        <td>{{ r.nivelFinal*100 | number:3 }}%</td>
                                     </tr>
                                 </table>
                             </div>

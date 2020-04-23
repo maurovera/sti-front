@@ -55,6 +55,37 @@
 
             <div class="form-group">
                 <div class="col-sm-6">
+                <label for="tipo" class="control-label">Margen de conocimiento requerido:*</label>
+                    <select class="form-control" ng-model="recurso.margenConocimiento" name="margen" ng-model="recurso.margenConocimiento">
+                        <option  disabled value="">--- Margen de conocimiento---</option>
+                        <option value="0.05">5%</option>
+                        <option value="0.1">10%</option>
+                        <option value="0.2">20%</option>
+                        <option value="0.3">30%</option>
+                        <option value="0.4">40%</option>
+                        <option value="0.5">50%</option>
+                        <option value="0.6">60%</option>
+                        <option value="0.7">70%</option>
+                        <option value="0.8">80%</option>
+                        <option value="0.9">90%</option>
+                        <option value="1">100%</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                <label for="descripcion" class="control-label">Total de intentos:*</label>
+                    <input type="number" ng-model="recurso.totalIntentos" class="form-control" id="totalIntentos" placeholder="Total de intentos por TAI">
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-sm-6">
                 <label for="estadoTarea" class="control-label">Estado de la tarea:&nbsp;&nbsp;</label>
                     <input type="checkbox" value="" id="estadoTarea" ng-model="recurso.estadoTarea">
                 </div>
@@ -66,7 +97,7 @@
                     <select ng-model="recurso.conceptosAsociados" id="selectConcepto" name="selectConcepto" multiple="multiple" style="width:100%;">
                             <option value="" disabled selected  >--Elige uno o más conceptos--</option>
                         </select>
-                    <br> conceptos Asociados:{{recurso.conceptosAsociados}}
+                    
 
                 </div>
 

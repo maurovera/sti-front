@@ -32,14 +32,26 @@
                 <dd>
                     {{recurso.nombre}}
                 </dd>
-                <dt>Ruc:</dt>
+                <dt>Descripción:</dt>
                 <dd>
                     {{recurso.descripcion}}
                 </dd>
                 <dt>Estado de la tarea:</dt>
+                <dd ng-if="recurso.estadoTarea == true">Activo</dd>
+                <dd ng-if="recurso.estadoTarea == false">Inactivo</dd>
+                <dt>Total de intentos:</dt>
                 <dd>
-                    {{recurso.estadoTarea}}
-                </dd> 
+                    {{recurso.totalIntentos}}
+                </dd>
+
+                <dt>Margen:</dt>
+                <dd >{{recurso.margenConocimiento*100}} %</dd>
+
+                <dt>Conceptos Asociados:</dt>
+
+                <dd ng-repeat="c in recurso.listaConceptosTarea">{{c.nombre}}</dd>
+                
+
             </dl>
             <hr>
         </form>

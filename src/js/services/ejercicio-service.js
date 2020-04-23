@@ -61,6 +61,13 @@ app.service('EjercicioService', ['$http', 'StiBaseService', function ($http, Bas
                 params:params
             });
         },
+        
+
+        listarResueltoFinal: function (params) {
+            return $http.get(App.REST_BASE + this.recurso + "listaResueltoTestFinal", {
+                params:params
+            });
+        },
 
         listarResueltoTestTutor: function (params) {
             return $http.get(App.REST_BASE + this.recurso + "listaResueltoTestTutor", {

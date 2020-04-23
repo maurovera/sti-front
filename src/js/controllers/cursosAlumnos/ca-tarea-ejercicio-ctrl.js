@@ -88,7 +88,10 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
          */
         $scope.resueltos = {};
         $scope.getListaResueltos = function () {
-            $scope.ejercicioService.listarResueltoInicial($scope.valoresSesion)
+            console.log("putaaaaaa mostrameeeee");
+            console.log($scope.valoresSesion);
+            
+            $scope.ejercicioService.listarResueltoFinal($scope.valoresSesion)
                 .then(function (response) {
                     $scope.resueltos = response.data.rows;
                     $scope.valorVentana = "B";
@@ -96,6 +99,32 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     $scope.recursoCurso = {};
                     Message.error("No se pudo realizar la operación de obtener la lista de resueltos");
                 });
+        };
+
+
+        /**Resueltos. Pero vamos a intentar trae en sesion */
+        $scope.getListaResueltosSesion = function (finalTestDecision) {
+            if(finalTestDecision === true){
+                $scope.ejercicioService.listarResueltoFinal($scope.valoresSesion)
+                .then(function (response) {
+                    $scope.resueltos = response.data.rows;
+                    //$scope.valorVentana = "B";
+                }, function (data, code) {
+                    $scope.recursoCurso = {};
+                    Message.error("No se pudo realizar la operación de obtener la lista de resueltos");
+                });     
+            }else{
+                $scope.ejercicioService.listarResueltoInicial($scope.valoresSesion)
+                .then(function (response) {
+                    $scope.resueltos = response.data.rows;
+                    //$scope.valorVentana = "B";
+                }, function (data, code) {
+                    $scope.recursoCurso = {};
+                    Message.error("No se pudo realizar la operación de obtener la lista de resueltos");
+                });
+            }
+            
+           
         };
 
 
@@ -117,9 +146,11 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     if($scope.sesionTutor.testFinal === true){
                         console.log("entre en test final");
                         $scope.tipoDeTest = "Test Final";
+                        $scope.getListaResueltosSesion(true);
                     }else{
                         console.log("entre en test inicial");
                         $scope.tipoDeTest = "Test Inicial";
+                        $scope.getListaResueltosSesion(false);
                     };
                 }, function (data, code) {
                     $scope.lista = [];
@@ -184,9 +215,13 @@ app.controller('CursoAlumnoTareaEjercicioCtrl', ['$scope', '$routeParams', '$loc
                     console.log($scope.criterioValor);
                     if ($scope.criterioValor) {
                         console.log("criterio true. parar el tema");
-                        
+                        console.log("miraaaaaaque tipo test es");
+                        console.log($scope.tipoDeTest); 
                         /**Se llama para traer los resultados */
-                        $scope.getListaResueltos();
+                        //$scope.getListaResueltos();
+                        $scope.valorVentana = "B";
+                        $scope.traerSesion($scope.valoresSesion);
+                       
                     } else {
                         console.log("criterio false. seguir nde loco");
                         $scope.valorVentana = "A";

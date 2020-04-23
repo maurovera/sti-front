@@ -15,31 +15,42 @@
 
     <section class="form-wrapper">
         <div class="top-block">
-            <h2 class="tituloPrincipal">Descripción del curso: {{recurso.nombre}} </h2>
+            <h2 class="title-top">Descripción del curso: {{recurso.nombre}} </h2>
         </div>
 
-        <div class="col-md-12 text-center">
+        <form class="wrapper form-horizontal" role="form">
+            <dl class="dl-horizontal">
+                <dt class="pull-center">Introducción:</dt>
+                <dd class="pull-center">
+                    {{recurso.introduccion}}
+                </dd>         
+                
+                <dt class="pull-center">Acerca del curso:</dt>
+                <dd class="pull-center">
+                    {{recurso.descripcion}}
+                </dd>         
 
-            <h1 class="tituloEjercicio"> Introducción</h1>
-            <p>Este curso esta disponible para su incripción. En teoria el curso deberia tener una introducción aqui. y deberia ir {{curso.Introduccion}}</p>
+                <dt class="pull-center">Para quiénes:</dt>
+                <dd class="pull-center">
+                    {{recurso.para_quienes}}
+                </dd>         
 
-            <h2  class="tituloEjercicio"> Acerca del curso</h2>
-            <p> En esta seccion deberia tener disponible una descripcion acerca del curso. 
-                <b>{{recurso.descripcion}}</b></p>
-            <h2 class="tituloEjercicio"> Para quiénes </h2>
-            <p> Descripción del curso para quienes esta destinado este curso.</p>
-            <h2 class="tituloEjercicio"> Creado por: </h2>
-            <p> Aqui deberia ir el nombre del profesor. </p>
+                <dt class="pull-center">Calificación:</dt>
+                <dd class="pull-center">
+                    {{recurso.calif_alumn}} <i class="fa fa-star" aria-hidden="true"></i>  <i class="fa fa-star" aria-hidden="true"></i>  <i class="fa fa-star" aria-hidden="true"></i>  <i class="fa fa-star" aria-hidden="true"></i>              
 
-            <h2 class="tituloEjercicio"> Calificación del usuario. </h2>
-            <p> Aqui por el momento una descripcion. Una calificacion del usuario o alummno al curso.</p>
+                </dd> 
 
 
-        </div>
-
+            </dl>
             <hr>
-            <div class="text-center">
-                <a  class="btn btn-primary btn-lg" ng-click="guardarCurso()"><i class="fa fa-floppy-o"></i>&nbsp;Inscribirse</a>
-            </div>
+        </form>        
+        
+        <hr/>
+        <div class="pull-center">
+            <a  class="btn btn-primary btn-lg" ng-click="guardarCurso()"><i class="fa fa-floppy-o"></i>&nbsp;Inscribirse</a>
+        </div>
+        
+
     </section>
 </div>

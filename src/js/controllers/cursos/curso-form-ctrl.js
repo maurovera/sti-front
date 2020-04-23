@@ -71,7 +71,7 @@ app.controller('CursoFormCtrl', ['$scope', 'CursoService', 'AsignaturaService', 
 
 
 
-
+        $scope.activar = "Activo";
 
         /**
          * Constructor / Entrypoint

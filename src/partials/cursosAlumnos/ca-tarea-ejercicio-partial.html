@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <br/>
+    <br />
     <div class="wizard">
         <ul class="wizard-breadcrumbs">
             <li>
@@ -30,30 +30,34 @@
                                     <label for="enunciado" class="control-label">{{ejercicio.enunciado}}</label>
                                 </div>
                             </div>
-                            <br/>
-                            <hr/>
+                            <br />
+                            <hr />
                             <div class="respuesta">
                                 <div class="col-sm-9">
                                     <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="0" name="optradio"> {{ejercicio.listaRespuesta[0].descripcion}}</label>
+                                        <input type="radio" ng-model="numero" type="radio" value="0" name="optradio">
+                                        {{ejercicio.listaRespuesta[0].descripcion}}</label>
                                 </div>
                             </div>
                             <div class="respuesta">
                                 <div class="col-sm-9">
                                     <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="1" name="optradio"> {{ejercicio.listaRespuesta[1].descripcion}}</label>
+                                        <input type="radio" ng-model="numero" type="radio" value="1" name="optradio">
+                                        {{ejercicio.listaRespuesta[1].descripcion}}</label>
                                 </div>
                             </div>
                             <div class="respuesta">
                                 <div class="col-sm-9">
                                     <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="2" name="optradio"> {{ejercicio.listaRespuesta[2].descripcion}}</label>
+                                        <input type="radio" ng-model="numero" type="radio" value="2" name="optradio">
+                                        {{ejercicio.listaRespuesta[2].descripcion}}</label>
                                 </div>
                             </div>
                             <div class="respuesta">
                                 <div class="col-sm-9">
                                     <label>
-                                        <input type="radio" ng-model="numero" type="radio" value="3" name="optradio"> {{ejercicio.listaRespuesta[3].descripcion}}
+                                        <input type="radio" ng-model="numero" type="radio" value="3" name="optradio">
+                                        {{ejercicio.listaRespuesta[3].descripcion}}
                                     </label>
                                 </div>
                             </div>
@@ -61,42 +65,48 @@
 
                             <div class="responderEjercicio">
                                 <div class="col-sm-9">
-                                    <a class="btn btn-cat" data-ng-show="mostrar()" ng-click="respuestaEjercicio(numero)">
+                                    <a class="btn btn-cat" data-ng-show="mostrar()"
+                                        ng-click="respuestaEjercicio(numero)">
                                         <i class="fa fa-slack" aria-hidden="true"></i>Responder Ejercicio</a>
                                     <a ng-hide="mostrar()"> No hay mas ejercicios</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 ">
-                        <div class="top-block">
-                            <h2 class="title-top ">Datos del ejercicio del {{tipoDeTest}}</h2>
-                            <p>Se muestra los datos del ejercicio</p>
+                    <nav class="col-md-3 ">
+                        <section class="form-wrapper">
+                            <div class="top-block">
+                                <h2 class="title-top">Datos del ejercicio del {{tipoDeTest}} </h2>
+                                <p>Se muestra los datos del ejercicio</p>
+                            </div>
+
                             <form class="wrapper form-horizontal" role="form">
                                 <dl class="dl-horizontal">
-                                    <dt>Dificultad:</dt>
-                                    <dd ng-if="ejercicio.nivelDificultad == 1">Fácil</dd>
-                                    <dd ng-if="ejercicio.nivelDificultad == 2">Normal</dd>
-                                    <dd ng-if="ejercicio.nivelDificultad == 3">Dificil</dd>
+                                    <dt >Dificultad:</dt>
+                                    <dd ng-if="ejercicio.nivelDificultad == 0.5">Fácil</dd>
+                                    <dd ng-if="ejercicio.nivelDificultad == 1">Normal</dd>
+                                    <dd ng-if="ejercicio.nivelDificultad == 1.5">Dificil</dd>
 
-                                    <dt>Adivinanza:</dt>
+                                    <dt class="pull-center" >Adivinanza:</dt>
                                     <dd ng-if="ejercicio.adivinanza == 0.1">Bajo</dd>
                                     <dd ng-if="ejercicio.adivinanza == 0.2">Medio</dd>
                                     <dd ng-if="ejercicio.adivinanza == 0.3">Alto</dd>
 
-                                    <dt>Conceptos:</dt>
+                                    <dt class="pull-center" >Conceptos:</dt>
                                     <dd ng-repeat="c in ejercicio.conceptosView">{{c.nombre}}</dd>
 
-                                    <dt>Ejercicio Anterior:</dt>
-                                    <dd ng-if="resp == false">Fallo</dd>
-                                    <dd ng-if="resp == true">Acerto</dd>
+                                    <dt class="pull-center" >Ejercicio Anterior:</dt>
+                                        <dd ng-if="resp == false">Fallo</dd>
+                                        <dd ng-if="resp == true">Acerto</dd>
+                                        <dd ng-if="resp == null">Ninguno</dd>
+
                                 </dl>
                                 <hr>
                             </form>
 
+                        </section>
 
-                        </div>
-                    </div>
+                    </nav>
                 </div>
                 <div ng-switch-when="B">
 
@@ -128,12 +138,14 @@
                                 <td>{{ r.respuesta }}</td>
                                 <td ng-if="r.esCorrecto == true">Verdadero</td>
                                 <td ng-if="r.esCorrecto == false">Falso</td>
-                                <td>{{ r.nivelInicial | number:3 }}</td>
-                                <td>{{ r.nivelFinal | number:3}}</td>
+                                <td>{{ r.nivelInicial *100 | number:3 }}%</td>
+                                <td>{{ r.nivelFinal*100 | number:3}}%</td>
                             </tr>
                         </table>
                     </div>
-                    <a  ng-hide="sesionTutor.testFinal" class="btn btn-primary" href="#!/cursoAlumno/{{idCursoNumero}}/tarea/{{tarea}}/ejercicioTutor" title="Iniciar Tutorización">Iniciar Tutorización 
+                    <a ng-hide="sesionTutor.testFinal" class="btn btn-primary"
+                        href="#!/cursoAlumno/{{idCursoNumero}}/tarea/{{tarea}}/ejercicioTutor"
+                        title="Iniciar Tutorización">Iniciar Tutorización
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                     </a>
                 </div>
